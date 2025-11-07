@@ -95,25 +95,31 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            People Love <span className="text-red-500">❤️</span> Using SONITV
+            Loved by <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Millions</span> Worldwide
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Join millions of satisfied customers across the globe who trust SONITV for their premium IPTV streaming needs.
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Join thousands of satisfied customers across the globe who trust StreamVibe for their premium IPTV streaming needs.
           </p>
         </div>
 
 
         {/* Testimonials Carousel */}
         <div className="mb-12">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-3">
-            They enjoyed watching -
-          </h3>
-          <p className="text-center text-gray-600 mb-10">now it's your turn</p>
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mb-4">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+              <span className="text-emerald-700 text-sm font-medium">Real Customer Reviews</span>
+            </div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+              They're Already Streaming
+            </h3>
+            <p className="text-gray-600 text-lg">Now it's your turn to join them</p>
+          </div>
 
           <Slider {...settings} className="testimonials-slider">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="px-3">
-                <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 h-full hover:shadow-xl transition-shadow">
+                <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg p-6 border border-gray-200 h-full hover:shadow-2xl hover:border-orange-300 transition-all">
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <img

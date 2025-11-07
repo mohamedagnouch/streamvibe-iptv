@@ -1,29 +1,42 @@
+'use client';
+
+import { ShoppingCart, Mail, Play, CreditCard, Shield, Zap } from 'lucide-react';
+
 export default function HowItWorks() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-orange-500 to-red-600 relative overflow-hidden">
+    <section className="py-20 px-6 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Step 1 */}
         <div className="flex flex-col md:flex-row items-center gap-8 mb-20">
           <div className="flex-1 text-white">
-            <div className="text-7xl font-bold mb-4 opacity-90">1</div>
-            <h3 className="text-3xl font-bold mb-4">Place your order</h3>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <ShoppingCart className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-6xl font-bold opacity-20">01</div>
+            </div>
+            <h3 className="text-3xl font-bold mb-4">Place Your Order</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
               Choose your preferred subscription plan and complete your order. 
               We accept multiple payment methods for your convenience. 
               Your satisfaction is guaranteed with our 30-day money-back promise.
             </p>
             <div className="flex gap-3 flex-wrap">
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium">
-                💳 Credit Card
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                <CreditCard className="w-4 h-4" />
+                Credit Card
               </div>
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium">
-                💰 PayPal
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                PayPal
               </div>
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium">
-                ₿ Crypto
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                Crypto
               </div>
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium">
-                🏦 Bank Transfer
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                Bank Transfer
               </div>
             </div>
           </div>
@@ -52,8 +65,13 @@ export default function HowItWorks() {
         {/* Step 2 */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-8 mb-20">
           <div className="flex-1 text-white">
-            <div className="text-7xl font-bold mb-4 opacity-90">2</div>
-            <h3 className="text-3xl font-bold mb-4">Get your account</h3>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <Mail className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-6xl font-bold opacity-20">02</div>
+            </div>
+            <h3 className="text-3xl font-bold mb-4">Get Your Account</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
               Receive your login credentials instantly via email. 
               Your account will be activated immediately and ready to use. 
@@ -91,12 +109,17 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
-
+        
         {/* Step 3 */}
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-white">
-            <div className="text-7xl font-bold mb-4 opacity-90">3</div>
-            <h3 className="text-3xl font-bold mb-4">Enjoy watching</h3>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <Play className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-6xl font-bold opacity-20">03</div>
+            </div>
+            <h3 className="text-3xl font-bold mb-4">Enjoy Watching</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
               Start streaming immediately on any device. 
               Watch your favorite movies, sports, series, and live TV in stunning quality. 

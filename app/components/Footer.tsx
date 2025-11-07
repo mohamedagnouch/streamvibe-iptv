@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Facebook, MessageCircle, CreditCard, Headphones, ShieldCheck } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -9,16 +10,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div className="col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="bg-gradient-to-r from-orange-500 to-red-600 p-2 rounded-lg">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <span className="text-2xl font-bold text-gray-900">SONITV</span>
+            <Link href="/" className="mb-4 inline-block transition-transform hover:scale-105">
+              <Logo variant="dark" size="md" showText={true} />
             </Link>
             <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-              Premium IPTV streaming service with 23,000+ channels and 96,000+ VOD titles. 
+              Premium IPTV streaming service with 37,591+ live channels and 96,000+ VOD titles from 115+ countries. 
               Experience entertainment like never before.
             </p>
             <div className="flex items-center gap-3">
@@ -78,9 +74,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-600 hover:text-orange-500 transition-colors text-sm">
+                <a 
+                  href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20IPTV.%20Can%20you%20assist%20me%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                >
                   Contact Us
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/blog" className="text-gray-600 hover:text-orange-500 transition-colors text-sm">
@@ -123,7 +124,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-gray-600 text-sm">
-              © 2025 SONITV. All rights reserved.
+              © 2025 StreamVibe. All rights reserved.
             </p>
 
             {/* Trust Badges */}
@@ -148,10 +149,10 @@ export default function Footer() {
       </div>
 
       {/* Large Background Text */}
-      <div className="relative overflow-hidden bg-gray-50 py-8">
+      <div className="relative overflow-hidden bg-gradient-to-r from-orange-50 via-red-50 to-pink-50 py-8">
         <div className="container mx-auto px-6">
-          <div className="text-[120px] md:text-[180px] font-bold text-gray-200 text-center leading-none select-none">
-            SONITV
+          <div className="text-[120px] md:text-[180px] font-bold bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent text-center leading-none select-none">
+            StreamVibe
           </div>
         </div>
       </div>

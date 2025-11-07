@@ -198,7 +198,7 @@ export default function Pricing() {
                 onClick={() => setSelectedDevices(count)}
                 className={`w-12 h-12 rounded-lg font-semibold transition-all ${
                   selectedDevices === count
-                    ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white shadow-lg shadow-orange-500/30'
                     : 'bg-white/10 text-gray-400 hover:bg-white/20'
                 }`}
               >
@@ -221,7 +221,7 @@ export default function Pricing() {
             >
               {/* Badge */}
               {plan.badge && (
-                <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white text-center py-2 text-sm font-semibold">
+                <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white text-center py-2 text-sm font-semibold">
                   ⭐ {plan.badge}
                 </div>
               )}
@@ -258,9 +258,14 @@ export default function Pricing() {
                 </div>
 
                 {/* Order Button */}
-                <button className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-700 transition-all mb-6">
+                <a
+                  href={`https://wa.me/212618467167?text=Hello%2C%20I%27d%20like%20to%20order%20the%20${encodeURIComponent(plan.name)}%20plan%20for%20${selectedDevices}%20device${selectedDevices > 1 ? 's' : ''}.%20Price%3A%20%24${plan.prices[selectedDevices as keyof typeof plan.prices].toFixed(2)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all mb-6 text-center block"
+                >
                   Order now
-                </button>
+                </a>
 
                 {/* Features */}
                 <ul className="space-y-3">

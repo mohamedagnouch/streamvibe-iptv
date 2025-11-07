@@ -45,8 +45,8 @@ export default function PromoPopup() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Get 10% OFF - SONITV',
-        text: 'Get 10% OFF on IPTV service with code EXTRA10',
+        title: 'Get 10% OFF - StreamVibe',
+        text: 'Get 10% OFF on premium IPTV service with code EXTRA10',
         url: window.location.href,
       });
     }
@@ -98,13 +98,13 @@ export default function PromoPopup() {
               <div className="flex items-center justify-between gap-3">
                 <div className="flex-1 text-left">
                   <div className="text-xs text-gray-500 mb-1">Coupon Code</div>
-                  <div className="text-2xl font-bold text-gray-900 tracking-wider">
-                    EXTRA10
+                  <div className="text-2xl font-bold text-black tracking-wider">
+                    HTKI 29
                   </div>
                 </div>
                 <button
                   onClick={handleCopy}
-                  className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-orange-600 hover:to-red-700 transition-all whitespace-nowrap"
+                  className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all whitespace-nowrap"
                 >
                   {copied ? 'Copied!' : 'Copy'}
                 </button>

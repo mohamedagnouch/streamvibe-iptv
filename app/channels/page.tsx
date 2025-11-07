@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ChannelLogos from '../components/ChannelLogos';
 import { ShieldCheck, Search } from 'lucide-react';
+import { navigateToPricing } from '../utils/navigation';
 
 const countries = [
   { 
@@ -13,14 +14,131 @@ const countries = [
     channelCount: 14298, 
     status: 'Available',
     channels: [
-      { id: 1, name: 'CNN', icon: 'CNN', category: 'News', status: 'Live' },
-      { id: 2, name: 'ESPN', icon: 'ESPN', category: 'Sports', status: 'Live' },
-      { id: 3, name: 'HBO', icon: 'HBO', category: 'Entertainment', status: 'Live' },
-      { id: 4, name: 'Fox News', icon: 'FOX', category: 'News', status: 'Live' },
-      { id: 5, name: 'NBC', icon: 'NBC', category: 'General', status: 'Live' },
-      { id: 6, name: 'Disney Channel', icon: 'DSN', category: 'Kids', status: 'Live' },
-      { id: 7, name: 'National Geographic', icon: 'NGC', category: 'Documentary', status: 'Live' },
-      { id: 8, name: 'MTV', icon: 'MTV', category: 'Music', status: 'Live' },
+      // News Channels
+      { id: 1, name: 'CNN', icon: 'CNN', category: 'News', status: 'Active' },
+      { id: 2, name: 'Fox News', icon: 'FOX', category: 'News', status: 'Active' },
+      { id: 3, name: 'MSNBC', icon: 'MSNBC', category: 'News', status: 'Active' },
+      { id: 4, name: 'ABC News', icon: 'ABC', category: 'News', status: 'Active' },
+      { id: 5, name: 'CBS News', icon: 'CBS', category: 'News', status: 'Active' },
+      { id: 6, name: 'NBC News', icon: 'NBC', category: 'News', status: 'Active' },
+      { id: 7, name: 'Bloomberg', icon: 'BLMB', category: 'Business', status: 'Active' },
+      { id: 8, name: 'CNBC', icon: 'CNBC', category: 'Business', status: 'Active' },
+      { id: 9, name: 'Fox Business', icon: 'FBN', category: 'Business', status: 'Active' },
+      { id: 10, name: 'NewsNation', icon: 'NN', category: 'News', status: 'Active' },
+      
+      // Sports Channels
+      { id: 11, name: 'ESPN', icon: 'ESPN', category: 'Sports', status: 'Active' },
+      { id: 12, name: 'ESPN2', icon: 'ESPN2', category: 'Sports', status: 'Active' },
+      { id: 13, name: 'ESPN U', icon: 'ESPNU', category: 'Sports', status: 'Active' },
+      { id: 14, name: 'Fox Sports 1', icon: 'FS1', category: 'Sports', status: 'Active' },
+      { id: 15, name: 'Fox Sports 2', icon: 'FS2', category: 'Sports', status: 'Active' },
+      { id: 16, name: 'NBC Sports', icon: 'NBCS', category: 'Sports', status: 'Active' },
+      { id: 17, name: 'CBS Sports', icon: 'CBSS', category: 'Sports', status: 'Active' },
+      { id: 18, name: 'NFL Network', icon: 'NFL', category: 'Sports', status: 'Active' },
+      { id: 19, name: 'NBA TV', icon: 'NBA', category: 'Sports', status: 'Active' },
+      { id: 20, name: 'MLB Network', icon: 'MLB', category: 'Sports', status: 'Active' },
+      { id: 21, name: 'NHL Network', icon: 'NHL', category: 'Sports', status: 'Active' },
+      { id: 22, name: 'Golf Channel', icon: 'GOLF', category: 'Sports', status: 'Active' },
+      { id: 23, name: 'Tennis Channel', icon: 'TC', category: 'Sports', status: 'Active' },
+      { id: 24, name: 'beIN Sports', icon: 'BEIN', category: 'Sports', status: 'Active' },
+      { id: 25, name: 'Stadium', icon: 'STAD', category: 'Sports', status: 'Active' },
+      
+      // Entertainment
+      { id: 26, name: 'HBO', icon: 'HBO', category: 'Entertainment', status: 'Active' },
+      { id: 27, name: 'Showtime', icon: 'SHO', category: 'Entertainment', status: 'Active' },
+      { id: 28, name: 'Starz', icon: 'STRZ', category: 'Entertainment', status: 'Active' },
+      { id: 29, name: 'Cinemax', icon: 'MAX', category: 'Entertainment', status: 'Active' },
+      { id: 30, name: 'AMC', icon: 'AMC', category: 'Entertainment', status: 'Active' },
+      { id: 31, name: 'FX', icon: 'FX', category: 'Entertainment', status: 'Active' },
+      { id: 32, name: 'FXX', icon: 'FXX', category: 'Entertainment', status: 'Active' },
+      { id: 33, name: 'TNT', icon: 'TNT', category: 'Entertainment', status: 'Active' },
+      { id: 34, name: 'TBS', icon: 'TBS', category: 'Entertainment', status: 'Active' },
+      { id: 35, name: 'USA Network', icon: 'USA', category: 'Entertainment', status: 'Active' },
+      { id: 36, name: 'Syfy', icon: 'SYFY', category: 'Sci-Fi', status: 'Active' },
+      { id: 37, name: 'Bravo', icon: 'BRVO', category: 'Entertainment', status: 'Active' },
+      { id: 38, name: 'E!', icon: 'E!', category: 'Entertainment', status: 'Active' },
+      { id: 39, name: 'Paramount Network', icon: 'PRMT', category: 'Entertainment', status: 'Active' },
+      { id: 40, name: 'Comedy Central', icon: 'CC', category: 'Comedy', status: 'Active' },
+      
+      // Kids & Family
+      { id: 41, name: 'Disney Channel', icon: 'DISN', category: 'Kids', status: 'Active' },
+      { id: 42, name: 'Disney Junior', icon: 'DISJ', category: 'Kids', status: 'Active' },
+      { id: 43, name: 'Disney XD', icon: 'DISX', category: 'Kids', status: 'Active' },
+      { id: 44, name: 'Nickelodeon', icon: 'NICK', category: 'Kids', status: 'Active' },
+      { id: 45, name: 'Nick Jr', icon: 'NJJR', category: 'Kids', status: 'Active' },
+      { id: 46, name: 'Cartoon Network', icon: 'CN', category: 'Kids', status: 'Active' },
+      { id: 47, name: 'Boomerang', icon: 'BOOM', category: 'Kids', status: 'Active' },
+      { id: 48, name: 'PBS Kids', icon: 'PBSK', category: 'Kids', status: 'Active' },
+      { id: 49, name: 'Universal Kids', icon: 'UNIV', category: 'Kids', status: 'Active' },
+      { id: 50, name: 'Baby TV', icon: 'BABY', category: 'Kids', status: 'Active' },
+      
+      // Documentary & Educational
+      { id: 51, name: 'National Geographic', icon: 'NGC', category: 'Documentary', status: 'Active' },
+      { id: 52, name: 'Nat Geo Wild', icon: 'NGW', category: 'Documentary', status: 'Active' },
+      { id: 53, name: 'Discovery Channel', icon: 'DISC', category: 'Documentary', status: 'Active' },
+      { id: 54, name: 'Animal Planet', icon: 'ANPL', category: 'Documentary', status: 'Active' },
+      { id: 55, name: 'History Channel', icon: 'HIST', category: 'Documentary', status: 'Active' },
+      { id: 56, name: 'History 2', icon: 'HIS2', category: 'Documentary', status: 'Active' },
+      { id: 57, name: 'Science Channel', icon: 'SCI', category: 'Documentary', status: 'Active' },
+      { id: 58, name: 'Smithsonian', icon: 'SMTH', category: 'Documentary', status: 'Active' },
+      { id: 59, name: 'PBS', icon: 'PBS', category: 'Educational', status: 'Active' },
+      { id: 60, name: 'BBC America', icon: 'BBCA', category: 'Documentary', status: 'Active' },
+      
+      // Lifestyle & Reality
+      { id: 61, name: 'HGTV', icon: 'HGTV', category: 'Lifestyle', status: 'Active' },
+      { id: 62, name: 'Food Network', icon: 'FOOD', category: 'Cooking', status: 'Active' },
+      { id: 63, name: 'Cooking Channel', icon: 'COOK', category: 'Cooking', status: 'Active' },
+      { id: 64, name: 'Travel Channel', icon: 'TRVL', category: 'Outdoor', status: 'Active' },
+      { id: 65, name: 'TLC', icon: 'TLC', category: 'Lifestyle', status: 'Active' },
+      { id: 66, name: 'Lifetime', icon: 'LIFE', category: 'Entertainment', status: 'Active' },
+      { id: 67, name: 'Hallmark Channel', icon: 'HALL', category: 'Entertainment', status: 'Active' },
+      { id: 68, name: 'OWN', icon: 'OWN', category: 'Lifestyle', status: 'Active' },
+      { id: 69, name: 'WE tv', icon: 'WE', category: 'Entertainment', status: 'Active' },
+      { id: 70, name: 'A&E', icon: 'A&E', category: 'Entertainment', status: 'Active' },
+      
+      // Music
+      { id: 71, name: 'MTV', icon: 'MTV', category: 'Music', status: 'Active' },
+      { id: 72, name: 'MTV2', icon: 'MTV2', category: 'Music', status: 'Active' },
+      { id: 73, name: 'VH1', icon: 'VH1', category: 'Music', status: 'Active' },
+      { id: 74, name: 'CMT', icon: 'CMT', category: 'Music', status: 'Active' },
+      { id: 75, name: 'BET', icon: 'BET', category: 'Music', status: 'Active' },
+      { id: 76, name: 'Fuse', icon: 'FUSE', category: 'Music', status: 'Active' },
+      { id: 77, name: 'AXS TV', icon: 'AXS', category: 'Music', status: 'Active' },
+      
+      // Movies
+      { id: 78, name: 'TCM', icon: 'TCM', category: 'Movies', status: 'Active' },
+      { id: 79, name: 'IFC', icon: 'IFC', category: 'Movies', status: 'Active' },
+      { id: 80, name: 'Sundance TV', icon: 'SUND', category: 'Movies', status: 'Active' },
+      { id: 81, name: 'Freeform', icon: 'FREE', category: 'Movies', status: 'Active' },
+      { id: 82, name: 'Hallmark Movies', icon: 'HMM', category: 'Movies', status: 'Active' },
+      { id: 83, name: 'Lifetime Movies', icon: 'LMN', category: 'Movies', status: 'Active' },
+      
+      // Regional Sports Networks
+      { id: 84, name: 'YES Network', icon: 'YES', category: 'Sports', status: 'Active' },
+      { id: 85, name: 'MSG Network', icon: 'MSG', category: 'Sports', status: 'Active' },
+      { id: 86, name: 'SNY', icon: 'SNY', category: 'Sports', status: 'Active' },
+      { id: 87, name: 'NESN', icon: 'NESN', category: 'Sports', status: 'Active' },
+      { id: 88, name: 'Bally Sports', icon: 'BALY', category: 'Sports', status: 'Active' },
+      
+      // International
+      { id: 89, name: 'Univision', icon: 'UNI', category: 'Series', status: 'Active' },
+      { id: 90, name: 'Telemundo', icon: 'TELE', category: 'Series', status: 'Active' },
+      { id: 91, name: 'TV5 Monde', icon: 'TV5', category: 'Classic', status: 'Active' },
+      { id: 92, name: 'RAI Italia', icon: 'RAI', category: 'Entertainment', status: 'Active' },
+      
+      // Weather & Outdoor
+      { id: 93, name: 'Weather Channel', icon: 'TWC', category: 'Outdoor', status: 'Active' },
+      { id: 94, name: 'Outdoor Channel', icon: 'OUT', category: 'Outdoor', status: 'Active' },
+      { id: 95, name: 'Sportsman Channel', icon: 'SPRT', category: 'Outdoor', status: 'Active' },
+      
+      // Religious
+      { id: 96, name: 'TBN', icon: 'TBN', category: 'Religious', status: 'Active' },
+      { id: 97, name: 'Daystar', icon: 'DAY', category: 'Religious', status: 'Active' },
+      { id: 98, name: 'EWTN', icon: 'EWTN', category: 'Religious', status: 'Active' },
+      
+      // Shopping
+      { id: 99, name: 'QVC', icon: 'QVC', category: 'Entertainment', status: 'Active' },
+      { id: 100, name: 'HSN', icon: 'HSN', category: 'Entertainment', status: 'Active' },
     ]
   },
   { 
@@ -29,12 +147,100 @@ const countries = [
     channelCount: 1815, 
     status: 'Available',
     channels: [
-      { id: 1, name: 'CBC', icon: 'CBC', category: 'General', status: 'Live' },
-      { id: 2, name: 'TSN', icon: 'TSN', category: 'Sports', status: 'Live' },
-      { id: 3, name: 'CTV', icon: 'CTV', category: 'General', status: 'Live' },
-      { id: 4, name: 'Sportsnet', icon: 'SN', category: 'Sports', status: 'Live' },
-      { id: 5, name: 'City TV', icon: 'CITY', category: 'General', status: 'Live' },
-      { id: 6, name: 'Global TV', icon: 'GLB', category: 'General', status: 'Live' },
+      // General & News
+      { id: 1, name: 'CBC', icon: 'CBC', category: 'General', status: 'Active' },
+      { id: 2, name: 'CBC News Network', icon: 'CBCN', category: 'News', status: 'Active' },
+      { id: 3, name: 'CTV', icon: 'CTV', category: 'General', status: 'Active' },
+      { id: 4, name: 'CTV News', icon: 'CTVN', category: 'News', status: 'Active' },
+      { id: 5, name: 'Global TV', icon: 'GLB', category: 'General', status: 'Active' },
+      { id: 6, name: 'City TV', icon: 'CITY', category: 'General', status: 'Active' },
+      { id: 7, name: 'CTV2', icon: 'CTV2', category: 'General', status: 'Active' },
+      { id: 8, name: 'Citytv', icon: 'CITV', category: 'Entertainment', status: 'Active' },
+      { id: 9, name: 'APTN', icon: 'APTN', category: 'General', status: 'Active' },
+      { id: 10, name: 'CPAC', icon: 'CPAC', category: 'News', status: 'Active' },
+      
+      // Sports
+      { id: 11, name: 'TSN', icon: 'TSN', category: 'Sports', status: 'Active' },
+      { id: 12, name: 'TSN2', icon: 'TSN2', category: 'Sports', status: 'Active' },
+      { id: 13, name: 'TSN3', icon: 'TSN3', category: 'Sports', status: 'Active' },
+      { id: 14, name: 'TSN4', icon: 'TSN4', category: 'Sports', status: 'Active' },
+      { id: 15, name: 'TSN5', icon: 'TSN5', category: 'Sports', status: 'Active' },
+      { id: 16, name: 'Sportsnet', icon: 'SN', category: 'Sports', status: 'Active' },
+      { id: 17, name: 'Sportsnet One', icon: 'SN1', category: 'Sports', status: 'Active' },
+      { id: 18, name: 'Sportsnet 360', icon: 'SN360', category: 'Sports', status: 'Active' },
+      { id: 19, name: 'Sportsnet World', icon: 'SNW', category: 'Sports', status: 'Active' },
+      { id: 20, name: 'RDS', icon: 'RDS', category: 'Sports', status: 'Active' },
+      { id: 21, name: 'RDS2', icon: 'RDS2', category: 'Sports', status: 'Active' },
+      { id: 22, name: 'TVA Sports', icon: 'TVAS', category: 'Sports', status: 'Active' },
+      
+      // Entertainment
+      { id: 23, name: 'CTV Drama', icon: 'CTVD', category: 'Entertainment', status: 'Active' },
+      { id: 24, name: 'CTV Comedy', icon: 'CTVC', category: 'Comedy', status: 'Active' },
+      { id: 25, name: 'CTV Sci-Fi', icon: 'CTVS', category: 'Sci-Fi', status: 'Active' },
+      { id: 26, name: 'Bravo', icon: 'BRVO', category: 'Entertainment', status: 'Active' },
+      { id: 27, name: 'E!', icon: 'E!', category: 'Entertainment', status: 'Active' },
+      { id: 28, name: 'W Network', icon: 'W', category: 'Entertainment', status: 'Active' },
+      { id: 29, name: 'Slice', icon: 'SLCE', category: 'Lifestyle', status: 'Active' },
+      { id: 30, name: 'Showcase', icon: 'SHOW', category: 'Entertainment', status: 'Active' },
+      
+      // Kids & Family
+      { id: 31, name: 'YTV', icon: 'YTV', category: 'Kids', status: 'Active' },
+      { id: 32, name: 'Treehouse', icon: 'TREE', category: 'Kids', status: 'Active' },
+      { id: 33, name: 'Teletoon', icon: 'TELE', category: 'Kids', status: 'Active' },
+      { id: 34, name: 'Disney Channel', icon: 'DISN', category: 'Kids', status: 'Active' },
+      { id: 35, name: 'Family Channel', icon: 'FAM', category: 'Kids', status: 'Active' },
+      { id: 36, name: 'Nickelodeon', icon: 'NICK', category: 'Kids', status: 'Active' },
+      { id: 37, name: 'Cartoon Network', icon: 'CN', category: 'Kids', status: 'Active' },
+      
+      // Movies
+      { id: 38, name: 'Hollywood Suite', icon: 'HS', category: 'Movies', status: 'Active' },
+      { id: 39, name: 'Super Channel', icon: 'SUPR', category: 'Movies', status: 'Active' },
+      { id: 40, name: 'TMN', icon: 'TMN', category: 'Movies', status: 'Active' },
+      { id: 41, name: 'Movie Central', icon: 'MC', category: 'Movies', status: 'Active' },
+      
+      // Documentary & Educational
+      { id: 42, name: 'Discovery', icon: 'DISC', category: 'Documentary', status: 'Active' },
+      { id: 43, name: 'National Geographic', icon: 'NGC', category: 'Documentary', status: 'Active' },
+      { id: 44, name: 'History', icon: 'HIST', category: 'Documentary', status: 'Active' },
+      { id: 45, name: 'Discovery Science', icon: 'DSCI', category: 'Documentary', status: 'Active' },
+      { id: 46, name: 'Animal Planet', icon: 'ANPL', category: 'Documentary', status: 'Active' },
+      { id: 47, name: 'OLN', icon: 'OLN', category: 'Outdoor', status: 'Active' },
+      { id: 48, name: 'Cottage Life', icon: 'COTT', category: 'Lifestyle', status: 'Active' },
+      
+      // Lifestyle
+      { id: 49, name: 'HGTV', icon: 'HGTV', category: 'Lifestyle', status: 'Active' },
+      { id: 50, name: 'Food Network', icon: 'FOOD', category: 'Cooking', status: 'Active' },
+      { id: 51, name: 'Gusto', icon: 'GUST', category: 'Cooking', status: 'Active' },
+      { id: 52, name: 'Cooking Channel', icon: 'COOK', category: 'Cooking', status: 'Active' },
+      { id: 53, name: 'DIY Network', icon: 'DIY', category: 'Lifestyle', status: 'Active' },
+      
+      // Music
+      { id: 54, name: 'Much', icon: 'MUCH', category: 'Music', status: 'Active' },
+      { id: 55, name: 'MTV', icon: 'MTV', category: 'Music', status: 'Active' },
+      { id: 56, name: 'MTV2', icon: 'MTV2', category: 'Music', status: 'Active' },
+      { id: 57, name: 'CMT', icon: 'CMT', category: 'Music', status: 'Active' },
+      { id: 58, name: 'Stingray Music', icon: 'STNG', category: 'Music', status: 'Active' },
+      
+      // French Language
+      { id: 59, name: 'TVA', icon: 'TVA', category: 'General', status: 'Active' },
+      { id: 60, name: 'Ici Radio-Canada', icon: 'ICI', category: 'General', status: 'Active' },
+      { id: 61, name: 'Noovo', icon: 'NOOV', category: 'General', status: 'Active' },
+      { id: 62, name: 'V', icon: 'V', category: 'General', status: 'Active' },
+      { id: 63, name: 'Télé-Québec', icon: 'TQ', category: 'General', status: 'Active' },
+      { id: 64, name: 'Canal D', icon: 'CAND', category: 'Documentary', status: 'Active' },
+      { id: 65, name: 'Canal Vie', icon: 'CANV', category: 'Lifestyle', status: 'Active' },
+      { id: 66, name: 'VRAK', icon: 'VRAK', category: 'Entertainment', status: 'Active' },
+      { id: 67, name: 'Ztélé', icon: 'ZTEL', category: 'Entertainment', status: 'Active' },
+      { id: 68, name: 'Addik TV', icon: 'ADDK', category: 'Entertainment', status: 'Active' },
+      
+      // Specialty
+      { id: 69, name: 'CP24', icon: 'CP24', category: 'News', status: 'Active' },
+      { id: 70, name: 'BNN Bloomberg', icon: 'BNN', category: 'Business', status: 'Active' },
+      { id: 71, name: 'AMI', icon: 'AMI', category: 'General', status: 'Active' },
+      { id: 72, name: 'Vision TV', icon: 'VIS', category: 'Religious', status: 'Active' },
+      { id: 73, name: 'The Weather Network', icon: 'TWN', category: 'Outdoor', status: 'Active' },
+      { id: 74, name: 'MétéoMédia', icon: 'MM', category: 'Outdoor', status: 'Active' },
+      { id: 75, name: 'Game+', icon: 'GAME', category: 'Entertainment', status: 'Active' },
     ]
   },
   { 
@@ -284,7 +490,8 @@ export default function ChannelsPage() {
           <div className="mb-8">
             <a
               href="/#pricing"
-              className="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:from-orange-600 hover:to-red-700 transition-all shadow-lg shadow-orange-500/30"
+              onClick={navigateToPricing}
+              className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all shadow-lg shadow-orange-500/30"
             >
               Start Watching Now
             </a>
@@ -299,7 +506,7 @@ export default function ChannelsPage() {
       </section>
 
       {/* Orange Gradient Background with Channel Logos and Table */}
-      <div className="relative bg-gradient-to-b from-orange-400 via-orange-500 to-red-600 pb-20">
+      <div className="relative bg-gradient-to-b from-orange-400 via-red-500 to-pink-600 pb-20">
         {/* Channel Logos Carousel */}
         <div className="container mx-auto px-6 pt-12">
           <ChannelLogos />
@@ -399,8 +606,20 @@ export default function ChannelsPage() {
                                       <tr key={channel.id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-4 py-3">
                                           <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded flex items-center justify-center text-white font-bold text-xs shadow-sm">
-                                              {channel.icon}
+                                            <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center p-1.5 shadow-sm">
+                                              <img
+                                                src={`https://logo.clearbit.com/${channel.name.toLowerCase().replace(/\s+/g, '')}.com`}
+                                                alt={channel.name}
+                                                className="w-full h-full object-contain"
+                                                onError={(e) => {
+                                                  const target = e.target as HTMLImageElement;
+                                                  target.style.display = 'none';
+                                                  const parent = target.parentElement;
+                                                  if (parent) {
+                                                    parent.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded flex items-center justify-center text-white font-bold text-xs">${channel.icon}</div>`;
+                                                  }
+                                                }}
+                                              />
                                             </div>
                                             <span className="text-gray-900 text-sm font-medium">{channel.name}</span>
                                           </div>
@@ -454,18 +673,20 @@ export default function ChannelsPage() {
           </div>
         </div>
 
-        {/* Floating Action Button */}
+        {/* Floating WhatsApp Button */}
         <a
-          href="/#pricing"
-          className="fixed bottom-8 right-8 bg-white text-orange-500 p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all z-50 group"
-          aria-label="Get Started"
+          href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20IPTV.%20Can%20you%20assist%20me%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl hover:scale-110 transition-all z-50 group"
+          aria-label="Contact Us on WhatsApp"
         >
           <svg 
-            className="w-6 h-6 transform group-hover:rotate-12 transition-transform" 
+            className="w-6 h-6 transform group-hover:scale-110 transition-transform" 
             fill="currentColor" 
             viewBox="0 0 24 24"
           >
-            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
           </svg>
         </a>
       </div>
