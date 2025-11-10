@@ -160,44 +160,47 @@ export default function ResellerPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-28 pb-16 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto max-w-5xl text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-emerald-700 text-sm font-medium">Become a Reseller Partner</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full px-5 py-2 mb-5">
+            <Award className="w-4 h-4 text-purple-600" />
+            <span className="text-purple-700 text-sm font-bold">Partner Program</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Start Your IPTV Reseller Business
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight">
+            <span className="text-gray-900">Build Your </span>
+            <span className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">IPTV Empire</span>
           </h1>
 
           {/* Description */}
-          <p className="text-gray-600 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed mb-10">
-            Join the StreamVibe reseller program and start your own IPTV business with our powerful reseller panel, competitive bulk pricing, and comprehensive support. Access 23,000+ live channels and 96,000+ VOD titles for your customers. No technical skills required.
+          <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+            Join <span className="font-bold text-gray-900">500+ successful resellers</span> earning with StreamVibe. Get a powerful management panel, <span className="font-semibold text-gray-900">wholesale pricing</span>, and 24/7 support. <span className="font-semibold text-gray-900">No technical skills needed</span>.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <a
               href="https://wa.me/212618467167?text=Hello%2C%20I%27m%20interested%20in%20becoming%20a%20StreamVibe%20reseller.%20Can%20you%20provide%20me%20with%20more%20information%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-8 py-3.5 rounded-xl font-bold text-base hover:shadow-xl hover:scale-105 transition-all shadow-lg"
             >
-              Get Started Now
+              <Users className="w-5 h-5" />
+              Become a Partner
             </a>
             <a
-              href="#benefits"
-              className="inline-block bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-orange-500 hover:text-orange-500 transition-all"
+              href="#pricing"
+              className="inline-flex items-center gap-2 bg-white border-2 border-gray-300 text-gray-700 px-8 py-3.5 rounded-xl font-bold text-base hover:border-orange-500 hover:text-orange-500 hover:scale-105 transition-all"
             >
-              Learn More
+              <DollarSign className="w-5 h-5" />
+              View Pricing
             </a>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-500" />
               <span>500+ Active Resellers</span>
@@ -215,20 +218,20 @@ export default function ResellerPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-12 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all"
+                  className="bg-gradient-to-br from-gray-50 to-white p-5 rounded-2xl border-2 border-gray-200 hover:border-orange-400 hover:shadow-xl hover:scale-105 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center mb-3 shadow-lg">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
                   <p className="text-gray-600 text-sm">{feature.description}</p>
                 </div>
               );
@@ -238,30 +241,30 @@ export default function ResellerPage() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+      <section id="benefits" className="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Why Become a <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Reseller</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Why Partner with <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">StreamVibe</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Everything you need to build and grow a successful IPTV business
+            <p className="text-gray-600 text-base max-w-2xl mx-auto">
+              Everything you need to build a profitable IPTV business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-orange-300 transition-all"
+                  className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-orange-400 hover:scale-105 transition-all"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center mb-6 shadow-lg">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
                 </div>
               );
             })}
@@ -270,16 +273,16 @@ export default function ResellerPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-16 px-6 bg-white">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              How It Works
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Get Started in 3 Steps
             </h2>
-            <p className="text-gray-600 text-lg">Start earning in 3 simple steps</p>
+            <p className="text-gray-600 text-base">Launch your IPTV business today</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center mx-auto mb-6 shadow-xl">
                 <span className="text-3xl font-bold text-white">1</span>
@@ -435,6 +438,7 @@ export default function ResellerPage() {
           </div>
         </div>
       </section>
+
       <Footer />
     </main>
   );

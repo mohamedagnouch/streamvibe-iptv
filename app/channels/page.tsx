@@ -467,33 +467,36 @@ export default function ChannelsPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 min-h-screen flex items-center">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="pt-28 pb-16 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-5xl text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mb-8">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-emerald-700 text-sm font-medium">World's #1 IPTV Service</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-full px-5 py-2 mb-6">
+            <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+            <span className="text-orange-700 text-sm font-semibold">World's #1 IPTV Service</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 leading-tight">
-            37591+ Channels
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">37,591+</span>
+            <span className="text-gray-900"> Live Channels</span>
           </h1>
 
           {/* Description */}
-          <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
-            Access 25,000+ premium live TV channels from 115+ countries worldwide. Sports, 
-            entertainment, news, movies, and international content in stunning 4K quality.
+          <p className="text-gray-600 text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+            Stream premium content from <span className="font-semibold text-gray-900">115+ countries</span> worldwide. Sports, entertainment, news, movies, and international content in stunning <span className="font-semibold text-gray-900">4K quality</span>.
           </p>
 
           {/* CTA Button */}
-          <div className="mb-8">
+          <div className="mb-6">
             <a
               href="/#pricing"
               onClick={navigateToPricing}
-              className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-orange-500/50 transition-all shadow-lg shadow-orange-500/30"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-8 py-3.5 rounded-xl font-bold text-base hover:shadow-xl hover:shadow-orange-500/50 transition-all shadow-lg hover:scale-105"
             >
               Start Watching Now
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </a>
           </div>
 
@@ -505,29 +508,34 @@ export default function ChannelsPage() {
         </div>
       </section>
 
-      {/* Orange Gradient Background with Channel Logos and Table */}
-      <div className="relative bg-gradient-to-b from-orange-400 via-red-500 to-pink-600 pb-20">
+      {/* Channel Logos and Table Section */}
+      <div className="relative bg-gradient-to-b from-orange-400 via-red-500 to-pink-600 py-16">
         {/* Channel Logos Carousel */}
-        <div className="container mx-auto px-6 pt-12">
+        <div className="container mx-auto px-6 mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Popular Channels</h2>
+            <p className="text-white/90 text-base">Watch your favorite channels in HD & 4K quality</p>
+          </div>
           <ChannelLogos />
         </div>
 
         {/* Countries Table */}
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-            {/* Search Bar */}
-            <div className="p-6 border-b border-gray-200">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/20">
+            {/* Header with Search */}
+            <div className="bg-gradient-to-r from-gray-50 to-white p-6 border-b border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Browse by Country</h3>
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search channels..."
+                  placeholder="Search by country name..."
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -535,11 +543,11 @@ export default function ChannelsPage() {
             {/* Table */}
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Country</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Channels</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Status</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-800 uppercase tracking-wide">Country</th>
+                    <th className="px-6 py-4 text-center text-sm font-bold text-gray-800 uppercase tracking-wide">Channels</th>
+                    <th className="px-6 py-4 text-center text-sm font-bold text-gray-800 uppercase tracking-wide">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -548,7 +556,7 @@ export default function ChannelsPage() {
                       <tr 
                         key={index} 
                         onClick={() => setSelectedCountry(selectedCountry?.name === country.name ? null : country)}
-                        className="hover:bg-gray-50 transition-colors cursor-pointer"
+                        className="hover:bg-orange-50 transition-all cursor-pointer border-b border-gray-100 last:border-0"
                       >
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
@@ -570,8 +578,8 @@ export default function ChannelsPage() {
                             <span className="text-gray-900 font-medium">{country.name}</span>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-700">
-                          {country.channelCount.toLocaleString()}
+                        <td className="px-6 py-4 text-center">
+                          <span className="font-semibold text-gray-900">{country.channelCount.toLocaleString()}</span>
                         </td>
                         <td className="px-6 py-4 text-center">
                           <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
@@ -651,23 +659,32 @@ export default function ChannelsPage() {
             </div>
 
             {/* Pagination */}
-            <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-center gap-4">
+            <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-t-2 border-gray-200 flex items-center justify-between">
               <button
                 onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-orange-50 hover:border-orange-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
               >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
                 Previous
               </button>
-              <span className="text-sm text-gray-600">
-                Page {currentPage} of {totalPages}
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-medium text-gray-600">
+                  Page <span className="font-bold text-gray-900">{currentPage}</span> of <span className="font-bold text-gray-900">{totalPages}</span>
+                </span>
+                <span className="text-xs text-gray-500">({filteredCountries.length} countries)</span>
+              </div>
               <button
                 onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-orange-50 hover:border-orange-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
               >
                 Next
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
           </div>
