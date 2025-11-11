@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="col-span-1">
             <Link href="/" className="mb-4 inline-block transition-transform hover:scale-105">
-              <Logo variant="dark" size="md" showText={true} />
+              <Logo variant="light" size="md" showText={true} />
             </Link>
             <p className="text-gray-400 text-sm mb-5 leading-relaxed">
               Premium IPTV streaming service with <span className="text-orange-500 font-semibold">37,591+</span> live channels and <span className="text-orange-500 font-semibold">96,000+</span> VOD titles from <span className="text-orange-500 font-semibold">115+</span> countries.

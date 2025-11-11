@@ -3,105 +3,208 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Tv, Smartphone, Monitor, Tablet, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import { Tv, Smartphone, Monitor, Tablet, Download, PlayCircle, Settings, CheckCircle2, AlertCircle, ExternalLink, Copy, Check } from 'lucide-react';
 
 const deviceTypes = [
   {
     id: 'smart-tv',
     name: 'Smart TV',
     icon: Tv,
-    description: 'Samsung, LG, Android TV',
-    instructions: [
+    description: 'Samsung, LG, Sony, Android TV',
+    color: 'from-blue-500 to-indigo-600',
+    apps: [
+      { name: 'IPTV Smarters Pro', recommended: true },
+      { name: 'TiviMate', recommended: true },
+      { name: 'Smart IPTV', recommended: false },
+    ],
+    steps: [
       {
-        step: 1,
-        title: 'Download IPTV App',
-        description: 'Go to your TV\'s app store and search for "IPTV Smarters Pro" or "TiviMate". Download and install the app.',
+        icon: Download,
+        title: 'Install IPTV Application',
+        description: 'Navigate to your Smart TV\'s app store (Google Play Store, LG Content Store, or Samsung Apps).',
+        details: [
+          'Search for "IPTV Smarters Pro" or "TiviMate"',
+          'Select the official app from the results',
+          'Click Install and wait for download to complete',
+          'App will appear in your apps menu once installed',
+        ],
       },
       {
-        step: 2,
-        title: 'Open the App',
-        description: 'Launch the IPTV app you just installed on your Smart TV.',
+        icon: PlayCircle,
+        title: 'Launch Application',
+        description: 'Open the IPTV app from your Smart TV\'s application menu.',
+        details: [
+          'Locate the app icon in your apps section',
+          'Click to launch the application',
+          'Wait for the app to load completely',
+        ],
       },
       {
-        step: 3,
-        title: 'Add Playlist',
-        description: 'Select "Add New User" or "Add Playlist". Choose the "Login with Xtream Codes API" option.',
+        icon: Settings,
+        title: 'Configure Connection',
+        description: 'Set up your IPTV service using Xtream Codes API.',
+        details: [
+          'Select "Add New User" or "Login with Xtream Codes"',
+          'Choose "Xtream Codes API" as login method',
+          'Keep your credentials email ready',
+        ],
       },
       {
-        step: 4,
+        icon: CheckCircle2,
         title: 'Enter Credentials',
-        description: 'Enter the server URL, username, and password provided in your welcome email.',
+        description: 'Input your subscription details provided in the welcome email.',
+        details: [
+          'Server URL: Enter the provided server address',
+          'Username: Your unique account username',
+          'Password: Your secure account password',
+          'Click "Add User" or "Login" to proceed',
+        ],
       },
       {
-        step: 5,
-        title: 'Start Watching',
-        description: 'Once logged in, you can browse through thousands of channels and start streaming!',
+        icon: PlayCircle,
+        title: 'Start Streaming',
+        description: 'Browse and enjoy 37,591+ channels and 96,000+ VOD titles.',
+        details: [
+          'Navigate through Live TV, Movies, and Series sections',
+          'Use search to find specific content',
+          'Add favorites for quick access',
+          'Enjoy streaming in up to 4K quality',
+        ],
       },
     ],
   },
   {
     id: 'android',
-    name: 'Android Device',
+    name: 'Android',
     icon: Smartphone,
-    description: 'Phones & Tablets',
-    instructions: [
+    description: 'Phones, Tablets & Android TV',
+    color: 'from-green-500 to-emerald-600',
+    apps: [
+      { name: 'IPTV Smarters Pro', recommended: true },
+      { name: 'TiviMate', recommended: true },
+      { name: 'GSE Smart IPTV', recommended: false },
+    ],
+    steps: [
       {
-        step: 1,
+        icon: Download,
         title: 'Download from Play Store',
-        description: 'Open Google Play Store and search for "IPTV Smarters Pro". Download and install the app.',
+        description: 'Get the official IPTV application from Google Play Store.',
+        details: [
+          'Open Google Play Store on your device',
+          'Search for "IPTV Smarters Pro"',
+          'Tap on the official app (check developer name)',
+          'Click Install and accept permissions',
+        ],
       },
       {
-        step: 2,
-        title: 'Launch the App',
-        description: 'Open IPTV Smarters Pro on your Android device.',
+        icon: PlayCircle,
+        title: 'Open Application',
+        description: 'Launch the IPTV app from your device.',
+        details: [
+          'Find the app icon on your home screen or app drawer',
+          'Tap to open the application',
+          'Allow any necessary permissions',
+        ],
       },
       {
-        step: 3,
+        icon: Settings,
         title: 'Select Login Method',
-        description: 'Choose "Login with Xtream Codes API" from the options.',
+        description: 'Choose Xtream Codes API for the best experience.',
+        details: [
+          'Tap "Add New User" or similar option',
+          'Select "Login with Xtream Codes API"',
+          'Prepare your subscription credentials',
+        ],
       },
       {
-        step: 4,
-        title: 'Input Your Details',
-        description: 'Enter your server URL, username, and password from your subscription email.',
+        icon: CheckCircle2,
+        title: 'Input Credentials',
+        description: 'Enter your StreamVibe subscription details.',
+        details: [
+          'Server URL: Copy from your welcome email',
+          'Username: Your account username',
+          'Password: Your account password',
+          'Tap "Add User" to complete setup',
+        ],
       },
       {
-        step: 5,
-        title: 'Enjoy Streaming',
-        description: 'Browse channels, movies, and series. Add favorites for quick access!',
+        icon: PlayCircle,
+        title: 'Enjoy Content',
+        description: 'Stream anywhere, anytime on your Android device.',
+        details: [
+          'Browse Live TV, Movies, and Series',
+          'Download content for offline viewing',
+          'Create personalized playlists',
+          'Stream on the go with mobile data or WiFi',
+        ],
       },
     ],
   },
   {
     id: 'ios',
-    name: 'iOS Device',
+    name: 'iOS',
     icon: Tablet,
-    description: 'iPhone & iPad',
-    instructions: [
+    description: 'iPhone, iPad & Apple TV',
+    color: 'from-purple-500 to-pink-600',
+    apps: [
+      { name: 'IPTV Smarters Pro', recommended: true },
+      { name: 'GSE Smart IPTV', recommended: true },
+      { name: 'iPlayTV', recommended: false },
+    ],
+    steps: [
       {
-        step: 1,
+        icon: Download,
         title: 'Download from App Store',
-        description: 'Open the App Store and search for "IPTV Smarters Pro". Download and install.',
+        description: 'Install the IPTV application from Apple App Store.',
+        details: [
+          'Open the App Store on your iOS device',
+          'Search for "IPTV Smarters Pro"',
+          'Verify it\'s the official app',
+          'Tap Get and authenticate with Face ID/Touch ID',
+        ],
       },
       {
-        step: 2,
-        title: 'Open the Application',
-        description: 'Launch IPTV Smarters Pro on your iOS device.',
+        icon: PlayCircle,
+        title: 'Launch App',
+        description: 'Open the IPTV application on your device.',
+        details: [
+          'Locate the app icon on your home screen',
+          'Tap to open',
+          'Grant necessary permissions if prompted',
+        ],
       },
       {
-        step: 3,
+        icon: Settings,
         title: 'Choose Login Type',
-        description: 'Select "Login with Xtream Codes API" option.',
+        description: 'Select Xtream Codes API login method.',
+        details: [
+          'Tap "Add New User" or "+" button',
+          'Select "Login with Xtream Codes API"',
+          'Have your credentials ready',
+        ],
       },
       {
-        step: 4,
-        title: 'Enter Login Information',
-        description: 'Fill in the server URL, username, and password provided to you.',
+        icon: CheckCircle2,
+        title: 'Enter Details',
+        description: 'Input your subscription information.',
+        details: [
+          'Server URL: From your welcome email',
+          'Username: Your unique username',
+          'Password: Your secure password',
+          'Tap "Add" or "Login" to finish',
+        ],
       },
       {
-        step: 5,
-        title: 'Start Streaming',
-        description: 'Access all your channels and content. Enjoy streaming on the go!',
+        icon: PlayCircle,
+        title: 'Start Watching',
+        description: 'Access premium content on your Apple device.',
+        details: [
+          'Explore Live TV, Movies, and Series',
+          'Use AirPlay to stream to Apple TV',
+          'Download favorites for offline viewing',
+          'Enjoy seamless iOS integration',
+        ],
       },
     ],
   },
@@ -109,32 +212,67 @@ const deviceTypes = [
     id: 'pc',
     name: 'PC/Mac',
     icon: Monitor,
-    description: 'Windows & macOS',
-    instructions: [
+    description: 'Windows, macOS & Linux',
+    color: 'from-orange-500 to-red-600',
+    apps: [
+      { name: 'VLC Media Player', recommended: true },
+      { name: 'IPTV Smarters Pro', recommended: true },
+      { name: 'Kodi', recommended: false },
+    ],
+    steps: [
       {
-        step: 1,
+        icon: Download,
         title: 'Download VLC Player',
-        description: 'Visit videolan.org and download VLC Media Player for your operating system.',
+        description: 'Get the free VLC Media Player for your computer.',
+        details: [
+          'Visit videolan.org in your web browser',
+          'Click "Download VLC" for your OS',
+          'Choose the correct version (Windows/Mac/Linux)',
+          'Save the installer to your computer',
+        ],
       },
       {
-        step: 2,
+        icon: Settings,
         title: 'Install VLC',
-        description: 'Run the installer and follow the installation wizard to complete setup.',
+        description: 'Run the installer and complete the setup.',
+        details: [
+          'Double-click the downloaded installer',
+          'Follow the installation wizard',
+          'Accept default settings or customize',
+          'Wait for installation to complete',
+        ],
       },
       {
-        step: 3,
+        icon: PlayCircle,
         title: 'Open Network Stream',
-        description: 'Launch VLC, go to Media > Open Network Stream (or Ctrl+N).',
+        description: 'Access VLC\'s network streaming feature.',
+        details: [
+          'Launch VLC Media Player',
+          'Go to Media menu → Open Network Stream',
+          'Or use keyboard shortcut: Ctrl+N (Cmd+N on Mac)',
+        ],
       },
       {
-        step: 4,
-        title: 'Enter M3U URL',
-        description: 'Paste your M3U playlist URL provided in your welcome email and click Play.',
+        icon: CheckCircle2,
+        title: 'Add M3U Playlist',
+        description: 'Enter your StreamVibe playlist URL.',
+        details: [
+          'Copy M3U URL from your welcome email',
+          'Paste into the network URL field',
+          'Click "Play" to load the playlist',
+          'Playlist will appear in the sidebar',
+        ],
       },
       {
-        step: 5,
-        title: 'Browse Channels',
-        description: 'Access the playlist from the sidebar and select any channel to start watching.',
+        icon: PlayCircle,
+        title: 'Browse & Watch',
+        description: 'Navigate channels and start streaming.',
+        details: [
+          'View playlist in the left sidebar',
+          'Click any channel to start streaming',
+          'Use keyboard shortcuts for control',
+          'Enjoy full-screen viewing experience',
+        ],
       },
     ],
   },
@@ -142,47 +280,64 @@ const deviceTypes = [
 
 export default function InstructionsPage() {
   const [selectedDevice, setSelectedDevice] = useState(deviceTypes[0]);
-  const [expandedStep, setExpandedStep] = useState<number | null>(null);
+  const [copiedUrl, setCopiedUrl] = useState(false);
+
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText('http://your-server-url.com:port');
+    setCopiedUrl(true);
+    setTimeout(() => setCopiedUrl(false), 2000);
+  };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-28 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto max-w-5xl text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full px-5 py-2 mb-5">
-            <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-            </svg>
-            <span className="text-blue-700 text-sm font-semibold">Easy Setup in 5 Minutes</span>
+      <section className="pt-24 pb-12 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-8">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 border border-orange-500/20 rounded-full px-6 py-2.5 mb-6">
+              <CheckCircle2 className="w-4 h-4 text-orange-500" />
+              <span className="text-orange-400 text-sm font-semibold">Professional Setup Guide</span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+              <span className="text-white">Installation </span>
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Instructions</span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
+              Complete step-by-step guides for all devices. Get streaming in under 5 minutes.
+            </p>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight">
-            <span className="text-gray-900">Quick </span>
-            <span className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">Setup Guide</span>
-          </h1>
-
-          {/* Description */}
-          <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            Get started in minutes! Follow our <span className="font-semibold text-gray-900">step-by-step instructions</span> to install StreamVibe IPTV on any device.
-          </p>
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {[
+              { label: 'Setup Time', value: '< 5 min' },
+              { label: 'Difficulty', value: 'Easy' },
+              { label: 'Support', value: '24/7' },
+              { label: 'Success Rate', value: '99.9%' },
+            ].map((stat, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center">
+                <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Device Selection */}
-      <section className="py-10 px-6 bg-white">
+      {/* Device Tabs */}
+      <section className="py-12 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Choose Your Device
-            </h2>
-            <p className="text-gray-600 text-sm">Select your device type to view specific setup instructions</p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             {deviceTypes.map((device) => {
               const Icon = device.icon;
               const isSelected = selectedDevice.id === device.id;
@@ -191,100 +346,139 @@ export default function InstructionsPage() {
                 <button
                   key={device.id}
                   onClick={() => setSelectedDevice(device)}
-                  className={`p-5 rounded-2xl border-2 transition-all text-left hover:scale-105 ${
+                  className={`group relative px-6 py-4 rounded-2xl transition-all duration-300 ${
                     isSelected
-                      ? 'border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg shadow-orange-500/20'
-                      : 'border-gray-200 bg-white hover:border-orange-300 hover:shadow-md'
+                      ? 'bg-gradient-to-r ' + device.color + ' shadow-2xl scale-105'
+                      : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20'
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
-                    isSelected
-                      ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600'
-                      : 'bg-gray-100'
-                  }`}>
-                    <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-gray-600'}`} />
+                  <div className="flex items-center gap-3">
+                    <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-gray-400 group-hover:text-white'}`} />
+                    <div className="text-left">
+                      <div className={`font-bold text-sm ${isSelected ? 'text-white' : 'text-gray-400 group-hover:text-white'}`}>
+                        {device.name}
+                      </div>
+                      <div className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500 group-hover:text-white/80'}`}>
+                        {device.description}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-base font-bold text-gray-900 mb-1">
-                    {device.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {device.description}
-                  </p>
                 </button>
               );
             })}
           </div>
 
-          {/* Instructions Steps */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl border-2 border-gray-200 overflow-hidden">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 px-6 py-5">
-                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
-                  {(() => {
-                    const Icon = selectedDevice.icon;
-                    return <Icon className="w-7 h-7" />;
-                  })()}
-                  {selectedDevice.name} Setup Guide
-                </h3>
-              </div>
-
-              {/* Steps */}
-              <div className="p-6">
-                <div className="space-y-3">
-                  {selectedDevice.instructions.map((instruction) => (
-                    <div
-                      key={instruction.step}
-                      className="border-2 border-gray-200 rounded-xl overflow-hidden bg-gradient-to-r from-white to-gray-50 hover:shadow-lg hover:border-orange-300 transition-all"
-                    >
-                      <button
-                        onClick={() => setExpandedStep(expandedStep === instruction.step ? null : instruction.step)}
-                        className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-orange-50 transition-colors"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                            <span className="text-white font-bold">{instruction.step}</span>
-                          </div>
-                          <div>
-                            <h4 className="text-base font-bold text-gray-900">
-                              {instruction.title}
-                            </h4>
-                          </div>
-                        </div>
-                        <ChevronDown 
-                          className={`w-5 h-5 text-gray-400 transition-transform ${
-                            expandedStep === instruction.step ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                      
-                      {expandedStep === instruction.step && (
-                        <div className="px-5 pb-4 pt-2 border-t-2 border-gray-200 bg-white">
-                          <p className="text-gray-700 leading-relaxed pl-14 text-sm">
-                            {instruction.description}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+          {/* Recommended Apps */}
+          <div className="mb-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+              <Download className="w-5 h-5 text-orange-500" />
+              Recommended Applications
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {selectedDevice.apps.map((app, index) => (
+                <div
+                  key={index}
+                  className={`p-4 rounded-xl border ${
+                    app.recommended
+                      ? 'bg-gradient-to-br from-orange-500/10 to-pink-500/10 border-orange-500/30'
+                      : 'bg-white/5 border-white/10'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className={`font-semibold ${app.recommended ? 'text-white' : 'text-gray-400'}`}>
+                      {app.name}
+                    </span>
+                    {app.recommended && (
+                      <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full font-bold">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Success Message */}
-                <div className="mt-6 p-5 bg-gradient-to-r from-emerald-50 to-green-50 border-2 border-emerald-300 rounded-xl shadow-md">
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
+          {/* Installation Steps */}
+          <div className="space-y-6">
+            {selectedDevice.steps.map((step, index) => {
+              const StepIcon = step.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="flex items-start gap-4">
+                      {/* Step Number */}
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${selectedDevice.color} flex items-center justify-center shadow-lg`}>
+                        <StepIcon className="w-6 h-6 text-white" />
+                      </div>
+                      
+                      {/* Step Content */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h4 className="text-white font-bold text-lg">
+                            Step {index + 1}: {step.title}
+                          </h4>
+                        </div>
+                        <p className="text-gray-400 mb-4">
+                          {step.description}
+                        </p>
+                        
+                        {/* Details List */}
+                        <ul className="space-y-2">
+                          {step.details.map((detail, detailIndex) => (
+                            <li key={detailIndex} className="flex items-start gap-3 text-gray-300 text-sm">
+                              <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <h5 className="font-bold text-emerald-900 mb-1">
-                        🎉 Setup Complete!
-                      </h5>
-                      <p className="text-emerald-800 text-sm font-medium">
-                        You're ready to stream! Need help? Our <span className="font-bold">24/7 support team</span> is always available.
-                      </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Credentials Info Box */}
+          <div className="mt-12 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-2xl p-6">
+            <div className="flex items-start gap-4">
+              <AlertCircle className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="text-white font-bold text-lg mb-2">
+                  Important: Your Credentials
+                </h4>
+                <p className="text-gray-300 mb-4">
+                  After purchasing a subscription, you'll receive an email with your login credentials:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="text-gray-400 text-sm mb-1">Server URL</div>
+                    <div className="text-white font-mono text-sm flex items-center gap-2">
+                      <span className="truncate">http://server.com:port</span>
+                      <button
+                        onClick={handleCopyUrl}
+                        className="p-1 hover:bg-white/10 rounded transition-colors"
+                        title="Copy URL"
+                      >
+                        {copiedUrl ? (
+                          <Check className="w-4 h-4 text-green-500" />
+                        ) : (
+                          <Copy className="w-4 h-4 text-gray-400" />
+                        )}
+                      </button>
                     </div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="text-gray-400 text-sm mb-1">Username</div>
+                    <div className="text-white font-mono text-sm">your_username</div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="text-gray-400 text-sm mb-1">Password</div>
+                    <div className="text-white font-mono text-sm">••••••••</div>
                   </div>
                 </div>
               </div>
@@ -293,42 +487,40 @@ export default function InstructionsPage() {
         </div>
       </section>
 
-      {/* Need Help Section */}
-      <section className="py-12 px-6 bg-gradient-to-b from-gray-50 to-white">
+      {/* Help Section */}
+      <section className="py-12 px-6">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl shadow-xl border-2 border-blue-200 p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-3xl p-8 md:p-12 text-center">
+            <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              Need Help?
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Need Assistance?
             </h3>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              Our expert support team is available <span className="font-bold text-blue-600">24/7</span> to assist you with setup, troubleshooting, or any questions.
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              Our expert support team is available <span className="font-bold text-orange-400">24/7</span> to help you with installation, troubleshooting, or any questions.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20setup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
-                Live Chat Support
+                Contact Support
               </a>
-              <a
+              <Link
                 href="/#pricing"
-                className="inline-flex items-center gap-2 bg-white text-gray-900 border-2 border-gray-300 px-6 py-3 rounded-xl font-bold hover:bg-gray-50 hover:scale-105 transition-all"
+                className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 hover:scale-105 transition-all"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                View Pricing Plans
-              </a>
+                View Plans
+                <ExternalLink className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>

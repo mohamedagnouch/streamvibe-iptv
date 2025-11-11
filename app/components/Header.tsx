@@ -1,64 +1,194 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import { navigateToPricing } from '../utils/navigation';
+import { Menu, X, ChevronDown, Phone, Sparkles } from 'lucide-react';
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/#pricing', label: 'Pricing', onClick: navigateToPricing },
+    { href: '/channels', label: 'Channels' },
+    { href: '/instructions', label: 'Setup Guide' },
+    { href: '/reseller', label: 'Reseller Program' },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-2xl border-b border-white/5 shadow-2xl">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
+          : 'bg-[#0a0e1a]/80 backdrop-blur-lg border-b border-white/5'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="transition-transform hover:scale-105 duration-300">
+          <Link 
+            href="/" 
+            className="relative z-50 transition-transform hover:scale-105 duration-300"
+          >
             <Logo variant="light" size="md" showText={true} />
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            <Link href="/" className="relative text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 group">
-              <span className="relative z-10">Home</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Link>
-            <a href="/#pricing" onClick={navigateToPricing} className="relative text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 cursor-pointer group">
-              <span className="relative z-10">Pricing</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-            <Link href="/channels" className="relative text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 group">
-              <span className="relative z-10">Channels</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Link>
-            <Link href="/instructions" className="relative text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 group">
-              <span className="relative z-10">Instructions</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Link>
-            <Link href="/reseller" className="relative text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5 group">
-              <span className="relative z-10">Reseller</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link, index) => (
+              link.onClick ? (
+                <a
+                  key={index}
+                  href={link.href}
+                  onClick={link.onClick}
+                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-2 rounded-xl cursor-pointer"
+                >
+                  <span className="relative z-10 font-medium">{link.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-pink-600 group-hover:w-3/4 transition-all duration-300"></div>
+                </a>
+              ) : (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-2 rounded-xl"
+                >
+                  <span className="relative z-10 font-medium">{link.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-pink-600 group-hover:w-3/4 transition-all duration-300"></div>
+                </Link>
+              )
+            ))}
           </nav>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Contact Button */}
             <a 
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20IPTV.%20Can%20you%20assist%20me%3F"
+              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-all hidden md:flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/5"
+              className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-2.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-              <span className="font-medium">Contact</span>
+              <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+              <span className="font-medium">Support</span>
             </a>
+
+            {/* Get Started Button */}
             <a 
               href="/#pricing" 
               onClick={navigateToPricing}
-              className="relative group bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-2.5 rounded-xl font-bold hover:shadow-xl hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden"
+              className="relative group bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-2.5 rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden"
             >
-              <span className="relative z-10">Get Started</span>
+              <span className="relative z-10 flex items-center gap-2">
+                <Sparkles className="w-4 h-4" />
+                Get Started
+              </span>
               <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden relative z-50 p-2 text-gray-300 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div 
+        className={`lg:hidden fixed inset-0 bg-[#0a0e1a]/98 backdrop-blur-xl transition-all duration-300 ${
+          isMobileMenuOpen 
+            ? 'opacity-100 pointer-events-auto' 
+            : 'opacity-0 pointer-events-none'
+        }`}
+        style={{ top: '64px' }}
+      >
+        <div className="container mx-auto px-6 py-8">
+          <nav className="flex flex-col gap-2 mb-8">
+            {navLinks.map((link, index) => (
+              link.onClick ? (
+                <a
+                  key={index}
+                  href={link.href}
+                  onClick={(e) => {
+                    link.onClick(e);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="group flex items-center justify-between text-gray-300 hover:text-white transition-all px-6 py-4 rounded-xl hover:bg-white/5 border border-white/5 hover:border-orange-500/30"
+                >
+                  <span className="font-medium text-lg">{link.label}</span>
+                  <ChevronDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                </a>
+              ) : (
+                <Link
+                  key={index}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="group flex items-center justify-between text-gray-300 hover:text-white transition-all px-6 py-4 rounded-xl hover:bg-white/5 border border-white/5 hover:border-orange-500/30"
+                >
+                  <span className="font-medium text-lg">{link.label}</span>
+                  <ChevronDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              )
+            ))}
+          </nav>
+
+          {/* Mobile CTA Buttons */}
+          <div className="flex flex-col gap-3">
+            <a 
+              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 text-white px-6 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all font-medium"
+            >
+              <Phone className="w-5 h-5" />
+              Contact Support
+            </a>
+            <a 
+              href="/#pricing" 
+              onClick={(e) => {
+                navigateToPricing(e);
+                setIsMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-4 rounded-xl font-bold shadow-xl shadow-orange-500/30"
+            >
+              <Sparkles className="w-5 h-5" />
+              Get Started Now
+            </a>
+          </div>
+
+          {/* Mobile Menu Footer */}
+          <div className="mt-8 pt-8 border-t border-white/10">
+            <div className="text-center">
+              <p className="text-gray-400 text-sm mb-2">Available 24/7</p>
+              <a 
+                href="tel:+212618467167" 
+                className="text-orange-400 font-semibold text-lg hover:text-orange-300 transition-colors"
+              >
+                +212 618 467 167
+              </a>
+            </div>
           </div>
         </div>
       </div>

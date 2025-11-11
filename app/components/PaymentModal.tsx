@@ -32,8 +32,28 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
     e.preventDefault();
     setIsProcessing(true);
     
-    // Simulate payment processing
-    setTimeout(() => {
+    try {
+      // Send payment data to API
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          planName,
+          price,
+          devices,
+          paymentMethod: selectedMethod,
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Payment failed');
+      }
+      
       setIsProcessing(false);
       setIsSuccess(true);
       
@@ -42,7 +62,11 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
         setIsSuccess(false);
         onClose();
       }, 3000);
-    }, 2000);
+    } catch (error) {
+      setIsProcessing(false);
+      console.error('Payment error:', error);
+      alert('Payment failed. Please try again or contact support.');
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

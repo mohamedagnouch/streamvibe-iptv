@@ -1,4 +1,4 @@
-# 🎬 StreamVibe IPTV - Premium Streaming Platform
+# 🎬 IPTVIBE - Premium IPTV Streaming Platform
 
 A modern, professional IPTV streaming website built with Next.js 15, React, TypeScript, and Tailwind CSS.
 
@@ -52,21 +52,28 @@ A modern, professional IPTV streaming website built with Next.js 15, React, Type
 
 ## 📦 Installation
 
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
+
+**Quick Start:**
+
 ```bash
-# Clone the repository
-git clone <repository-url>
-
-# Navigate to project directory
-cd next-js
-
 # Install dependencies
 npm install
+
+# Configure environment variables
+cp env.example .env.local
+# Edit .env.local with your credentials
 
 # Run development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+**Optional - Install Testing Dependencies:**
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @types/jest jest-environment-jsdom
+```
 
 ## 📁 Project Structure
 
@@ -207,6 +214,23 @@ For support, contact:
 - **WhatsApp:** +212 618 467 167
 - **Email:** support@streamvibe.com
 - **Hours:** 24/7
+
+## 🔒 Security
+
+Security is a top priority. See [SECURITY.md](SECURITY.md) for:
+- Security features implemented
+- Best practices
+- Vulnerability reporting
+- Compliance information
+
+## 🚀 Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions including:
+- Pre-deployment checklist
+- Multiple deployment options (Vercel, Netlify, Docker, VPS)
+- Environment variables setup
+- Post-deployment configuration
+- Monitoring and error tracking
 
 ## 📄 License
 
