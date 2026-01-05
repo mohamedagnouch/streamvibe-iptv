@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-[#0a0e1a] via-[#0f1420] to-[#1a1f35] border-t border-white/5">
+    <footer className="relative bg-[#0a0e1a] border-t border-white/5">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
       
@@ -62,8 +62,8 @@ export default function Footer() {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-white font-bold mb-4 text-base">Product</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Product</h3>
+            <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <a href="/#pricing" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -93,8 +93,8 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-white font-bold mb-4 text-base">Support</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Support</h3>
+            <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <Link href="/faq" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -129,8 +129,8 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-white font-bold mb-4 text-base">Legal</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Legal</h3>
+            <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <Link href="/terms" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>

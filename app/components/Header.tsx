@@ -27,18 +27,17 @@ export default function Header() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
-          : 'bg-[#0a0e1a]/80 backdrop-blur-lg border-b border-white/5'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-[#0a0e1a] lg:bg-[#0a0e1a]/95 lg:backdrop-blur-xl border-b border-white/10 shadow-2xl'
+        : 'bg-[#0a0e1a] lg:bg-[#0a0e1a]/80 lg:backdrop-blur-lg border-b border-white/5 shadow-md lg:shadow-none'
+        }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="flex items-center justify-between h-14 lg:h-16">
           {/* Logo */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="relative z-50 transition-transform hover:scale-105 duration-300"
           >
             <Logo variant="light" size="md" showText={true} />
@@ -75,7 +74,7 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             {/* Contact Button */}
-            <a 
+            <a
               href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
@@ -86,8 +85,8 @@ export default function Header() {
             </a>
 
             {/* Get Started Button */}
-            <a 
-              href="/#pricing" 
+            <a
+              href="/#pricing"
               onClick={navigateToPricing}
               className="relative group bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-2.5 rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden"
             >
@@ -102,7 +101,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 text-gray-300 hover:text-white transition-colors"
+            className="lg:hidden relative z-50 p-2 text-white hover:text-orange-400 transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -115,13 +114,12 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={`lg:hidden fixed inset-0 bg-[#0a0e1a]/98 backdrop-blur-xl transition-all duration-300 ${
-          isMobileMenuOpen 
-            ? 'opacity-100 pointer-events-auto' 
-            : 'opacity-0 pointer-events-none'
-        }`}
-        style={{ top: '64px' }}
+      <div
+        className={`lg:hidden fixed inset-0 bg-[#0a0e1a] backdrop-blur-xl transition-all duration-300 ${isMobileMenuOpen
+          ? 'opacity-100 pointer-events-auto'
+          : 'opacity-0 pointer-events-none'
+          }`}
+        style={{ top: '56px' }}
       >
         <div className="container mx-auto px-6 py-8">
           <nav className="flex flex-col gap-2 mb-8">
@@ -155,7 +153,7 @@ export default function Header() {
 
           {/* Mobile CTA Buttons */}
           <div className="flex flex-col gap-3">
-            <a 
+            <a
               href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
@@ -165,8 +163,8 @@ export default function Header() {
               <Phone className="w-5 h-5" />
               Contact Support
             </a>
-            <a 
-              href="/#pricing" 
+            <a
+              href="/#pricing"
               onClick={(e) => {
                 navigateToPricing(e);
                 setIsMobileMenuOpen(false);
@@ -182,8 +180,8 @@ export default function Header() {
           <div className="mt-8 pt-8 border-t border-white/10">
             <div className="text-center">
               <p className="text-gray-400 text-sm mb-2">Available 24/7</p>
-              <a 
-                href="tel:+212618467167" 
+              <a
+                href="tel:+212618467167"
                 className="text-orange-400 font-semibold text-lg hover:text-orange-300 transition-colors"
               >
                 +212 618 467 167
