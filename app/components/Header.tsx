@@ -33,7 +33,7 @@ export default function Header() {
         : 'bg-[#0a0e1a] lg:bg-[#0a0e1a]/80 lg:backdrop-blur-lg border-b border-white/5 shadow-md lg:shadow-none'
         }`}
     >
-      <div className="container mx-auto px-4 lg:px-6">
+      <div className="container mx-auto px-3 lg:px-6">
         <div className="flex items-center justify-between h-11 lg:h-12">
           {/* Logo */}
           <Link

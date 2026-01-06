@@ -45,7 +45,7 @@ export default function Logo({ variant = 'light', size = 'md', showText = true }
           <span className={`${textSizeClasses[size]} font-bold ${textColor} tracking-tight leading-none`}>
             IPTVIBE
           </span>
-          <span className="text-[9px] md:text-[10px] text-orange-500 font-semibold tracking-wider uppercase mt-1">
+          <span className="text-[8px] md:text-[10px] text-orange-500 font-semibold tracking-wider uppercase mt-1">
             Premium IPTV Service
           </span>
         </div>

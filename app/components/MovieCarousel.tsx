@@ -56,13 +56,7 @@ export default function MovieCarousel() {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1536,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 1280,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
         },
@@ -70,13 +64,19 @@ export default function MovieCarousel() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
         },
       },
     ],
@@ -127,8 +127,8 @@ export default function MovieCarousel() {
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
     </section>
   );
 }
