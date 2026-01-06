@@ -7,10 +7,10 @@ export default function Footer() {
     <footer className="relative bg-[#0a0e1a] border-t border-white/5">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
-      
-      <div className="container mx-auto px-6 py-12">
+
+      <div className="container mx-auto px-6 py-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-8">
           {/* Brand Section */}
           <div className="col-span-1">
             <Link href="/" className="mb-4 inline-block transition-transform hover:scale-105">
@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm mb-5 leading-relaxed">
               Premium IPTV streaming service with <span className="text-orange-500 font-semibold">37,591+</span> live channels and <span className="text-orange-500 font-semibold">96,000+</span> VOD titles from <span className="text-orange-500 font-semibold">115+</span> countries.
             </p>
-            
+
             {/* Social Media */}
             <div className="mb-4">
               <p className="text-gray-500 text-xs mb-3 uppercase tracking-wider">Follow Us</p>
@@ -102,7 +102,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a 
+                <a
                   href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20IPTV.%20Can%20you%20assist%20me%3F"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -182,7 +182,7 @@ export default function Footer() {
         </div>
       </div>
 
-      
+
     </footer>
   );
 }

@@ -83,10 +83,10 @@ export default function MovieCarousel() {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Trending <span className="bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 bg-clip-text text-transparent">Content</span>
           </h2>
@@ -94,7 +94,7 @@ export default function MovieCarousel() {
             Discover thousands of movies, series, and live channels in stunning 4K quality
           </p>
         </div>
-        
+
         <Slider {...settings} className="movie-slider">
           {movies.map((movie) => (
             <div key={movie.id} className="px-2">

@@ -90,10 +90,10 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-12 px-6 bg-white">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Loved by <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Millions</span> Worldwide
           </h2>
@@ -104,8 +104,8 @@ export default function Testimonials() {
 
 
         {/* Testimonials Carousel */}
-        <div className="mb-12">
-          <div className="text-center mb-10">
+        <div className="mb-0">
+          <div className="text-center mb-6">
             <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mb-4">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
               <span className="text-emerald-700 text-sm font-medium">Real Customer Reviews</span>

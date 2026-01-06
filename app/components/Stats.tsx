@@ -35,7 +35,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-12 px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-3xl" />
@@ -44,7 +44,7 @@ export default function Stats() {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-full px-4 py-2 mb-4">
             <Award className="w-4 h-4 text-orange-600" />
             <span className="text-orange-700 text-sm font-medium">Industry Leading</span>
@@ -102,7 +102,7 @@ export default function Stats() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
             <span className="text-emerald-700 text-sm font-medium">

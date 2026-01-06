@@ -49,7 +49,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 px-6 bg-white relative overflow-hidden">
+    <section className="py-12 px-6 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -60,7 +60,7 @@ export default function Features() {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-4">
             <Star className="w-4 h-4 text-blue-600" />
             <span className="text-blue-700 text-sm font-medium">Premium Features</span>
@@ -110,7 +110,7 @@ export default function Features() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-16 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+        <div className="mt-10 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start Streaming?
           </h3>

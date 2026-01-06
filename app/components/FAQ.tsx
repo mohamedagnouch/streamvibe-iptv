@@ -44,10 +44,10 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-12 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10">
           Frequently Asked Questions
         </h2>
 
@@ -71,9 +71,8 @@ export default function FAQ() {
                   </span>
                 </div>
                 <svg
-                  className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${
-                    openId === faq.id ? 'rotate-180' : ''
-                  }`}
+                  className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${openId === faq.id ? 'rotate-180' : ''
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -86,11 +85,10 @@ export default function FAQ() {
                   />
                 </svg>
               </button>
-              
+
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openId === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${openId === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
               >
                 <div className="px-6 pb-6 pt-2">
                   <p className="text-gray-600 leading-relaxed pl-12">

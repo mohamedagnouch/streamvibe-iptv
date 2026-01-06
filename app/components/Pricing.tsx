@@ -165,10 +165,10 @@ export default function Pricing() {
   const [selectedDevices, setSelectedDevices] = useState(1);
 
   return (
-    <section id="pricing" className="py-20 px-6 bg-gradient-to-b from-[#0d1f33] to-[#0a1929]">
+    <section id="pricing" className="py-16 px-6 bg-gradient-to-b from-[#0d1f33] to-[#0a1929]">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Don't miss the
             <br />
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         {/* Device Count Selector */}
-        <div className="mb-12">
+        <div className="mb-8">
           <h3 className="text-center text-white text-lg font-semibold mb-4">
             Select Device Count
           </h3>
@@ -196,11 +196,10 @@ export default function Pricing() {
               <button
                 key={count}
                 onClick={() => setSelectedDevices(count)}
-                className={`w-12 h-12 rounded-lg font-semibold transition-all ${
-                  selectedDevices === count
-                    ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white shadow-lg shadow-orange-500/30'
-                    : 'bg-white/10 text-gray-400 hover:bg-white/20'
-                }`}
+                className={`w-12 h-12 rounded-lg font-semibold transition-all ${selectedDevices === count
+                  ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white shadow-lg shadow-orange-500/30'
+                  : 'bg-white/10 text-gray-400 hover:bg-white/20'
+                  }`}
               >
                 {count}
               </button>
@@ -213,11 +212,10 @@ export default function Pricing() {
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative rounded-2xl overflow-hidden ${
-                plan.badge
-                  ? 'bg-gradient-to-b from-orange-500/20 to-transparent border-2 border-orange-500'
-                  : 'bg-white/5 border border-gray-700'
-              }`}
+              className={`relative rounded-2xl overflow-hidden ${plan.badge
+                ? 'bg-gradient-to-b from-orange-500/20 to-transparent border-2 border-orange-500'
+                : 'bg-white/5 border border-gray-700'
+                }`}
             >
               {/* Badge */}
               {plan.badge && (
@@ -230,7 +228,7 @@ export default function Pricing() {
                 {/* Plan Name */}
                 <div className="text-center mb-6">
                   <span className="text-gray-400 text-sm">{plan.name}</span>
-                  
+
                   {/* Price */}
                   <div className="mt-2">
                     <div className="flex items-baseline justify-center gap-2">

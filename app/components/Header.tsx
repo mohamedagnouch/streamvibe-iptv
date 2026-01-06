@@ -34,13 +34,13 @@ export default function Header() {
         }`}
     >
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-14 lg:h-16">
+        <div className="flex items-center justify-between h-11 lg:h-12">
           {/* Logo */}
           <Link
             href="/"
             className="relative z-50 transition-transform hover:scale-105 duration-300"
           >
-            <Logo variant="light" size="md" showText={true} />
+            <Logo variant="light" size="sm" showText={true} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +51,7 @@ export default function Header() {
                   key={index}
                   href={link.href}
                   onClick={link.onClick}
-                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-2 rounded-xl cursor-pointer"
+                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-1 rounded-xl cursor-pointer"
                 >
                   <span className="relative z-10 font-medium">{link.label}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -61,7 +61,7 @@ export default function Header() {
                 <Link
                   key={index}
                   href={link.href}
-                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-2 rounded-xl"
+                  className="relative group text-gray-300 hover:text-white transition-all px-4 py-1 rounded-xl"
                 >
                   <span className="relative z-10 font-medium">{link.label}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -78,7 +78,7 @@ export default function Header() {
               href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-2.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
+              className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-1.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
             >
               <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
               <span className="font-medium">Support</span>
@@ -88,7 +88,7 @@ export default function Header() {
             <a
               href="/#pricing"
               onClick={navigateToPricing}
-              className="relative group bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-2.5 rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden"
+              className="relative group bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-1.5 rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />

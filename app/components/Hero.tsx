@@ -2,20 +2,26 @@
 
 import Link from 'next/link';
 import { navigateToPricing } from '../utils/navigation';
+import ChannelCopyModal from './ChannelCopyModal';
+import { List } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+    <section className="relative pt-24 pb-16 px-6 overflow-hidden">
+      <ChannelCopyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/5 via-red-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         {/* Premium Badge */}
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 backdrop-blur-xl border border-orange-500/20 rounded-full px-5 py-2.5 mb-8 shadow-lg shadow-orange-500/10">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 backdrop-blur-xl border border-orange-500/20 rounded-full px-5 py-2 mb-6 shadow-lg shadow-orange-500/10">
           <div className="relative flex items-center justify-center">
             <div className="absolute w-3 h-3 bg-orange-500 rounded-full animate-ping"></div>
             <div className="relative w-2 h-2 bg-orange-400 rounded-full"></div>
@@ -26,7 +32,7 @@ export default function Hero() {
         </div>
 
         {/* Main Heading with Enhanced Typography */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight">
           <span className="block mb-2">Stream Without Limits</span>
           <span className="block bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 bg-clip-text text-transparent drop-shadow-2xl">
             19,000+ Live Channels
@@ -34,29 +40,36 @@ export default function Hero() {
         </h1>
 
         {/* Elegant Subheading */}
-        <p className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+        <p className="text-gray-300 text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed font-light">
           Experience premium entertainment with <span className="text-white font-medium">80,000+ VOD</span>, live sports, movies, and series in stunning <span className="text-white font-medium">4K quality</span>
         </p>
 
         {/* Modern CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
-          <a 
-            href="/#pricing" 
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10">
+          <a
+            href="/#pricing"
             onClick={navigateToPricing}
             className="group relative bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 shadow-xl shadow-orange-500/30 hover:scale-105"
           >
             <span className="relative z-10">Get Started Now</span>
             <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
-          <Link 
-            href="/channels" 
-            className="group bg-white/5 backdrop-blur-xl border-2 border-white/10 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-orange-500/30 transition-all duration-300 flex items-center gap-3 hover:scale-105"
+          <Link
+            href="/channels"
+            className="group bg-white/5 backdrop-blur-xl border-2 border-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-orange-500/30 transition-all duration-300 flex items-center gap-3 hover:scale-105"
           >
             <span>View Channels</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="group bg-gradient-to-r from-orange-500/10 to-pink-500/10 backdrop-blur-xl border-2 border-orange-500/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 flex items-center gap-3 hover:scale-105"
+          >
+            <List className="w-5 h-5 text-orange-500" />
+            <span>Copy List</span>
+          </button>
         </div>
 
         {/* Trust Indicators */}

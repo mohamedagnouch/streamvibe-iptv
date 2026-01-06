@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { ChevronDown, Search, MessageCircle, Rocket, CreditCard, Wrench, Tv, Shield, HelpCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle, Rocket, CreditCard, Wrench, Tv, Shield, HelpCircle } from 'lucide-react';
 
 const faqCategories = [
   {
@@ -124,24 +124,14 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
-  const [searchTerm, setSearchTerm] = useState('');
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
-
-  const filteredCategories = faqCategories.map(category => ({
-    ...category,
-    questions: category.questions.filter(
-      q =>
-        q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        q.answer.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  })).filter(category => category.questions.length > 0);
 
   return (
     <main className="min-h-screen bg-white">
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-6 bg-gradient-to-b from-blue-50 via-indigo-50 to-white">
+      <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-blue-50 via-indigo-50 to-white">
         <div className="container mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-5 py-2 mb-5">
             <MessageCircle className="w-4 h-4 text-blue-600" />
@@ -175,26 +165,13 @@ export default function FAQPage() {
             </div>
           </div>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search for answers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-base"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Category Cards */}
-      <section className="py-8 px-6 bg-white">
+      <section className="py-6 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Browse by Category</h2>
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Browse by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {faqCategories.map((cat, index) => {
               const Icon = cat.icon;
@@ -222,25 +199,19 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-12 px-6 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-8 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-4xl">
-          {filteredCategories.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">No results found for "{searchTerm}"</p>
-              <p className="text-gray-500 text-sm mt-2">Try different keywords or browse all categories</p>
-            </div>
-          ) : (
-            <div className="space-y-10">
-              {filteredCategories.map((category, categoryIndex) => {
-                const Icon = category.icon;
-                const colorClasses: Record<string, string> = {
-                  blue: 'bg-blue-100 text-blue-600 border-blue-300',
-                  green: 'bg-green-100 text-green-600 border-green-300',
-                  orange: 'bg-orange-100 text-orange-600 border-orange-300',
-                  purple: 'bg-purple-100 text-purple-600 border-purple-300',
-                  red: 'bg-red-100 text-red-600 border-red-300',
-                };
-                return (
+          <div className="space-y-6">
+            {faqCategories.map((category, categoryIndex) => {
+              const Icon = category.icon;
+              const colorClasses: Record<string, string> = {
+                blue: 'bg-blue-100 text-blue-600 border-blue-300',
+                green: 'bg-green-100 text-green-600 border-green-300',
+                orange: 'bg-orange-100 text-orange-600 border-orange-300',
+                purple: 'bg-purple-100 text-purple-600 border-purple-300',
+                red: 'bg-red-100 text-red-600 border-red-300',
+              };
+              return (
                 <div key={categoryIndex} id={category.category.toLowerCase().replace(/\s+/g, '-')}>
                   <div className="flex items-center gap-3 mb-5">
                     <div className={`w-12 h-12 rounded-xl ${colorClasses[category.color]} flex items-center justify-center border-2`}>
@@ -268,9 +239,8 @@ export default function FAQPage() {
                               {faq.question}
                             </h3>
                             <ChevronDown
-                              className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform ${
-                                isExpanded ? 'rotate-180' : ''
-                              }`}
+                              className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform ${isExpanded ? 'rotate-180' : ''
+                                }`}
                             />
                           </button>
 
@@ -286,9 +256,9 @@ export default function FAQPage() {
                     })}
                   </div>
                 </div>
-              );})}
-            </div>
-          )}
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -299,7 +269,7 @@ export default function FAQPage() {
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            
+
             <div className="relative z-10">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-5 border-2 border-white/30">
                 <MessageCircle className="w-8 h-8 text-white" />

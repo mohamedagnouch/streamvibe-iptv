@@ -4,10 +4,10 @@ import { ShoppingCart, Mail, Play, CreditCard, Shield, Zap } from 'lucide-react'
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 relative overflow-hidden">
+    <section className="py-12 px-6 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Step 1 */}
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-20">
+        <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
           <div className="flex-1 text-white">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
@@ -17,8 +17,8 @@ export default function HowItWorks() {
             </div>
             <h3 className="text-3xl font-bold mb-4">Place Your Order</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
-              Choose your preferred subscription plan and complete your order. 
-              We accept multiple payment methods for your convenience. 
+              Choose your preferred subscription plan and complete your order.
+              We accept multiple payment methods for your convenience.
               Your satisfaction is guaranteed with our 30-day money-back promise.
             </p>
             <div className="flex gap-3 flex-wrap">
@@ -63,7 +63,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Step 2 */}
-        <div className="flex flex-col md:flex-row-reverse items-center gap-8 mb-20">
+        <div className="flex flex-col md:flex-row-reverse items-center gap-8 mb-12">
           <div className="flex-1 text-white">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
@@ -73,8 +73,8 @@ export default function HowItWorks() {
             </div>
             <h3 className="text-3xl font-bold mb-4">Get Your Account</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
-              Receive your login credentials instantly via email. 
-              Your account will be activated immediately and ready to use. 
+              Receive your login credentials instantly via email.
+              Your account will be activated immediately and ready to use.
               Access thousands of channels and VOD content right away with no waiting time.
             </p>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block">
@@ -109,7 +109,7 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
-        
+
         {/* Step 3 */}
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-white">
@@ -121,8 +121,8 @@ export default function HowItWorks() {
             </div>
             <h3 className="text-3xl font-bold mb-4">Enjoy Watching</h3>
             <p className="text-white/90 mb-6 leading-relaxed">
-              Start streaming immediately on any device. 
-              Watch your favorite movies, sports, series, and live TV in stunning quality. 
+              Start streaming immediately on any device.
+              Watch your favorite movies, sports, series, and live TV in stunning quality.
               Experience buffer-free streaming with our high-performance servers.
             </p>
             <div className="flex gap-3 flex-wrap">

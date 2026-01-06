@@ -31,7 +31,7 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
-    
+
     try {
       // Send payment data to API
       const response = await fetch('/api/payment', {
@@ -47,16 +47,16 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
           paymentMethod: selectedMethod,
         }),
       });
-      
+
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || 'Payment failed');
       }
-      
+
       setIsProcessing(false);
       setIsSuccess(true);
-      
+
       // Close modal after success
       setTimeout(() => {
         setIsSuccess(false);
@@ -79,7 +79,7 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
@@ -138,16 +138,14 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
               <button
                 type="button"
                 onClick={() => setSelectedMethod('card')}
-                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-                  selectedMethod === 'card'
+                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'card'
                     ? 'border-orange-500 bg-orange-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selectedMethod === 'card' ? 'border-orange-500' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedMethod === 'card' ? 'border-orange-500' : 'border-gray-300'
+                    }`}>
                     {selectedMethod === 'card' && (
                       <div className="w-3 h-3 rounded-full bg-orange-500" />
                     )}
@@ -161,16 +159,14 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
               <button
                 type="button"
                 onClick={() => setSelectedMethod('crypto')}
-                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-                  selectedMethod === 'crypto'
+                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'crypto'
                     ? 'border-orange-500 bg-orange-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selectedMethod === 'crypto' ? 'border-orange-500' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedMethod === 'crypto' ? 'border-orange-500' : 'border-gray-300'
+                    }`}>
                     {selectedMethod === 'crypto' && (
                       <div className="w-3 h-3 rounded-full bg-orange-500" />
                     )}
@@ -184,16 +180,14 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
               <button
                 type="button"
                 onClick={() => setSelectedMethod('cashapp')}
-                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-                  selectedMethod === 'cashapp'
+                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'cashapp'
                     ? 'border-orange-500 bg-orange-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selectedMethod === 'cashapp' ? 'border-orange-500' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedMethod === 'cashapp' ? 'border-orange-500' : 'border-gray-300'
+                    }`}>
                     {selectedMethod === 'cashapp' && (
                       <div className="w-3 h-3 rounded-full bg-orange-500" />
                     )}
@@ -207,16 +201,14 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
               <button
                 type="button"
                 onClick={() => setSelectedMethod('bank')}
-                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
-                  selectedMethod === 'bank'
+                className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'bank'
                     ? 'border-orange-500 bg-orange-50'
                     : 'border-gray-200 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selectedMethod === 'bank' ? 'border-orange-500' : 'border-gray-300'
-                  }`}>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedMethod === 'bank' ? 'border-orange-500' : 'border-gray-300'
+                    }`}>
                     {selectedMethod === 'bank' && (
                       <div className="w-3 h-3 rounded-full bg-orange-500" />
                     )}
