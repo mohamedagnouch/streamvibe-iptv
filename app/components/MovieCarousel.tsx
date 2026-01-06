@@ -47,7 +47,7 @@ export default function MovieCarousel() {
     dots: false,
     infinite: true,
     speed: 3000,
-    slidesToShow: 2.2,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
@@ -58,25 +58,25 @@ export default function MovieCarousel() {
       {
         breakpoint: 1536,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3.5,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
         },
       },
     ],
@@ -97,9 +97,9 @@ export default function MovieCarousel() {
 
         <Slider {...settings} className="movie-slider">
           {movies.map((movie) => (
-            <div key={movie.id} className="px-1.5 md:px-3">
+            <div key={movie.id} className="px-2">
               <div className="relative group cursor-pointer">
-                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-[2/3] bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow border border-white/5">
+                <div className="relative overflow-hidden rounded-xl aspect-[2/3] bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow">
                   <img
                     src={movie.image}
                     alt={movie.title}
