@@ -58,7 +58,7 @@ export default function Stats() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -68,23 +68,23 @@ export default function Stats() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Card */}
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-orange-300 transition-all duration-300 h-full">
+                <div className="relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-orange-300 transition-all duration-300 h-full">
                   {/* Icon */}
-                  <div className="mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/30">
-                      <Icon className="w-8 h-8 text-white" />
+                  <div className="mb-4 md:mb-6">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/30">
+                      <Icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
                     </div>
                   </div>
 
                   {/* Value */}
-                  <div className="mb-2">
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">
+                  <div className="mb-1 md:mb-2">
+                    <div className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">
                       {stat.value}
                     </div>
                   </div>
 
                   {/* Label */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2 leading-tight">
                     {stat.label}
                   </h3>
 

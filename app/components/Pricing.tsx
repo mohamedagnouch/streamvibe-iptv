@@ -191,12 +191,12 @@ export default function Pricing() {
             Select Device Count
           </h3>
           <p className="text-center text-gray-400 text-sm mb-6">5 Devices available</p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center flex-wrap gap-2 md:gap-4 px-2">
             {[1, 2, 3, 4, 5].map((count) => (
               <button
                 key={count}
                 onClick={() => setSelectedDevices(count)}
-                className={`w-12 h-12 rounded-lg font-semibold transition-all ${selectedDevices === count
+                className={`w-9 h-9 md:w-12 md:h-12 rounded-lg font-semibold transition-all ${selectedDevices === count
                   ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white shadow-lg shadow-orange-500/30'
                   : 'bg-white/10 text-gray-400 hover:bg-white/20'
                   }`}
@@ -208,7 +208,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}

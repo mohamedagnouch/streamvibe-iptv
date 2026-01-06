@@ -41,20 +41,20 @@ export default function HowItWorks() {
             </div>
           </div>
           <div className="flex-1 relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
               <img
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=400&fit=crop"
                 alt="Place your order"
-                className="w-full h-64 object-cover rounded-lg mb-4"
+                className="w-full h-40 md:h-64 object-cover rounded-lg mb-3 md:mb-4"
               />
-              <div className="bg-gray-50 rounded-lg p-4">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4">
+                <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
                     ✓
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Order Confirmed</div>
-                    <div className="text-xs text-gray-500">Processing payment...</div>
+                    <div className="font-semibold text-gray-900 text-sm md:text-base">Order Confirmed</div>
+                    <div className="text-[10px] md:text-xs text-gray-500">Processing payment...</div>
                   </div>
                 </div>
               </div>
@@ -87,22 +87,22 @@ export default function HowItWorks() {
             </div>
           </div>
           <div className="flex-1 relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
               <img
                 src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=500&h=400&fit=crop"
                 alt="Get your account"
-                className="w-full h-64 object-cover rounded-lg mb-4"
+                className="w-full h-40 md:h-64 object-cover rounded-lg mb-3 md:mb-4"
               />
-              <div className="bg-gray-50 rounded-lg p-4">
-                <div className="text-xs text-gray-500 mb-2">ACCOUNT DETAILS</div>
-                <div className="space-y-2">
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4">
+                <div className="text-[10px] md:text-xs text-gray-500 mb-2">ACCOUNT DETAILS</div>
+                <div className="space-y-1 md:space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Username:</span>
-                    <span className="font-mono text-sm font-semibold">user****@mail.com</span>
+                    <span className="text-xs md:text-sm text-gray-600">Username:</span>
+                    <span className="font-mono text-xs md:text-sm font-semibold truncate max-w-[120px]">user****@mail.com</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Status:</span>
-                    <span className="text-green-600 font-semibold text-sm">✓ Active</span>
+                    <span className="text-xs md:text-sm text-gray-600">Status:</span>
+                    <span className="text-green-600 font-semibold text-xs md:text-sm">✓ Active</span>
                   </div>
                 </div>
               </div>
@@ -141,20 +141,20 @@ export default function HowItWorks() {
             </div>
           </div>
           <div className="flex-1 relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 max-w-md mx-auto transform hover:scale-105 transition-transform">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=400&fit=crop"
                 alt="Enjoy watching"
-                className="w-full h-64 object-cover rounded-lg mb-4"
+                className="w-full h-40 md:h-64 object-cover rounded-lg mb-3 md:mb-4"
               />
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-gray-900 mb-1">Now Streaming</div>
-                    <div className="text-xs text-gray-500">4K Ultra HD Quality</div>
+                    <div className="font-semibold text-gray-900 text-sm md:text-base mb-0.5">Now Streaming</div>
+                    <div className="text-[10px] md:text-xs text-gray-500">4K Ultra HD Quality</div>
                   </div>
                   <div className="flex gap-2">
-                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white">
+                    <div className="w-7 h-7 md:w-8 md:h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
                       ▶
                     </div>
                   </div>
