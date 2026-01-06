@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/react-slick": "^0.23.13",
     "lucide-react": "^0.552.0",
-    "next": "latest",
+    "next": "15.5.8",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-slick": "^0.31.0",
