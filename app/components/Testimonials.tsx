@@ -11,7 +11,7 @@ const testimonials = [
     location: 'New York, USA',
     avatar: 'https://i.pravatar.cc/150?img=1',
     rating: 5,
-    comment: 'Amazing service! Crystal clear quality and tons of channels. Best IPTV provider I\'ve ever used.',
+    comment: 'Amazing service! Crystal clear quality and tons of channels. Best streaming service I\'ve ever used.',
     verified: true,
   },
   {
@@ -99,7 +99,7 @@ export default function Testimonials() {
             Loved by <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Millions</span> Worldwide
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Join thousands of satisfied customers across the globe who trust StreamVibe for their premium IPTV streaming needs.
+            Join thousands of satisfied customers across the globe who trust StreamVibe for their premium streaming needs.
           </p>
         </div>
 

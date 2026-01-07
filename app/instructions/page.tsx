@@ -135,7 +135,7 @@ const deviceTypes = [
         details: [
           'Browse Live TV, Movies, and Series',
           'Download content for offline viewing',
-          'Create personalized playlists',
+          'Configure your personal access hub',
           'Stream on the go with mobile data or WiFi',
         ],
       },
@@ -159,7 +159,7 @@ const deviceTypes = [
         description: 'Install the official playback application from Apple App Store.',
         details: [
           'Open the App Store on your iOS device',
-          'Search for "IPTV Smarters Pro"',
+          'Search for our authorized application',
           'Verify it\'s the official app',
           'Tap Get and authenticate with Face ID/Touch ID',
         ],
@@ -259,8 +259,8 @@ const deviceTypes = [
         details: [
           'Copy Access URL from your welcome email',
           'Paste into the network URL field',
-          'Click "Play" to load the playlist',
-          'Playlist will appear in the sidebar',
+          'Click "Play" to load your content access',
+          'Access hub will appear in the sidebar',
         ],
       },
       {
@@ -268,7 +268,7 @@ const deviceTypes = [
         title: 'Browse & Watch',
         description: 'Navigate channels and start streaming.',
         details: [
-          'View playlist in the left sidebar',
+          'View content list in the left sidebar',
           'Click any channel to start streaming',
           'Use keyboard shortcuts for control',
           'Enjoy full-screen viewing experience',
