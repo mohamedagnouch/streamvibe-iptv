@@ -10,7 +10,7 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative pt-24 pb-16 px-6 overflow-hidden">
+    <section className="relative pt-24 pb-4 px-6 overflow-hidden">
       <ChannelCopyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/5 via-red-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 pt-16 lg:pt-24 pb-12 relative z-10 flex flex-col items-center text-center">
+      <div className="container mx-auto px-6 pt-16 lg:pt-24 pb-0 relative z-10 flex flex-col items-center text-center">
         {/* Premium Badge */}
         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 backdrop-blur-xl border border-orange-500/20 rounded-full px-3 py-1 mb-4 shadow-lg shadow-orange-500/10">
           <div className="relative flex items-center justify-center">
