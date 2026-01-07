@@ -64,7 +64,7 @@ export default function RefundPage() {
                 <div>
                   <h3 className="text-lg font-bold text-emerald-900 mb-2">30-Day Money-Back Guarantee</h3>
                   <p className="text-emerald-800 text-sm leading-relaxed">
-                    We stand behind the quality of our service. If you're not completely satisfied with StreamVibe IPTV within the first 30 days, we'll refund your money—no questions asked.
+                    We stand behind the quality of our service. If you're not completely satisfied with StreamVibe within the first 30 days, we'll refund your money—no questions asked.
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function RefundPage() {
                   Eligibility for Refunds
                 </h2>
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">1.1 30-Day Money-Back Guarantee</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 You are eligible for a full refund if:
@@ -180,7 +180,7 @@ export default function RefundPage() {
                   How to Request a Refund
                 </h2>
               </div>
-              
+
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
                 <h3 className="text-lg font-bold text-blue-900 mb-4">Step-by-Step Process:</h3>
                 <div className="space-y-4">
@@ -249,7 +249,7 @@ export default function RefundPage() {
                   Refund Processing Time
                 </h2>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
@@ -365,7 +365,7 @@ export default function RefundPage() {
             <div className="bg-gradient-to-r from-emerald-50 to-green-50 border-2 border-emerald-300 rounded-xl p-6">
               <h3 className="text-xl font-bold text-emerald-900 mb-3">Our Commitment</h3>
               <p className="text-emerald-800 leading-relaxed">
-                We're confident you'll love StreamVibe IPTV, but if for any reason you're not satisfied, we'll make it right. Our 30-day money-back guarantee ensures you can try our service risk-free. Your satisfaction is our priority!
+                We're confident you'll love StreamVibe, but if for any reason you're not satisfied, we'll make it right. Our 30-day money-back guarantee ensures you can try our service risk-free. Your satisfaction is our priority!
               </p>
             </div>
           </div>

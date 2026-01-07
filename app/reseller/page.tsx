@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { 
-  Users, 
-  DollarSign, 
-  TrendingUp, 
-  Shield, 
-  Headphones, 
+import {
+  Users,
+  DollarSign,
+  TrendingUp,
+  Shield,
+  Headphones,
   Zap,
   CheckCircle,
   Star,
@@ -64,8 +64,8 @@ const benefits = [
 
 const features = [
   {
-    title: '37,591+ Live Channels',
-    description: 'Global content from 115+ countries',
+    title: 'Thousands of Live Channels',
+    description: 'Global content from around the world',
     icon: Globe,
     stat: '37K+',
   },
@@ -154,7 +154,7 @@ const pricingTiers = [
 const testimonials = [
   {
     name: 'Michael Rodriguez',
-    role: 'IPTV Reseller',
+    role: 'Streaming Partner',
     location: 'Miami, USA',
     avatar: 'MR',
     comment: 'Best reseller program I\'ve joined. The panel is intuitive and support is exceptional. My business has grown 300% in just 6 months!',
@@ -193,7 +193,7 @@ export default function ResellerPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -207,7 +207,7 @@ export default function ResellerPage() {
             {/* Main Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
               <span className="text-white">Build Your </span>
-              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">IPTV Empire</span>
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Streaming Empire</span>
             </h1>
 
             {/* Description */}
@@ -290,7 +290,7 @@ export default function ResellerPage() {
               Why Partner with StreamVibe
             </h2>
             <p className="text-gray-400 text-lg">
-              Everything you need to build a profitable IPTV business
+              Everything you need to build a profitable streaming business
             </p>
           </div>
 
@@ -328,7 +328,7 @@ export default function ResellerPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               Get Started in 3 Simple Steps
             </h2>
-            <p className="text-gray-400 text-lg">Launch your IPTV business today</p>
+            <p className="text-gray-400 text-lg">Launch your streaming business today</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -388,11 +388,10 @@ export default function ResellerPage() {
             {pricingTiers.map((tier, index) => (
               <div
                 key={index}
-                className={`relative rounded-3xl overflow-hidden transition-all ${
-                  tier.popular
+                className={`relative rounded-3xl overflow-hidden transition-all ${tier.popular
                     ? 'bg-gradient-to-b from-orange-500/10 to-transparent border-2 border-orange-500 shadow-2xl scale-105'
                     : 'bg-white/5 backdrop-blur-sm border border-white/10'
-                }`}
+                  }`}
               >
                 {tier.popular && (
                   <div className="bg-gradient-to-r from-orange-500 to-pink-600 text-white text-center py-2 text-sm font-bold flex items-center justify-center gap-2">
@@ -427,11 +426,10 @@ export default function ResellerPage() {
                     href={`https://wa.me/212618467167?text=Hello%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20reseller%20package`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-4 rounded-xl font-bold mb-6 transition-all text-center block ${
-                      tier.popular
+                    className={`w-full py-4 rounded-xl font-bold mb-6 transition-all text-center block ${tier.popular
                         ? 'bg-gradient-to-r from-orange-500 to-pink-600 text-white hover:shadow-2xl hover:scale-105'
                         : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
+                      }`}
                   >
                     Get Started
                   </a>
@@ -519,7 +517,7 @@ export default function ResellerPage() {
               <Rocket className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Start Your IPTV Business?
+              Ready to Start Your Streaming Business?
             </h3>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
               Join 500+ successful resellers earning with StreamVibe. Get started today with no setup fees.

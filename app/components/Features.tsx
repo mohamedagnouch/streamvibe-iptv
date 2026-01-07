@@ -69,7 +69,7 @@ export default function Features() {
             Why Choose <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">StreamVibe</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Experience the best IPTV service with cutting-edge features designed for your entertainment
+            Experience the best streaming platform with cutting-edge features designed for your legal entertainment
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default function Features() {
             Ready to Start Streaming?
           </h3>
           <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
-            Join thousands of satisfied customers and experience premium IPTV streaming today
+            Join thousands of satisfied customers and experience premium legal streaming today
           </p>
           <a
             href="#pricing"

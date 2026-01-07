@@ -64,7 +64,7 @@ export default function PrivacyPage() {
                 <div>
                   <h3 className="text-lg font-bold text-green-900 mb-2">Our Commitment to Privacy</h3>
                   <p className="text-green-800 text-sm leading-relaxed">
-                    StreamVibe is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our IPTV services.
+                    StreamVibe is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our official streaming services.
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
                   Information We Collect
                 </h2>
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">1.1 Personal Information</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 When you register for our service, we collect:
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
                 We use the collected information for the following purposes:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li><strong>Service Delivery:</strong> To provide, maintain, and improve our IPTV streaming services</li>
+                <li><strong>Service Delivery:</strong> To provide, maintain, and improve our premium streaming services</li>
                 <li><strong>Account Management:</strong> To create and manage your account, process payments, and handle subscriptions</li>
                 <li><strong>Personalization:</strong> To recommend content based on your viewing preferences and history</li>
                 <li><strong>Communication:</strong> To send service updates, technical notices, and respond to your inquiries</li>
@@ -135,7 +135,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-200">
                 3. Information Sharing and Disclosure
               </h2>
-              
+
               <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">3.1 We Do NOT Sell Your Data</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 We do not sell, rent, or trade your personal information to third parties for marketing purposes.

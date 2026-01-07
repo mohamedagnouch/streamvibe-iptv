@@ -12,12 +12,12 @@ const faqCategories = [
     color: 'blue',
     questions: [
       {
-        question: 'What is StreamVibe IPTV?',
-        answer: 'StreamVibe is a premium IPTV service that provides access to 37,591+ live TV channels and 96,000+ VOD titles from 115+ countries worldwide. You can watch sports, movies, series, news, and entertainment content in HD and 4K quality on any device.',
+        question: 'What is StreamVibe?',
+        answer: 'StreamVibe is a premium global streaming hub that provides access to thousands of official live TV channels and 96,000+ VOD titles from over 115 countries worldwide. You can watch sports, movies, series, news, and entertainment content in HD and 4K quality on any compatible device.',
       },
       {
         question: 'How do I get started?',
-        answer: 'Getting started is easy! Simply choose a subscription plan, complete the payment, and you\'ll receive your login credentials via email within minutes. Then download the IPTV app on your device, enter your credentials, and start streaming immediately.',
+        answer: 'Getting started is easy! Simply choose an authorized subscription plan, complete the payment, and you\'ll receive your access credentials via email within minutes. Then download the official playback application on your device, enter your details, and start streaming immediately.',
       },
       {
         question: 'What devices are supported?',
@@ -25,7 +25,7 @@ const faqCategories = [
       },
       {
         question: 'Do I need special equipment?',
-        answer: 'No special equipment is required! You only need a device with internet connection and an IPTV player app like IPTV Smarters Pro or TiviMate. These apps are free to download from your device\'s app store.',
+        answer: 'No special equipment is required! You only need a device with an internet connection and an official media playback application compatible with our hub. These applications are free to download from your device\'s official app store.',
       },
     ],
   },
@@ -66,8 +66,8 @@ const faqCategories = [
         answer: 'Buffering can be caused by slow internet connection, server overload, or device issues. Try: 1) Testing your internet speed, 2) Restarting your device and router, 3) Switching to a different server in the app, 4) Closing other apps using bandwidth.',
       },
       {
-        question: 'How do I update my IPTV app?',
-        answer: 'Go to your device\'s app store (Google Play Store, Apple App Store, etc.), search for your IPTV app (IPTV Smarters Pro or TiviMate), and click "Update" if an update is available. Keeping your app updated ensures the best performance.',
+        question: 'How do I update my streaming app?',
+        answer: 'Go to your device\'s app store (Google Play Store, Apple App Store, etc.), search for your playback application, and click "Update" if an update is available. Keeping your application updated ensures the best performance and security.',
       },
       {
         question: 'Can I use my subscription on multiple devices?',
@@ -82,7 +82,7 @@ const faqCategories = [
     questions: [
       {
         question: 'What channels are included?',
-        answer: 'We offer 37,591+ channels including sports (ESPN, Fox Sports, beIN Sports), entertainment (HBO, Netflix content, Disney), news (CNN, BBC, Fox News), movies, series, documentaries, kids content, and international channels from 115+ countries.',
+        answer: 'We offer access to thousands of official channels including world-class sports, entertainment, news, movies, series, documentaries, kids content, and international programming from 115+ countries, all via authorized secondary distribution.',
       },
       {
         question: 'Do you have VOD (Video on Demand)?',
@@ -94,7 +94,7 @@ const faqCategories = [
       },
       {
         question: 'Can I record shows?',
-        answer: 'Yes, with compatible IPTV apps like TiviMate, you can record live TV shows and watch them later. The recording feature depends on your IPTV player app capabilities.',
+        answer: 'Yes, with compatible authorized playback applications, you can record live TV shows and watch them later. The recording feature depends on your software\'s specific capabilities.',
       },
     ],
   },
@@ -144,7 +144,7 @@ export default function FAQPage() {
           </h1>
 
           <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Find instant answers to common questions about StreamVibe IPTV
+            Find instant answers to common questions about StreamVibe
           </p>
 
           {/* Quick Stats */}

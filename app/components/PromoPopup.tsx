@@ -46,7 +46,7 @@ export default function PromoPopup() {
     if (navigator.share) {
       navigator.share({
         title: 'Get 10% OFF - StreamVibe',
-        text: 'Get 10% OFF on premium IPTV service with code EXTRA10',
+        text: 'Get 10% OFF on premium streaming service with code EXTRA10',
         url: window.location.href,
       });
     }
@@ -57,7 +57,7 @@ export default function PromoPopup() {
   return (
     <>
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
         onClick={() => setIsOpen(false)}
       />

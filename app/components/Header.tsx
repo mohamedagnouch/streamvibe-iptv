@@ -33,8 +33,8 @@ export default function Header() {
         : 'bg-[#0a0e1a] lg:bg-[#0a0e1a]/80 lg:backdrop-blur-lg border-b border-white/5 shadow-md lg:shadow-none'
         }`}
     >
-      <div className="container mx-auto px-3 lg:px-6">
-        <div className="flex items-center justify-between h-11 lg:h-12">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="flex items-center justify-between h-10 lg:h-12">
           {/* Logo */}
           <Link
             href="/"
@@ -75,7 +75,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             {/* Contact Button */}
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
+              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-1.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
@@ -101,7 +101,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 text-white hover:text-orange-400 transition-colors"
+            className="lg:hidden relative z-50 p-1.5 text-white hover:text-orange-400 transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -119,7 +119,7 @@ export default function Header() {
           ? 'opacity-100 pointer-events-auto'
           : 'opacity-0 pointer-events-none'
           }`}
-        style={{ top: '56px' }}
+        style={{ top: '40px' }}
       >
         <div className="container mx-auto px-6 py-8">
           <nav className="flex flex-col gap-2 mb-8">
@@ -154,7 +154,7 @@ export default function Header() {
           {/* Mobile CTA Buttons */}
           <div className="flex flex-col gap-3">
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20IPTVIBE.%20Can%20you%20assist%20me%3F"
+              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}

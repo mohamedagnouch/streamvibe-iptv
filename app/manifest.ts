@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'IPTVIBE - Premium IPTV Service',
-    short_name: 'IPTVIBE',
-    description: 'Experience premium IPTV streaming with 37,591+ live channels and 96,000+ VOD titles from 115+ countries.',
+    name: 'StreamVibe - Premium Streaming Hub',
+    short_name: 'StreamVibe',
+    description: 'Experience premium streaming with thousands of official live channels and 96,000+ VOD titles from around the world.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0e1a',

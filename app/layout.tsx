@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IPTVIBE - Premium IPTV Service | 37,591+ Channels Worldwide",
-  description: "Experience premium IPTV streaming with 37,591+ live channels and 96,000+ VOD titles from 115+ countries. Movies, sports, entertainment in stunning 4K quality. Get 30% off today!",
-  keywords: ["IPTV", "streaming", "live TV", "movies", "sports", "entertainment", "4K", "premium IPTV", "worldwide channels"],
-  authors: [{ name: "IPTVIBE" }],
-  creator: "IPTVIBE",
-  publisher: "IPTVIBE",
-  metadataBase: new URL('https://iptvibe.com'),
+  title: "StreamVibe - Premium Global Streaming Hub | 100% Legal & Secured",
+  description: "Experience premium legal streaming with official live channels and 96,000+ VOD titles. Official movies, sports, and entertainment in stunning 4K quality. Join the legal revolution today!",
+  keywords: ["streaming hub", "official streaming", "live TV hub", "legal movies", "sports hub", "entertainment", "4K streaming", "premium hub", "global channels"],
+  authors: [{ name: "StreamVibe" }],
+  creator: "StreamVibe",
+  publisher: "StreamVibe",
+  metadataBase: new URL('https://streamvibe.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "IPTVIBE - Premium IPTV Service",
-    description: "Experience premium IPTV streaming with 37,591+ live channels and 96,000+ VOD titles from 115+ countries.",
-    url: 'https://iptvibe.com',
-    siteName: 'IPTVIBE',
+    title: "StreamVibe - Premium Global Streaming Hub",
+    description: "Experience premium legal streaming with official live channels and 96,000+ VOD titles worldwide.",
+    url: 'https://streamvibe.com',
+    siteName: 'StreamVibe',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'IPTVIBE - Premium IPTV Service',
+        alt: 'StreamVibe - Premium Global Streaming Hub',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTVIBE - Premium IPTV Service',
-    description: 'Experience premium IPTV streaming with 37,591+ live channels worldwide.',
+    title: 'StreamVibe - Premium Global Streaming Hub',
+    description: 'Experience premium legal streaming with official channels worldwide.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -75,10 +75,10 @@ export default function RootLayout({
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What devices can I use to watch IPTVIBE?",
+        "name": "What devices can I use to watch StreamVibe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "IPTVIBE works on a wide range of devices including Smart TVs (Samsung, LG, Android TV), streaming devices (Fire Stick, Roku, Apple TV), mobile devices (iOS and Android), computers (Windows, Mac, Linux), and gaming consoles (Xbox, PlayStation). You can use our service on any device that supports IPTV players like VLC, IPTV Smarters, or TiviMate."
+          "text": "StreamVibe works on a wide range of devices including Smart TVs (Samsung, LG, Android TV), streaming devices (Fire Stick, Roku, Apple TV), mobile devices (iOS and Android), computers (Windows, Mac, Linux), and gaming consoles (Xbox, PlayStation). You can use our platform through official streaming applications and authorized media players."
         }
       },
       {
@@ -102,7 +102,7 @@ export default function RootLayout({
         "name": "What kind of content is included?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our service includes 37,591+ live TV channels from around the world, 96,000+ movies and TV shows on demand, premium sports channels, and content from Netflix, Apple TV+, Disney+, and more. All content is available in HD, Full HD, and 4K quality."
+          "text": "Our platform includes access to thousands of official live TV channels from around the world, 96,000+ movies and TV shows on demand, premium sports categories, and curated entertainment content. All content is delivered via legal streaming protocols in HD, Full HD, and 4K quality."
         }
       },
       {
@@ -119,16 +119,16 @@ export default function RootLayout({
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "IPTVIBE Premium IPTV Subscription",
-    "image": "https://iptvibe.com/opengraph-image",
-    "description": "Premium IPTV streaming service with 37,591+ live channels and 96,000+ VOD titles in 4K quality.",
+    "name": "StreamVibe Premium Streaming Subscription",
+    "image": "https://streamvibe.com/opengraph-image",
+    "description": "Premium legal streaming service with thousands of live channels and 96,000+ VOD titles in 4K quality.",
     "brand": {
       "@type": "Brand",
-      "name": "IPTVIBE"
+      "name": "StreamVibe"
     },
     "offers": {
       "@type": "AggregateOffer",
-      "url": "https://iptvibe.com#pricing",
+      "url": "https://streamvibe.com#pricing",
       "priceCurrency": "USD",
       "lowPrice": "17.99",
       "highPrice": "69.99",
@@ -168,7 +168,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

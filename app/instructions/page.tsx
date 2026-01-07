@@ -14,26 +14,26 @@ const deviceTypes = [
     description: 'Samsung, LG, Sony, Android TV',
     color: 'from-blue-500 to-indigo-600',
     apps: [
-      { name: 'IPTV Smarters Pro', recommended: true },
-      { name: 'TiviMate', recommended: true },
-      { name: 'Smart IPTV', recommended: false },
+      { name: 'Authorized Media Player', recommended: true },
+      { name: 'Official Streaming App', recommended: true },
+      { name: 'Universal Player', recommended: false },
     ],
     steps: [
       {
         icon: Download,
-        title: 'Install IPTV Application',
+        title: 'Install Authorized Application',
         description: 'Navigate to your Smart TV\'s app store (Google Play Store, LG Content Store, or Samsung Apps).',
         details: [
-          'Search for "IPTV Smarters Pro" or "TiviMate"',
-          'Select the official app from the results',
+          'Search for authorized playback software',
+          'Select the official application from the results',
           'Click Install and wait for download to complete',
-          'App will appear in your apps menu once installed',
+          'Application will appear in your home menu once installed',
         ],
       },
       {
         icon: PlayCircle,
         title: 'Launch Application',
-        description: 'Open the IPTV app from your Smart TV\'s application menu.',
+        description: 'Open the official streaming application from your Smart TV\'s menu.',
         details: [
           'Locate the app icon in your apps section',
           'Click to launch the application',
@@ -43,7 +43,7 @@ const deviceTypes = [
       {
         icon: Settings,
         title: 'Configure Connection',
-        description: 'Set up your IPTV service using Xtream Codes API.',
+        description: 'Set up your streaming connection using our secure hub API.',
         details: [
           'Select "Add New User" or "Login with Xtream Codes"',
           'Choose "Xtream Codes API" as login method',
@@ -64,7 +64,7 @@ const deviceTypes = [
       {
         icon: PlayCircle,
         title: 'Start Streaming',
-        description: 'Browse and enjoy 37,591+ channels and 96,000+ VOD titles.',
+        description: 'Browse and enjoy thousands of official live channels and 96,000+ VOD titles.',
         details: [
           'Navigate through Live TV, Movies, and Series sections',
           'Use search to find specific content',
@@ -81,26 +81,26 @@ const deviceTypes = [
     description: 'Phones, Tablets & Android TV',
     color: 'from-green-500 to-emerald-600',
     apps: [
-      { name: 'IPTV Smarters Pro', recommended: true },
-      { name: 'TiviMate', recommended: true },
-      { name: 'GSE Smart IPTV', recommended: false },
+      { name: 'Authorized Media Player', recommended: true },
+      { name: 'Official Streaming App', recommended: true },
+      { name: 'Universal Player', recommended: false },
     ],
     steps: [
       {
         icon: Download,
         title: 'Download from Play Store',
-        description: 'Get the official IPTV application from Google Play Store.',
+        description: 'Get the official streaming application from Google Play Store.',
         details: [
           'Open Google Play Store on your device',
-          'Search for "IPTV Smarters Pro"',
-          'Tap on the official app (check developer name)',
+          'Search for our official application',
+          'Tap on the authorized playback software',
           'Click Install and accept permissions',
         ],
       },
       {
         icon: PlayCircle,
         title: 'Open Application',
-        description: 'Launch the IPTV app from your device.',
+        description: 'Launch the official playback application from your device.',
         details: [
           'Find the app icon on your home screen or app drawer',
           'Tap to open the application',
@@ -148,15 +148,15 @@ const deviceTypes = [
     description: 'iPhone, iPad & Apple TV',
     color: 'from-purple-500 to-pink-600',
     apps: [
-      { name: 'IPTV Smarters Pro', recommended: true },
-      { name: 'GSE Smart IPTV', recommended: true },
-      { name: 'iPlayTV', recommended: false },
+      { name: 'Authorized Media Player', recommended: true },
+      { name: 'Official Streaming App', recommended: true },
+      { name: 'Secondary Web Player', recommended: false },
     ],
     steps: [
       {
         icon: Download,
         title: 'Download from App Store',
-        description: 'Install the IPTV application from Apple App Store.',
+        description: 'Install the official playback application from Apple App Store.',
         details: [
           'Open the App Store on your iOS device',
           'Search for "IPTV Smarters Pro"',
@@ -167,7 +167,7 @@ const deviceTypes = [
       {
         icon: PlayCircle,
         title: 'Launch App',
-        description: 'Open the IPTV application on your device.',
+        description: 'Open the official streaming application on your device.',
         details: [
           'Locate the app icon on your home screen',
           'Tap to open',
@@ -216,8 +216,8 @@ const deviceTypes = [
     color: 'from-orange-500 to-red-600',
     apps: [
       { name: 'VLC Media Player', recommended: true },
-      { name: 'IPTV Smarters Pro', recommended: true },
-      { name: 'Kodi', recommended: false },
+      { name: 'Authorized Hub Player', recommended: true },
+      { name: 'Standard Web Interface', recommended: false },
     ],
     steps: [
       {
@@ -254,10 +254,10 @@ const deviceTypes = [
       },
       {
         icon: CheckCircle2,
-        title: 'Add M3U Playlist',
-        description: 'Enter your StreamVibe playlist URL.',
+        title: 'Add Secure Connection',
+        description: 'Enter your StreamVibe official access URL.',
         details: [
-          'Copy M3U URL from your welcome email',
+          'Copy Access URL from your welcome email',
           'Paste into the network URL field',
           'Click "Play" to load the playlist',
           'Playlist will appear in the sidebar',
@@ -291,7 +291,7 @@ export default function InstructionsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -310,7 +310,7 @@ export default function InstructionsPage() {
 
             {/* Description */}
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
-              Complete step-by-step guides for all devices. Get streaming in under 5 minutes.
+              Complete step-by-step guides for all devices. Get official access in under 5 minutes.
             </p>
           </div>
 
@@ -341,16 +341,15 @@ export default function InstructionsPage() {
             {deviceTypes.map((device) => {
               const Icon = device.icon;
               const isSelected = selectedDevice.id === device.id;
-              
+
               return (
                 <button
                   key={device.id}
                   onClick={() => setSelectedDevice(device)}
-                  className={`group relative px-6 py-4 rounded-2xl transition-all duration-300 ${
-                    isSelected
-                      ? 'bg-gradient-to-r ' + device.color + ' shadow-2xl scale-105'
-                      : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20'
-                  }`}
+                  className={`group relative px-6 py-4 rounded-2xl transition-all duration-300 ${isSelected
+                    ? 'bg-gradient-to-r ' + device.color + ' shadow-2xl scale-105'
+                    : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20'
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-gray-400 group-hover:text-white'}`} />
@@ -378,11 +377,10 @@ export default function InstructionsPage() {
               {selectedDevice.apps.map((app, index) => (
                 <div
                   key={index}
-                  className={`p-4 rounded-xl border ${
-                    app.recommended
-                      ? 'bg-gradient-to-br from-orange-500/10 to-pink-500/10 border-orange-500/30'
-                      : 'bg-white/5 border-white/10'
-                  }`}
+                  className={`p-4 rounded-xl border ${app.recommended
+                    ? 'bg-gradient-to-br from-orange-500/10 to-pink-500/10 border-orange-500/30'
+                    : 'bg-white/5 border-white/10'
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className={`font-semibold ${app.recommended ? 'text-white' : 'text-gray-400'}`}>
@@ -414,7 +412,7 @@ export default function InstructionsPage() {
                       <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${selectedDevice.color} flex items-center justify-center shadow-lg`}>
                         <StepIcon className="w-6 h-6 text-white" />
                       </div>
-                      
+
                       {/* Step Content */}
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
@@ -425,7 +423,7 @@ export default function InstructionsPage() {
                         <p className="text-gray-400 mb-4">
                           {step.description}
                         </p>
-                        
+
                         {/* Details List */}
                         <ul className="space-y-2">
                           {step.details.map((detail, detailIndex) => (
@@ -510,7 +508,7 @@ export default function InstructionsPage() {
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                 </svg>
                 Contact Support
               </a>

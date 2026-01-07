@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 // Image metadata
-export const alt = 'IPTVIBE - Premium IPTV Service';
+export const alt = 'StreamVibe - Premium Streaming Hub';
 export const size = {
   width: 1200,
   height: 630,
@@ -36,7 +36,7 @@ export default async function Image() {
             marginBottom: '20px',
           }}
         >
-          IPTVIBE
+          STREAMVIBE
         </div>
         <div
           style={{
@@ -46,7 +46,7 @@ export default async function Image() {
             maxWidth: '900px',
           }}
         >
-          Premium IPTV Service - 37,591+ Channels Worldwide
+          Premium Streaming Hub - Official Content Worldwide
         </div>
       </div>
     ),

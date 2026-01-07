@@ -7,8 +7,8 @@ const faqs = [
   {
     id: 1,
     icon: Smartphone,
-    question: 'What devices can I use to watch SONI IPTV?',
-    answer: 'SONI IPTV works on a wide range of devices including Smart TVs (Samsung, LG, Android TV), streaming devices (Fire Stick, Roku, Apple TV), mobile devices (iOS and Android), computers (Windows, Mac, Linux), and gaming consoles (Xbox, PlayStation). You can use our service on any device that supports IPTV players like VLC, IPTV Smarters, or TiviMate.',
+    question: 'What devices can I use to watch StreamVibe?',
+    answer: 'StreamVibe works on a wide range of devices including Smart TVs (Samsung, LG, Android TV), streaming devices (Fire Stick, Roku, Apple TV), mobile devices (iOS and Android), computers (Windows, Mac, Linux), and gaming consoles (Xbox, PlayStation). You can use our platform through official streaming applications and authorized media players.',
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const faqs = [
     id: 4,
     icon: Tv,
     question: 'What kind of content is included?',
-    answer: 'Our service includes 19,000+ live TV channels from around the world (USA, UK, Canada, Latin America, Europe, Asia), 80,000+ movies and TV shows on demand, premium sports channels (NFL, NBA, UFC, Soccer), international channels in multiple languages, and premium content from Netflix, Apple TV+, Disney+, and more. All content is available in HD, Full HD, and 4K quality.',
+    answer: 'Our service includes thousands of official live TV channels from around the world, 96,000+ movies and TV shows on demand, premium sports categories (NFL, NBA, UFC, Soccer), international programming in multiple languages, and curated content from official partners. All content is available in HD, Full HD, and 4K quality.',
   },
   {
     id: 5,

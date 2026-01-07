@@ -53,7 +53,7 @@ export default function Stats() {
             Trusted by <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Thousands</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Join the world's fastest-growing IPTV service with unmatched quality and reliability
+            Join the world's fastest-growing streaming platform with unmatched quality and reliability
           </p>
         </div>
 

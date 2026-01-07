@@ -64,7 +64,7 @@ export default function TermsPage() {
                 <div>
                   <h3 className="text-lg font-bold text-blue-900 mb-2">Important Notice</h3>
                   <p className="text-blue-800 text-sm leading-relaxed">
-                    By accessing and using StreamVibe IPTV services, you agree to be bound by these Terms of Service. Please read them carefully before using our service.
+                    By accessing and using StreamVibe streaming services, you agree to be bound by these Terms of Service. Please read them carefully before using our platform.
                   </p>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function TermsPage() {
                 </h2>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                By subscribing to, accessing, or using StreamVibe IPTV services ("Service"), you agree to comply with and be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use our Service.
+                By subscribing to, accessing, or using StreamVibe streaming hub ("Service"), you agree to comply with and be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use our platform.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of the Service after changes are posted constitutes acceptance of the modified Terms.
@@ -99,10 +99,10 @@ export default function TermsPage() {
                 </h2>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                StreamVibe provides IPTV streaming services that allow subscribers to access live television channels, video-on-demand content, and other multimedia content ("Content") over the internet.
+                StreamVibe provides premium streaming services that allow subscribers to access official live television channels, authorized video-on-demand content, and other multimedia content ("Content") over the internet.
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Access to 37,591+ live TV channels from 115+ countries</li>
+                <li>Access to thousands of official live TV channels from around the world</li>
                 <li>96,000+ movies and TV series on demand</li>
                 <li>HD and 4K quality streaming where available</li>
                 <li>Electronic Program Guide (EPG)</li>

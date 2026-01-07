@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/5 via-red-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto max-w-5xl text-center relative z-10">
+      <div className="container mx-auto px-6 pt-16 lg:pt-24 pb-12 relative z-10">
         {/* Premium Badge */}
         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 backdrop-blur-xl border border-orange-500/20 rounded-full px-3 py-1 mb-4 shadow-lg shadow-orange-500/10">
           <div className="relative flex items-center justify-center">
@@ -27,21 +27,21 @@ export default function Hero() {
             <div className="relative w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
           </div>
           <span className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent text-[10px] sm:text-sm font-semibold tracking-wide">
-            #1 Premium IPTV Service Worldwide
+            #1 Premium Streaming Platform Worldwide
           </span>
         </div>
 
         {/* Main Heading with Enhanced Typography */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight">
-          <span className="block mb-2">Stream Without Limits</span>
+          <span className="block mb-2">Elevate Your Entertainment</span>
           <span className="block bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 bg-clip-text text-transparent drop-shadow-2xl">
-            19,000+ Live Channels
+            Stream Official Content
           </span>
         </h1>
 
         {/* Elegant Subheading */}
         <p className="text-gray-400 text-sm sm:text-base md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-          Experience premium entertainment with <span className="text-white font-medium">80,000+ VOD</span>, live sports, movies, and series in stunning <span className="text-white font-medium">4K quality</span>
+          Access a curated library of <span className="text-white font-medium">96,000+ Movies & Series</span>, live global sports, and official channels in stunning <span className="text-white font-medium">4K quality</span>
         </p>
 
         {/* Modern CTA Buttons */}

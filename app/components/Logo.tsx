@@ -6,13 +6,13 @@ interface LogoProps {
 
 export default function Logo({ variant = 'light', size = 'md', showText = true }: LogoProps) {
   const sizeClasses = {
-    sm: 'w-8 h-8',
+    sm: 'w-7 h-7 md:w-8 md:h-8',
     md: 'w-10 h-10',
     lg: 'w-12 h-12'
   };
 
   const textSizeClasses = {
-    sm: 'text-xl',
+    sm: 'text-lg md:text-xl',
     md: 'text-2xl',
     lg: 'text-3xl'
   };
@@ -20,7 +20,7 @@ export default function Logo({ variant = 'light', size = 'md', showText = true }
   const textColor = variant === 'light' ? 'text-white' : 'text-gray-900';
 
   return (
-    <div className="flex items-center gap-2 md:gap-3">
+    <div className="flex items-center gap-2 md:gap-3" suppressHydrationWarning>
       {/* Professional TV Logo Icon */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded-2xl blur-sm opacity-75"></div>
@@ -43,10 +43,10 @@ export default function Logo({ variant = 'light', size = 'md', showText = true }
       {showText && (
         <div className="flex flex-col">
           <span className={`${textSizeClasses[size]} font-bold ${textColor} tracking-tight leading-none`}>
-            IPTVIBE
+            STREAMVIBE
           </span>
-          <span className="text-[7px] md:text-[9px] text-orange-500 font-bold tracking-[0.15em] uppercase mt-0.5">
-            Premium IPTV Service
+          <span className="text-[6px] md:text-[9px] text-orange-500 font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase mt-0 md:mt-0.5 opacity-90">
+            Premium Streaming Hub
           </span>
         </div>
       )}

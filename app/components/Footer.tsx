@@ -17,7 +17,7 @@ export default function Footer() {
               <Logo variant="light" size="md" showText={true} />
             </Link>
             <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-              Premium IPTV streaming service with <span className="text-orange-500 font-semibold">37,591+</span> live channels and <span className="text-orange-500 font-semibold">96,000+</span> VOD titles from <span className="text-orange-500 font-semibold">115+</span> countries.
+              Premium global streaming hub with <span className="text-orange-500 font-semibold">official</span> live channels and <span className="text-orange-500 font-semibold">96,000+</span> VOD titles.
             </p>
 
             {/* Social Media */}
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20IPTV.%20Can%20you%20assist%20me%3F"
+                  href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group"
