@@ -282,7 +282,7 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://wa.me/212618467167?text=Hello%2C%20I%20have%20a%20question%20about%20StreamVibe"
+                  href="https://wa.me/15626380287?text=Hello%2C%20I%20have%20a%20question%20about%20StreamVibe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all"

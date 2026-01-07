@@ -49,7 +49,7 @@ export default function Footer() {
                   <Twitter className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="https://wa.me/212618467167"
+                  href="https://wa.me/15626380287"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-transparent"
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
+                  href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group"
@@ -119,7 +119,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://wa.me/212618467167" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
+                <a href="https://wa.me/15626380287" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   Live Chat
                 </a>

@@ -75,7 +75,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             {/* Contact Button */}
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
+              href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-1.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
@@ -154,7 +154,7 @@ export default function Header() {
           {/* Mobile CTA Buttons */}
           <div className="flex flex-col gap-3">
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
+              href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -181,10 +181,10 @@ export default function Header() {
             <div className="text-center">
               <p className="text-gray-400 text-sm mb-2">Available 24/7</p>
               <a
-                href="tel:+212618467167"
+                href="tel:+15626380287"
                 className="text-orange-400 font-semibold text-lg hover:text-orange-300 transition-colors"
               >
-                +212 618 467 167
+                +1 (562) 638-0287
               </a>
             </div>
           </div>

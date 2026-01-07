@@ -29,7 +29,7 @@ export default function Page() {
 
       {/* Floating WhatsApp Button - Enhanced */}
       <a
-        href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
+        href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 group"

@@ -257,7 +257,7 @@ export default function Pricing() {
 
                 {/* Order Button */}
                 <a
-                  href={`https://wa.me/212618467167?text=Hello%2C%20I%27d%20like%20to%20order%20the%20${encodeURIComponent(plan.name)}%20plan%20for%20${selectedDevices}%20device${selectedDevices > 1 ? 's' : ''}.%20Price%3A%20%24${plan.prices[selectedDevices as keyof typeof plan.prices].toFixed(2)}`}
+                  href={`https://wa.me/15626380287?text=Hello%2C%20I%27d%20like%20to%20order%20the%20${encodeURIComponent(plan.name)}%20plan%20for%20${selectedDevices}%20device${selectedDevices > 1 ? 's' : ''}.%20Price%3A%20%24${plan.prices[selectedDevices as keyof typeof plan.prices].toFixed(2)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all mb-6 text-center block"

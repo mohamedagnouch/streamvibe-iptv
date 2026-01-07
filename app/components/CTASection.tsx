@@ -42,7 +42,7 @@ export default function CTASection() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%20want%20to%20learn%20more%20about%20StreamVibe"
+              href="https://wa.me/15626380287?text=Hello%2C%20I%20want%20to%20learn%20more%20about%20StreamVibe"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all hover:scale-105"

@@ -218,7 +218,7 @@ export default function ResellerPage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
-                href="https://wa.me/212618467167?text=Hello%2C%20I%27m%20interested%20in%20becoming%20a%20StreamVibe%20reseller"
+                href="https://wa.me/15626380287?text=Hello%2C%20I%27m%20interested%20in%20becoming%20a%20StreamVibe%20reseller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
@@ -389,8 +389,8 @@ export default function ResellerPage() {
               <div
                 key={index}
                 className={`relative rounded-3xl overflow-hidden transition-all ${tier.popular
-                    ? 'bg-gradient-to-b from-orange-500/10 to-transparent border-2 border-orange-500 shadow-2xl scale-105'
-                    : 'bg-white/5 backdrop-blur-sm border border-white/10'
+                  ? 'bg-gradient-to-b from-orange-500/10 to-transparent border-2 border-orange-500 shadow-2xl scale-105'
+                  : 'bg-white/5 backdrop-blur-sm border border-white/10'
                   }`}
               >
                 {tier.popular && (
@@ -423,12 +423,12 @@ export default function ResellerPage() {
                   </div>
 
                   <a
-                    href={`https://wa.me/212618467167?text=Hello%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20reseller%20package`}
+                    href={`https://wa.me/15626380287?text=Hello%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20reseller%20package`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-4 rounded-xl font-bold mb-6 transition-all text-center block ${tier.popular
-                        ? 'bg-gradient-to-r from-orange-500 to-pink-600 text-white hover:shadow-2xl hover:scale-105'
-                        : 'bg-white/10 text-white hover:bg-white/20'
+                      ? 'bg-gradient-to-r from-orange-500 to-pink-600 text-white hover:shadow-2xl hover:scale-105'
+                      : 'bg-white/10 text-white hover:bg-white/20'
                       }`}
                   >
                     Get Started
@@ -452,7 +452,7 @@ export default function ResellerPage() {
             <h3 className="text-xl font-bold text-white mb-2">Need a Custom Solution?</h3>
             <p className="text-gray-400 mb-4">Contact us for enterprise pricing and custom packages</p>
             <a
-              href="https://wa.me/212618467167?text=Hello%2C%20I%27m%20interested%20in%20enterprise%20pricing"
+              href="https://wa.me/15626380287?text=Hello%2C%20I%27m%20interested%20in%20enterprise%20pricing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-orange-400 font-semibold hover:text-orange-300 transition-colors"
@@ -524,7 +524,7 @@ export default function ResellerPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://wa.me/212618467167?text=Hello%2C%20I%27m%20ready%20to%20become%20a%20StreamVibe%20reseller"
+                href="https://wa.me/15626380287?text=Hello%2C%20I%27m%20ready%20to%20become%20a%20StreamVibe%20reseller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"

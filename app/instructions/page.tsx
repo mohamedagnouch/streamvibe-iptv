@@ -502,7 +502,7 @@ export default function InstructionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://wa.me/212618467167?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20setup"
+                href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe%20setup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
