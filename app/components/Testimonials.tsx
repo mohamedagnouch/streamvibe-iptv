@@ -11,7 +11,7 @@ const testimonials = [
     location: 'New York, USA',
     avatar: 'https://i.pravatar.cc/150?img=1',
     rating: 5,
-    comment: 'Amazing service! Crystal clear quality and tons of channels. Best streaming service I\'ve ever used.',
+    comment: "Amazing service! Crystal clear quality and tons of channels. Best streaming service I've ever used.",
     verified: true,
   },
   {
@@ -63,43 +63,46 @@ const testimonials = [
 
 export default function Testimonials() {
   const settings = {
-    dots: false,
-    infinite: true,
-    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
-    speed: 5000,
     cssEase: 'linear',
     pauseOnHover: true,
-    shadow: false,
     arrows: false,
+    dots: false,
+    infinite: true,
+    speed: 5000,
+    centerMode: true,
+    centerPadding: '20px',
     mobileFirst: true,
     responsive: [
       {
-        breakpoint: 640,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
+          centerMode: false,
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
+          centerMode: false,
         },
       },
       {
-        breakpoint: 1280,
+        breakpoint: 1440,
         settings: {
           slidesToShow: 4,
+          centerMode: false,
         },
       },
     ],
   };
 
   return (
-    <section className="py-12 px-6 bg-white">
+    <section className="py-12 px-6 bg-white overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-10">
@@ -111,8 +114,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-
-        {/* Testimonials Carousel */}
+        {/* Testimonials Carousel Section */}
         <div className="mb-0">
           <div className="text-center mb-6">
             <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 mb-4">
@@ -125,11 +127,11 @@ export default function Testimonials() {
             <p className="text-gray-600 text-lg">Now it's your turn to join them</p>
           </div>
 
-          <Slider {...settings} className="testimonials-slider h-full">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="px-1.5 h-full">
-                <div className="flex justify-center h-full">
-                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg p-6 border border-gray-200 h-full hover:shadow-2xl hover:border-orange-300 transition-all max-w-md w-full flex flex-col">
+          <div className="testimonials-container">
+            <Slider {...settings}>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="px-1.5 outline-none h-full">
+                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg p-6 border border-gray-200 min-h-[220px] h-full hover:shadow-2xl hover:border-orange-300 transition-all flex flex-col">
                     {/* Header */}
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative shrink-0">
@@ -145,9 +147,7 @@ export default function Testimonials() {
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <h4 className="font-bold text-gray-900 truncate text-sm md:text-base">{testimonial.name}</h4>
-                        </div>
+                        <h4 className="font-bold text-gray-900 truncate text-sm md:text-base">{testimonial.name}</h4>
                         <p className="text-xs text-gray-500 truncate">{testimonial.location}</p>
                       </div>
                     </div>
@@ -167,30 +167,35 @@ export default function Testimonials() {
                     </div>
 
                     {/* Comment */}
-                    <p className="text-gray-700 leading-relaxed flex-grow">{testimonial.comment}</p>
+                    <p className="text-gray-700 text-sm md:text-base leading-relaxed flex-grow">
+                      {testimonial.comment}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        .testimonials-slider :global(.slick-track) {
+        .testimonials-container :global(.slick-track) {
           display: flex !important;
+          gap: 0;
         }
-        .testimonials-slider :global(.slick-slide) {
+        .testimonials-container :global(.slick-slide) {
           height: inherit !important;
           display: flex !important;
           justify-content: center;
         }
-        .testimonials-slider :global(.slick-slide > div) {
+        .testimonials-container :global(.slick-slide > div) {
           height: 100%;
           width: 100%;
+          display: flex;
+          justify-content: center;
         }
-        .testimonials-slider .slick-slide {
-          transition: all 0.3s ease;
+        .testimonials-container :global(.slick-list) {
+          overflow: visible;
         }
       `}</style>
     </section>
