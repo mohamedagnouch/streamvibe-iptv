@@ -66,31 +66,33 @@ export default function Testimonials() {
     dots: false,
     infinite: true,
     speed: 5000,
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
+    speed: 5000,
     cssEase: 'linear',
     pauseOnHover: true,
     shadow: false,
     arrows: false,
+    mobileFirst: true,
     responsive: [
       {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1024,
+        breakpoint: 640,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 640,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
         },
       },
     ],
