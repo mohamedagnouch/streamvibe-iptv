@@ -287,9 +287,9 @@ export default function PrivacyPage() {
                 If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                <p className="text-gray-700 mb-2"><strong>Privacy Team:</strong> privacy@streamvibe.com</p>
-                <p className="text-gray-700 mb-2"><strong>General Support:</strong> support@streamvibe.com</p>
-                <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +212 618 467 167</p>
+                <p className="text-gray-700 mb-2"><strong>Privacy Team:</strong> infos@streamvibe.shop</p>
+                <p className="text-gray-700 mb-2"><strong>General Support:</strong> infos@streamvibe.shop</p>
+                <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +1 (526) 638-0287</p>
                 <p className="text-gray-700"><strong>Response Time:</strong> Within 48 hours</p>
               </div>
             </div>

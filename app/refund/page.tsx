@@ -354,8 +354,8 @@ export default function RefundPage() {
                 For refund requests or questions about this policy, contact us:
               </p>
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                <p className="text-gray-700 mb-2"><strong>Email:</strong> support@streamvibe.com</p>
-                <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +212 618 467 167</p>
+                <p className="text-gray-700 mb-2"><strong>Email:</strong> infos@streamvibe.shop</p>
+                <p className="text-gray-700 mb-2"><strong>WhatsApp:</strong> +1 (526) 638-0287</p>
                 <p className="text-gray-700 mb-2"><strong>Subject Line:</strong> "Refund Request - [Your Email]"</p>
                 <p className="text-gray-700"><strong>Response Time:</strong> Within 24 hours</p>
               </div>

@@ -131,32 +131,32 @@ export default function RootLayout({
       "@type": "AggregateOffer",
       "url": "https://streamvibe.com#pricing",
       "priceCurrency": "USD",
-      "lowPrice": "17.99",
-      "highPrice": "69.99",
+      "lowPrice": "20.99",
+      "highPrice": "72.99",
       "offerCount": "4",
       "offers": [
         {
           "@type": "Offer",
           "name": "1 Month Plan",
-          "price": "17.99",
+          "price": "20.99",
           "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
           "name": "3 Months Plan",
-          "price": "35.99",
+          "price": "38.99",
           "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
           "name": "6 Months Plan",
-          "price": "49.99",
+          "price": "52.99",
           "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
           "name": "12 Months Plan",
-          "price": "69.99",
+          "price": "72.99",
           "priceCurrency": "USD"
         }
       ]

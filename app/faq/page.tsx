@@ -291,7 +291,7 @@ export default function FAQPage() {
                   Live Chat Support
                 </a>
                 <a
-                  href="mailto:support@streamvibe.com"
+                  href="mailto:infos@streamvibe.shop"
                   className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold hover:bg-white/20 hover:scale-105 transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
