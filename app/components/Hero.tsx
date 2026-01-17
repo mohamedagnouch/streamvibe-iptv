@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { navigateToPricing } from '../utils/navigation';
 import ChannelCopyModal from './ChannelCopyModal';
-import { List } from 'lucide-react';
+import { List, Eye } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Hero() {
@@ -46,6 +46,16 @@ export default function Hero() {
 
         {/* Modern CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+          <a
+            href="https://wa.me/15626380287?text=Hello%2C%20I%27d%20like%20to%20start%20the%20%242%20Trial%20offer."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto group relative bg-[#0f172a] border border-orange-500/50 text-white px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:border-orange-500 animate-subtle-pulse"
+            aria-label="Start a 24-hour trial for 2 dollars"
+          >
+            <Eye className="w-5 h-5 text-orange-500 group-hover:animate-pulse" />
+            <span className="relative z-10">Start $2 Trial</span>
+          </a>
           <a
             href="/#pricing"
             onClick={navigateToPricing}

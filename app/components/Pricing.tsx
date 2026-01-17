@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Eye } from 'lucide-react';
 
 const pricingPlans = [
   {
@@ -205,6 +206,39 @@ export default function Pricing() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* $2 Trial Banner */}
+        <div className="max-w-3xl mx-auto mb-12">
+          <a
+            href="https://wa.me/15626380287?text=Hello%2C%20I%27d%20like%20to%20start%20the%20%242%20Trial%20offer."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex flex-col md:flex-row items-center justify-between gap-6 p-6 rounded-3xl bg-[#0f172a] border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] animate-subtle-pulse"
+            aria-label="Start your premium trial for just $2"
+          >
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                <Eye className="w-6 h-6 text-orange-500" />
+              </div>
+              <div className="text-left">
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
+                  Not ready to commit?
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Get full premium access for 24 hours. No hidden fees.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center md:items-end gap-2">
+              <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
+                Start Weekly Trial for $2
+              </div>
+              <span className="text-[10px] uppercase tracking-widest text-orange-500 font-bold">
+                Limited Time Offer
+              </span>
+            </div>
+          </a>
         </div>
 
         {/* Pricing Cards */}
