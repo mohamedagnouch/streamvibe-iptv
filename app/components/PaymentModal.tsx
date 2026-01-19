@@ -139,8 +139,8 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
                 type="button"
                 onClick={() => setSelectedMethod('card')}
                 className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'card'
-                    ? 'border-orange-500 bg-orange-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-orange-500 bg-orange-50'
+                  : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center gap-3">
@@ -160,8 +160,8 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
                 type="button"
                 onClick={() => setSelectedMethod('crypto')}
                 className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'crypto'
-                    ? 'border-orange-500 bg-orange-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-orange-500 bg-orange-50'
+                  : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center gap-3">
@@ -181,8 +181,8 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
                 type="button"
                 onClick={() => setSelectedMethod('cashapp')}
                 className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'cashapp'
-                    ? 'border-orange-500 bg-orange-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-orange-500 bg-orange-50'
+                  : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center gap-3">
@@ -202,8 +202,8 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
                 type="button"
                 onClick={() => setSelectedMethod('bank')}
                 className={`w-full p-4 rounded-xl border-2 transition-all text-left ${selectedMethod === 'bank'
-                    ? 'border-orange-500 bg-orange-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-orange-500 bg-orange-50'
+                  : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center gap-3">
