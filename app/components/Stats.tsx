@@ -50,10 +50,10 @@ export default function Stats() {
             <span className="text-orange-700 text-sm font-medium">Industry Leading</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Trusted by <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Thousands</span>
+            Trusted Platform
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Join the world's fastest-growing streaming platform with unmatched quality and reliability
+            Join thousands of satisfied users and enjoy high-quality streaming
           </p>
         </div>
 

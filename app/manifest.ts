@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'StreamVibe - Premium Streaming Hub',
+    name: 'StreamVibe - Streaming Platform',
     short_name: 'StreamVibe',
-    description: 'Experience premium streaming with thousands of official live channels and 96,000+ VOD titles from around the world.',
+    description: 'High-quality streaming of your favorite movies and shows.',
     start_url: '/',
     display: 'standalone',
     background_color: '#0a0e1a',

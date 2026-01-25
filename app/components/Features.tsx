@@ -66,10 +66,10 @@ export default function Features() {
             <span className="text-blue-700 text-sm font-medium">Premium Features</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">StreamVibe</span>
+            Our Features
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Experience the best streaming platform with cutting-edge features designed for your legal entertainment
+            Experience a reliable streaming platform with features designed for your entertainment
           </p>
         </div>
 

@@ -33,15 +33,12 @@ export default function Hero() {
 
         {/* Main Heading with Enhanced Typography */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight">
-          <span className="block mb-2">Elevate Your Entertainment</span>
-          <span className="block bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 bg-clip-text text-transparent drop-shadow-2xl">
-            Stream Official Content
-          </span>
+          Your Ultimate Streaming Destination
         </h1>
 
         {/* Elegant Subheadings */}
         <p className="text-gray-400 text-sm sm:text-base md:text-xl lg:text-2xl mb-8 max-w-3xl leading-relaxed font-light">
-          Access a curated library of <span className="text-white font-medium">96,000+ Movies & Series</span>, live global sports, and official channels in stunning <span className="text-white font-medium">4K quality</span>
+          Enjoy thousands of movies, series, and live channels in high quality.
         </p>
 
         {/* Modern CTA Buttons */}

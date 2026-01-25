@@ -171,11 +171,7 @@ export default function Pricing() {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Don't miss the
-            <br />
-            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-              Exclusive Streaming deals
-            </span>
+            Flexible Subscription Plans
           </h2>
           <div className="flex items-center justify-center gap-4 mt-6">
             <span className="bg-orange-500 text-white px-4 py-1 rounded text-sm font-semibold">
