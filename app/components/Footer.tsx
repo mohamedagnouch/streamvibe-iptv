@@ -102,12 +102,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/guide" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Streaming Guide
-                </Link>
-              </li>
-              <li>
                 <a
                   href="https://wa.me/15626380287?text=Hello%2C%20I%20need%20help%20with%20StreamVibe.%20Can%20you%20assist%20me%3F"
                   target="_blank"
