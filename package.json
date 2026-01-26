@@ -17,8 +17,8 @@
   "dependencies": {
     "@types/react-slick": "^0.23.13",
     "@vercel/analytics": "^1.6.1",
-    "lucide-react": "^0.552.0",
-    "next": "^16.1.1",
+    "lucide-react": "^0.563.0",
+    "next": "^16.1.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-slick": "^0.31.0",
