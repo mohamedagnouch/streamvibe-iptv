@@ -1,8 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import { Facebook, MessageCircle, Instagram, Twitter, Mail, Phone, MapPin, Shield, Award, Zap, CreditCard, Headphones, ShieldCheck } from 'lucide-react';
 import Logo from './Logo';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="relative bg-[#0a0e1a] border-t border-white/5">
       {/* Decorative top border */}
@@ -17,12 +22,12 @@ export default function Footer() {
               <Logo variant="light" size="md" showText={true} />
             </Link>
             <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-              Premium global streaming hub with <span className="text-orange-500 font-semibold">official</span> live channels and <span className="text-orange-500 font-semibold">96,000+</span> VOD titles.
+              {t('footer.description')}
             </p>
 
             {/* Social Media */}
             <div className="mb-4">
-              <p className="text-gray-500 text-xs mb-3 uppercase tracking-wider">Follow Us</p>
+              <p className="text-gray-500 text-xs mb-3 uppercase tracking-wider">{t('footer.followUs')}</p>
               <div className="flex items-center gap-3">
                 <a
                   href="https://facebook.com"
@@ -62,30 +67,30 @@ export default function Footer() {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Product</h3>
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">{t('footer.product')}</h3>
             <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <a href="/#pricing" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Pricing Plans
+                  {t('footer.pricingPlans')}
                 </a>
               </li>
               <li>
                 <Link href="/channels" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Channel List
+                  {t('footer.channelList')}
                 </Link>
               </li>
               <li>
                 <Link href="/instructions" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Setup Guide
+                  {t('footer.setupGuide')}
                 </Link>
               </li>
               <li>
                 <Link href="/reseller" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Become Reseller
+                  {t('footer.becomeReseller')}
                 </Link>
               </li>
             </ul>
@@ -93,12 +98,12 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Support</h3>
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">{t('footer.support')}</h3>
             <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <Link href="/faq" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  FAQ
+                  {t('footer.faq')}
                 </Link>
               </li>
               <li>
@@ -109,19 +114,19 @@ export default function Footer() {
                   className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Contact Us
+                  {t('footer.contactUs')}
                 </a>
               </li>
               <li>
                 <Link href="/tutorials" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Video Tutorials
+                  {t('footer.videoTutorials')}
                 </Link>
               </li>
               <li>
                 <a href="https://wa.me/15626380287" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Live Chat
+                  {t('footer.liveChat')}
                 </a>
               </li>
             </ul>
@@ -129,24 +134,24 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Legal</h3>
+            <h3 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">{t('footer.legal')}</h3>
             <ul className="space-y-2 md:space-y-2.5">
               <li>
                 <Link href="/terms" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Terms of Service
+                  {t('footer.termsOfService')}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Privacy Policy
+                  {t('footer.privacyPolicy')}
                 </Link>
               </li>
               <li>
                 <Link href="/refund" className="text-gray-400 hover:text-orange-500 transition-colors text-sm flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Refund Policy
+                  {t('footer.refundPolicy')}
                 </Link>
               </li>
             </ul>
@@ -158,24 +163,24 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-gray-400 text-sm">
-              © 2025 StreamVibe. All rights reserved.
+              {t('footer.copyright')}
             </p>
 
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <CreditCard className="w-4 h-4 text-orange-500" />
-                <span>Secure Payment</span>
+                <span>{t('footer.securePayment')}</span>
               </div>
               <span className="text-gray-600">•</span>
               <div className="flex items-center gap-2">
                 <Headphones className="w-4 h-4 text-orange-500" />
-                <span>24/7 Support</span>
+                <span>{t('footer.support247')}</span>
               </div>
               <span className="text-gray-600">•</span>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-orange-500" />
-                <span>30-Day Money Back</span>
+                <span>{t('footer.moneyBack')}</span>
               </div>
             </div>
           </div>

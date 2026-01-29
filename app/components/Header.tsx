@@ -5,10 +5,12 @@ import Link from 'next/link';
 import Logo from './Logo';
 import { navigateToPricing } from '../utils/navigation';
 import { Menu, X, ChevronDown, Phone, Sparkles } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +21,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/#pricing', label: 'Pricing', onClick: navigateToPricing },
-    { href: '/channels', label: 'Channels' },
-    { href: '/instructions', label: 'Setup Guide' },
-    { href: '/reseller', label: 'Reseller Program' },
+    { href: '/', label: t('header.home') },
+    { href: '/#pricing', label: t('header.pricing'), onClick: navigateToPricing },
+    { href: '/channels', label: t('header.channels') },
+    { href: '/instructions', label: t('header.setupGuide') },
+    { href: '/reseller', label: t('header.resellerProgram') },
   ];
 
   return (
@@ -81,7 +83,7 @@ export default function Header() {
               className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all px-4 py-1.5 rounded-xl hover:bg-white/5 border border-white/10 hover:border-white/20"
             >
               <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-              <span className="font-medium">Support</span>
+              <span className="font-medium">{t('header.support')}</span>
             </a>
 
             {/* Get Started Button */}
@@ -92,7 +94,7 @@ export default function Header() {
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />
-                Get Started
+                {t('header.getStarted')}
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
@@ -161,7 +163,7 @@ export default function Header() {
               className="flex items-center justify-center gap-2 text-white px-6 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all font-medium"
             >
               <Phone className="w-5 h-5" />
-              Contact Support
+              {t('header.contactSupport')}
             </a>
             <a
               href="/#pricing"
@@ -172,14 +174,14 @@ export default function Header() {
               className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white px-6 py-4 rounded-xl font-bold shadow-xl shadow-orange-500/30"
             >
               <Sparkles className="w-5 h-5" />
-              Get Started Now
+              {t('header.getStartedNow')}
             </a>
           </div>
 
           {/* Mobile Menu Footer */}
           <div className="mt-8 pt-8 border-t border-white/10">
             <div className="text-center">
-              <p className="text-gray-400 text-sm mb-2">Available 24/7</p>
+              <p className="text-gray-400 text-sm mb-2">{t('header.available247')}</p>
               <a
                 href="tel:+15626380287"
                 className="text-orange-400 font-semibold text-lg hover:text-orange-300 transition-colors"

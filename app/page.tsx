@@ -1,3 +1,5 @@
+'use client';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MovieCarousel from './components/MovieCarousel';
@@ -50,7 +52,7 @@ export default function Page() {
             </svg>
           </div>
 
-          {/* Tooltip */}
+          {/* Tooltip - Note: This is static, not translated dynamically since it's in a server component */}
           <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             <div className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap shadow-xl">
               Chat with us!

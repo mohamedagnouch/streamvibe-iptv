@@ -2,42 +2,44 @@
 
 import { useState } from 'react';
 import { Smartphone, BookOpen, Users, Tv, Zap } from 'lucide-react';
-
-const faqs = [
-  {
-    id: 1,
-    icon: Smartphone,
-    question: 'What devices can I use to watch StreamVibe?',
-    answer: 'StreamVibe works on a wide range of devices including Smart TVs (Samsung, LG, Android TV), streaming devices (Fire Stick, Roku, Apple TV), mobile devices (iOS and Android), computers (Windows, Mac, Linux), and gaming consoles (Xbox, PlayStation). You can use our platform through official streaming applications and authorized media players.',
-  },
-  {
-    id: 2,
-    icon: BookOpen,
-    question: 'Is there a setup guide for first-time users?',
-    answer: 'Yes! We provide comprehensive setup guides for all supported devices. After your purchase, you\'ll receive an email with step-by-step instructions, video tutorials, and our dedicated support team is available 24/7 to help you get started. Most users complete the setup in less than 5 minutes.',
-  },
-  {
-    id: 3,
-    icon: Users,
-    question: 'Can I use one account on multiple devices?',
-    answer: 'Absolutely! When you select your subscription plan, you can choose the number of devices (1-5 connections). This means you can watch on multiple devices simultaneously. For example, if you choose 3 devices, you can watch on your TV, phone, and tablet at the same time.',
-  },
-  {
-    id: 4,
-    icon: Tv,
-    question: 'What kind of content is included?',
-    answer: 'Our service includes thousands of official live TV channels from around the world, 96,000+ movies and TV shows on demand, premium sports categories (NFL, NBA, UFC, Soccer), international programming in multiple languages, and curated content from official partners. All content is available in HD, Full HD, and 4K quality.',
-  },
-  {
-    id: 5,
-    icon: Zap,
-    question: 'How fast is activation after payment?',
-    answer: 'Activation is instant! Once your payment is confirmed, you\'ll receive your login credentials via email within minutes. Our automated system ensures you can start watching immediately. In rare cases where manual verification is needed, activation takes no more than 30 minutes.',
-  },
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function FAQ() {
   const [openId, setOpenId] = useState<number | null>(1);
+  const { t } = useTranslation();
+
+  const faqs = [
+    {
+      id: 1,
+      icon: Smartphone,
+      question: t('faq.question1'),
+      answer: t('faq.answer1'),
+    },
+    {
+      id: 2,
+      icon: BookOpen,
+      question: t('faq.question2'),
+      answer: t('faq.answer2'),
+    },
+    {
+      id: 3,
+      icon: Users,
+      question: t('faq.question3'),
+      answer: t('faq.answer3'),
+    },
+    {
+      id: 4,
+      icon: Tv,
+      question: t('faq.question4'),
+      answer: t('faq.answer4'),
+    },
+    {
+      id: 5,
+      icon: Zap,
+      question: t('faq.question5'),
+      answer: t('faq.answer5'),
+    },
+  ];
 
   const toggleFAQ = (id: number) => {
     setOpenId(openId === id ? null : id);
@@ -48,7 +50,7 @@ export default function FAQ() {
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10">
-          Frequently Asked Questions
+          {t('faq.heading')}
         </h2>
 
         {/* FAQ Items */}

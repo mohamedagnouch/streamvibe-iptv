@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Script from "next/script";
+import ClientProviders from "./components/ClientProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Hreflang tags for SEO */}
+        <link rel="alternate" hrefLang="en" href="https://streamvibe.com" />
+        <link rel="alternate" hrefLang="de" href="https://streamvibe.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://streamvibe.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
@@ -44,10 +51,13 @@ export default function RootLayout({
           `}
         </Script>
 
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
         <ScrollToTop />
       </body>
     </html>
   );
 }
+
 

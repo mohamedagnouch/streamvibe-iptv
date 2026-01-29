@@ -2,168 +2,97 @@
 
 import { useState } from 'react';
 import { Eye } from 'lucide-react';
-
-const pricingPlans = [
-  {
-    id: 1,
-    name: '1 MONTH',
-    badge: null,
-    prices: {
-      1: 20.99,
-      2: 38.99,
-      3: 52.99,
-      4: 72.99,
-      5: 92.99,
-    },
-    originalPrices: {
-      1: null,
-      2: null,
-      3: null,
-      4: 99.99,
-      5: 119.99,
-    },
-    discount: {
-      1: null,
-      2: null,
-      3: null,
-      4: '30%',
-      5: '25%',
-    },
-    features: [
-      'Thousands of Official Channels',
-      '96,000+ Official VOD Titles',
-      'USA, MEX, LATINO, CA, FR, IT',
-      'Premium Streaming Access',
-      '99.9% Uptime',
-      'Categorized Series & Movies',
-      '4K / FHD / HD / SD',
-      '24/7 Global Access',
-      'Support All Devices',
-      'Advanced Stream Optimization',
-      'Instant Activation',
-    ],
-  },
-  {
-    id: 2,
-    name: '3 MONTHS',
-    badge: null,
-    prices: {
-      1: 38.99,
-      2: 74.98,
-      3: 102.97,
-      4: 142.96,
-      5: 182.95,
-    },
-    originalPrices: {
-      1: null,
-      2: null,
-      3: null,
-      4: 199.96,
-      5: 239.95,
-    },
-    discount: {
-      1: null,
-      2: null,
-      3: null,
-      4: '30%',
-      5: '25%',
-    },
-    features: [
-      'Thousands of Official Channels',
-      '96,000+ Official VOD Titles',
-      'USA, MEX, LATINO, CA, FR, IT',
-      'Premium Streaming Access',
-      '99.9% Uptime',
-      'Categorized Series & Movies',
-      '4K / FHD / HD / SD',
-      '24/7 Global Access',
-      'Support All Devices',
-      'Advanced Stream Optimization',
-      'Instant Activation',
-    ],
-  },
-  {
-    id: 3,
-    name: '6 MONTHS',
-    badge: null,
-    prices: {
-      1: 52.99,
-      2: 102.98,
-      3: 142.97,
-      4: 198.96,
-      5: 254.95,
-    },
-    originalPrices: {
-      1: 71.94,
-      2: 143.88,
-      3: 199.82,
-      4: 279.76,
-      5: 359.70,
-    },
-    discount: {
-      1: '30%',
-      2: '30%',
-      3: '30%',
-      4: '30%',
-      5: '30%',
-    },
-    features: [
-      'Thousands of Official Channels',
-      'All Top Official VOD',
-      'USA, MEX, LATINO, CA, FR, IT',
-      'Premium Streaming Access',
-      '99.9% Uptime',
-      'Categorized Series & Movies',
-      '4K / FHD / HD / SD',
-      '24/7 Global Access',
-      'Support All Devices',
-      'Advanced Stream Optimization',
-      'Instant Activation',
-    ],
-  },
-  {
-    id: 4,
-    name: '12 MONTHS',
-    badge: 'MOST POPULAR',
-    prices: {
-      1: 72.99,
-      2: 142.98,
-      3: 198.97,
-      4: 277.96,
-      5: 356.95,
-    },
-    originalPrices: {
-      1: 99.99,
-      2: 199.98,
-      3: 279.97,
-      4: 391.96,
-      5: 503.95,
-    },
-    discount: {
-      1: '30%',
-      2: '30%',
-      3: '30%',
-      4: '30%',
-      5: '30%',
-    },
-    features: [
-      'Thousands of Official Channels',
-      'All Top Official VOD',
-      'USA, MEX, LATINO, CA, FR, IT',
-      'Premium Streaming Access',
-      '99.9% Uptime',
-      '<strong>24/7 Premium Support</strong>',
-      '4K / FHD / HD / SD',
-      '24/7 Official Access',
-      'Support All Devices',
-      'Advanced Stream Optimization',
-      'Instant Activation',
-    ],
-  },
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Pricing() {
   const [selectedDevices, setSelectedDevices] = useState(1);
+  const { t } = useTranslation();
+
+  const pricingPlans = [
+    {
+      id: 1,
+      name: '1 MONTH',
+      badge: null,
+      prices: { 1: 20.99, 2: 38.99, 3: 52.99, 4: 72.99, 5: 92.99 },
+      originalPrices: { 1: null, 2: null, 3: null, 4: 99.99, 5: 119.99 },
+      discount: { 1: null, 2: null, 3: null, 4: '30%', 5: '25%' },
+      features: [
+        t('pricing.features.officialChannels'),
+        t('pricing.features.vodTitles'),
+        t('pricing.features.regions'),
+        t('pricing.features.premiumAccess'),
+        t('pricing.features.uptime'),
+        t('pricing.features.categorized'),
+        t('pricing.features.quality'),
+        t('pricing.features.globalAccess'),
+        t('pricing.features.allDevices'),
+        t('pricing.features.optimization'),
+        t('pricing.features.instantActivation'),
+      ],
+    }, {
+      id: 2,
+      name: '3 MONTHS',
+      badge: null,
+      prices: { 1: 38.99, 2: 74.98, 3: 102.97, 4: 142.96, 5: 182.95 },
+      originalPrices: { 1: null, 2: null, 3: null, 4: 199.96, 5: 239.95 },
+      discount: { 1: null, 2: null, 3: null, 4: '30%', 5: '25%' },
+      features: [
+        t('pricing.features.officialChannels'),
+        t('pricing.features.vodTitles'),
+        t('pricing.features.regions'),
+        t('pricing.features.premiumAccess'),
+        t('pricing.features.uptime'),
+        t('pricing.features.categorized'),
+        t('pricing.features.quality'),
+        t('pricing.features.globalAccess'),
+        t('pricing.features.allDevices'),
+        t('pricing.features.optimization'),
+        t('pricing.features.instantActivation'),
+      ],
+    },
+    {
+      id: 3,
+      name: '6 MONTHS',
+      badge: null,
+      prices: { 1: 52.99, 2: 102.98, 3: 142.97, 4: 198.96, 5: 254.95 },
+      originalPrices: { 1: 71.94, 2: 143.88, 3: 199.82, 4: 279.76, 5: 359.70 },
+      discount: { 1: '30%', 2: '30%', 3: '30%', 4: '30%', 5: '30%' },
+      features: [
+        t('pricing.features.officialChannels'),
+        t('pricing.features.allVod'),
+        t('pricing.features.regions'),
+        t('pricing.features.premiumAccess'),
+        t('pricing.features.uptime'),
+        t('pricing.features.categorized'),
+        t('pricing.features.quality'),
+        t('pricing.features.globalAccess'),
+        t('pricing.features.allDevices'),
+        t('pricing.features.optimization'),
+        t('pricing.features.instantActivation'),
+      ],
+    },
+    {
+      id: 4,
+      name: '12 MONTHS',
+      badge: t('pricing.mostPopular'),
+      prices: { 1: 72.99, 2: 142.98, 3: 198.97, 4: 277.96, 5: 356.95 },
+      originalPrices: { 1: 99.99, 2: 199.98, 3: 279.97, 4: 391.96, 5: 503.95 },
+      discount: { 1: '30%', 2: '30%', 3: '30%', 4: '30%', 5: '30%' },
+      features: [
+        t('pricing.features.officialChannels'),
+        t('pricing.features.allVod'),
+        t('pricing.features.regions'),
+        t('pricing.features.premiumAccess'),
+        t('pricing.features.uptime'),
+        `<strong>${t('pricing.features.premiumSupport')}</strong>`,
+        t('pricing.features.quality'),
+        t('pricing.features.officialAccess'),
+        t('pricing.features.allDevices'),
+        t('pricing.features.optimization'),
+        t('pricing.features.instantActivation'),
+      ],
+    },
+  ];
 
   return (
     <section id="pricing" className="py-16 px-6 bg-gradient-to-b from-[#0d1f33] to-[#0a1929]">
@@ -171,23 +100,23 @@ export default function Pricing() {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Flexible Subscription Plans
+            {t('pricing.heading')}
           </h2>
           <div className="flex items-center justify-center gap-4 mt-6">
             <span className="bg-orange-500 text-white px-4 py-1 rounded text-sm font-semibold">
-              End in 30d 23h 59m 59s
+              {t('pricing.endsIn')}
             </span>
-            <span className="text-gray-400">or 30 Bundles left</span>
-            <span className="text-gray-400">or 30 Bundles left</span>
+            <span className="text-gray-400">{t('pricing.bundlesLeft')}</span>
+            <span className="text-gray-400">{t('pricing.bundlesLeft')}</span>
           </div>
         </div>
 
         {/* Device Count Selector */}
         <div className="mb-8">
           <h3 className="text-center text-white text-lg font-semibold mb-4">
-            Select Device Count
+            {t('pricing.selectDeviceCount')}
           </h3>
-          <p className="text-center text-gray-400 text-sm mb-6">5 Devices available</p>
+          <p className="text-center text-gray-400 text-sm mb-6">{t('pricing.devicesAvailable')}</p>
           <div className="flex justify-center flex-wrap gap-2 md:gap-4 px-2">
             {[1, 2, 3, 4, 5].map((count) => (
               <button
@@ -219,19 +148,19 @@ export default function Pricing() {
               </div>
               <div className="text-left">
                 <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
-                  Not ready to commit?
+                  {t('pricing.trialTitle')}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Get full premium access for 24 hours. No hidden fees.
+                  {t('pricing.trialDescription')}
                 </p>
               </div>
             </div>
             <div className="flex flex-col items-center md:items-end gap-2">
               <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-                Start Weekly Trial for $2
+                {t('pricing.startWeeklyTrial')}
               </div>
               <span className="text-[10px] uppercase tracking-widest text-orange-500 font-bold">
-                Limited Time Offer
+                {t('pricing.limitedTimeOffer')}
               </span>
             </div>
           </a>
@@ -268,20 +197,20 @@ export default function Pricing() {
                       <span className="text-gray-400">$US</span>
                       {plan.discount[selectedDevices as keyof typeof plan.discount] && (
                         <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">
-                          {plan.discount[selectedDevices as keyof typeof plan.discount]} OFF
+                          {plan.discount[selectedDevices as keyof typeof plan.discount]} {t('pricing.off')}
                         </span>
                       )}
                     </div>
                     {plan.originalPrices[selectedDevices as keyof typeof plan.originalPrices] && (
                       <div className="text-gray-500 line-through text-sm mt-1">
-                        Was {plan.originalPrices[selectedDevices as keyof typeof plan.originalPrices]?.toFixed(2)} $US
+                        {t('pricing.was')} {plan.originalPrices[selectedDevices as keyof typeof plan.originalPrices]?.toFixed(2)} $US
                       </div>
                     )}
                   </div>
 
                   {/* Subtitle */}
                   <p className="text-gray-400 text-xs mt-3">
-                    {selectedDevices} {selectedDevices === 1 ? 'Device' : 'Devices'} - Instant Activation - Secure Payment
+                    {selectedDevices} {selectedDevices === 1 ? t('pricing.device') : t('pricing.devices')} - {t('pricing.instantActivation')} - {t('pricing.securePayment')}
                   </p>
                 </div>
 
@@ -292,7 +221,7 @@ export default function Pricing() {
                   rel="noopener noreferrer"
                   className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all mb-6 text-center block"
                 >
-                  Order now
+                  {t('pricing.orderNow')}
                 </a>
 
                 {/* Features */}
