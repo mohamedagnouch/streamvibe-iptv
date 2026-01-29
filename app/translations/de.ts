@@ -13,6 +13,7 @@ export const de: TranslationKeys = {
         contactSupport: 'Kontakt Support',
         getStartedNow: 'Jetzt starten',
         available247: 'Verfügbar 24/7',
+        selectLanguage: 'Sprache wählen',
     },
 
     // Hero

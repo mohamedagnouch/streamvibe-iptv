@@ -11,6 +11,7 @@ export const en = {
         contactSupport: 'Contact Support',
         getStartedNow: 'Get Started Now',
         available247: 'Available 24/7',
+        selectLanguage: 'Select Language',
     },
 
     // Hero
