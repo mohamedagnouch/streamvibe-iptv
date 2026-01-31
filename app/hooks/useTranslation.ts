@@ -9,7 +9,7 @@ export function useTranslation() {
     const translations = getTranslation(language);
 
     // Helper function for nested translation access
-    const t = (key: string, placeholders?: Record<string, string | number>): string => {
+    const t = (key: string, placeholders?: Record<string, string | number>): any => {
         const keys = key.split('.');
         let value: any = translations;
 
@@ -21,9 +21,7 @@ export function useTranslation() {
             }
         }
 
-        if (typeof value !== 'string') return key;
-
-        if (placeholders) {
+        if (typeof value === 'string' && placeholders) {
             let result = value;
             Object.entries(placeholders).forEach(([k, v]) => {
                 result = result.replace(new RegExp(`{${k}}`, 'g'), String(v));

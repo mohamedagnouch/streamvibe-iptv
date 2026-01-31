@@ -161,6 +161,7 @@ export const en = {
 
     // Footer
     footer: {
+        product: 'Product',
         description: 'StreamVibe is the global leader in official premium streaming, providing legal access to 96,000+ VOD titles and thousands of live channels in stunning 4K quality. Our platform is built for speed, security, and the ultimate entertainment experience.',
         seoTitle: 'Official Premium Streaming Hub',
         officialSupport: 'Official 24/7 Support',

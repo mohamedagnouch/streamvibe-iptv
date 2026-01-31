@@ -163,6 +163,7 @@ export const de: TranslationKeys = {
 
     // Footer
     footer: {
+        product: 'Produkt',
         description: 'StreamVibe ist der weltweit führende Anbieter von offiziellem Premium-Streaming und bietet legalen Zugang zu 96.000+ VOD-Titeln und Tausenden von Live-Kanälen in atemberaubender 4K-Qualität. Unsere Plattform ist auf Geschwindigkeit, Sicherheit und das ultimative Unterhaltungserlebnis ausgelegt.',
         seoTitle: 'Offizieller Premium-Streaming-Hub',
         officialSupport: 'Offizieller 24/7 Support',
