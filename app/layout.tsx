@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StreamVibe - Online Streaming Platform",
-  description: "Enjoy high-quality streaming of movies, series, and live content on all your devices.",
+  title: "StreamVibe | Official Premium Streaming Platform - Live TV & VOD",
+  description: "Experience the ultimate official streaming destination. Access 96,000+ VOD titles, premium live channels, and exclusive content in 4K quality on all your devices.",
+  keywords: "official streaming, live tv, vod, 4k streaming, premium iptv, movie platform, series online",
 };
 
 export default function RootLayout({

@@ -64,8 +64,8 @@ export default function LanguageSelector() {
             {isOpen && (
                 <div className="absolute bottom-full mb-4 left-0 min-w-[200px] bg-[#0d121f]/90 backdrop-blur-3xl border border-white/10 rounded-[28px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] overflow-hidden z-[61] animate-fade-in-up">
                     <div className="px-6 py-5 border-b border-white/5 bg-white/[0.02]">
-                        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-500 block mb-1">Language</span>
-                        <span className="text-[12px] text-gray-300 font-semibold">Select Preference</span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-500 block mb-1">{t('header.selectLanguage')}</span>
+                        <span className="text-[12px] text-gray-300 font-semibold">{t('header.available247')}</span>
                     </div>
                     <div className="p-2">
                         {Object.values(languages).map((lang) => (
@@ -73,8 +73,8 @@ export default function LanguageSelector() {
                                 key={lang.code}
                                 onClick={() => handleLanguageChange(lang.code)}
                                 className={`w-full flex items-center gap-4 px-4 py-3.5 rounded-[20px] transition-all duration-300 group/item ${language === lang.code
-                                        ? 'bg-orange-500/10 text-orange-400 shadow-inner'
-                                        : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                                    ? 'bg-orange-500/10 text-orange-400 shadow-inner'
+                                    : 'text-gray-400 hover:bg-white/5 hover:text-white'
                                     }`}
                             >
                                 <span className={`text-2xl transition-all duration-500 ${language === lang.code ? 'scale-110' : 'grayscale group-hover/item:grayscale-0 group-hover/item:scale-110'

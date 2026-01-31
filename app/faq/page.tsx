@@ -1,130 +1,132 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useTranslation } from '../hooks/useTranslation';
 import { ChevronDown, MessageCircle, Rocket, CreditCard, Wrench, Tv, Shield, HelpCircle } from 'lucide-react';
 
-const faqCategories = [
-  {
-    category: 'Getting Started',
-    icon: Rocket,
-    color: 'blue',
-    questions: [
-      {
-        question: 'What is StreamVibe?',
-        answer: 'StreamVibe is a premium global streaming hub that provides access to thousands of official live TV channels and 96,000+ VOD titles from over 115 countries worldwide. You can watch sports, movies, series, news, and entertainment content in HD and 4K quality on any compatible device.',
-      },
-      {
-        question: 'How do I get started?',
-        answer: 'Getting started is easy! Simply choose an authorized subscription plan, complete the payment, and you\'ll receive your access credentials via email within minutes. Then download the official playback application on your device, enter your details, and start streaming immediately.',
-      },
-      {
-        question: 'What devices are supported?',
-        answer: 'StreamVibe works on Smart TVs (Samsung, LG, Android TV), smartphones and tablets (Android & iOS), computers (Windows, Mac, Linux), streaming devices (Fire Stick, Roku, Apple TV), and gaming consoles (Xbox, PlayStation).',
-      },
-      {
-        question: 'Do I need special equipment?',
-        answer: 'No special equipment is required! You only need a device with an internet connection and an official media playback application compatible with our hub. These applications are free to download from your device\'s official app store.',
-      },
-    ],
-  },
-  {
-    category: 'Subscription & Billing',
-    icon: CreditCard,
-    color: 'green',
-    questions: [
-      {
-        question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, cryptocurrency (Bitcoin, USDT), and bank transfers. All payments are processed securely through encrypted channels.',
-      },
-      {
-        question: 'Can I cancel my subscription anytime?',
-        answer: 'Yes, you can cancel your subscription at any time. There are no cancellation fees. If you cancel within the first 30 days and are not satisfied, you\'re eligible for a full refund under our money-back guarantee.',
-      },
-      {
-        question: 'Do subscriptions auto-renew?',
-        answer: 'No, our subscriptions do not auto-renew. You have full control over your subscription. When your subscription period ends, you can choose to renew manually at your convenience.',
-      },
-      {
-        question: 'Can I upgrade or downgrade my plan?',
-        answer: 'Yes, you can upgrade or downgrade your plan at any time. Contact our support team, and we\'ll help you switch plans. Any remaining credit from your current plan will be applied to your new subscription.',
-      },
-    ],
-  },
-  {
-    category: 'Technical Support',
-    icon: Wrench,
-    color: 'orange',
-    questions: [
-      {
-        question: 'What internet speed do I need?',
-        answer: 'For SD quality: 5 Mbps minimum. For HD quality: 10 Mbps minimum. For 4K quality: 25 Mbps minimum. We recommend a stable internet connection for the best streaming experience.',
-      },
-      {
-        question: 'Why is my stream buffering?',
-        answer: 'Buffering can be caused by slow internet connection, server overload, or device issues. Try: 1) Testing your internet speed, 2) Restarting your device and router, 3) Switching to a different server in the app, 4) Closing other apps using bandwidth.',
-      },
-      {
-        question: 'How do I update my streaming app?',
-        answer: 'Go to your device\'s app store (Google Play Store, Apple App Store, etc.), search for your playback application, and click "Update" if an update is available. Keeping your application updated ensures the best performance and security.',
-      },
-      {
-        question: 'Can I use my subscription on multiple devices?',
-        answer: 'Yes! Our plans support multiple simultaneous connections. The Basic plan allows 1 device, Premium allows 2 devices, and Ultimate allows 3 devices to stream at the same time.',
-      },
-    ],
-  },
-  {
-    category: 'Content & Features',
-    icon: Tv,
-    color: 'purple',
-    questions: [
-      {
-        question: 'What channels are included?',
-        answer: 'We offer access to thousands of official channels including world-class sports, entertainment, news, movies, series, documentaries, kids content, and international programming from 115+ countries, all via authorized secondary distribution.',
-      },
-      {
-        question: 'Do you have VOD (Video on Demand)?',
-        answer: 'Yes! We have a massive library of 96,000+ movies and TV series on demand. You can watch the latest releases, classic films, and complete TV series seasons anytime you want.',
-      },
-      {
-        question: 'Is there an EPG (Electronic Program Guide)?',
-        answer: 'Yes, we provide a comprehensive EPG that shows you what\'s currently playing and upcoming programs for the next 7 days. You can easily browse and plan what to watch.',
-      },
-      {
-        question: 'Can I record shows?',
-        answer: 'Yes, with compatible authorized playback applications, you can record live TV shows and watch them later. The recording feature depends on your software\'s specific capabilities.',
-      },
-    ],
-  },
-  {
-    category: 'Account & Security',
-    icon: Shield,
-    color: 'red',
-    questions: [
-      {
-        question: 'Is my personal information secure?',
-        answer: 'Absolutely! We use industry-standard SSL encryption to protect all your personal and payment information. We never share your data with third parties. Read our Privacy Policy for complete details.',
-      },
-      {
-        question: 'How do I reset my password?',
-        answer: 'Contact our support team via WhatsApp or email with your account details. Our team will verify your identity and help you reset your password securely within minutes.',
-      },
-      {
-        question: 'Can I share my account with others?',
-        answer: 'Your subscription is for personal use only. Sharing credentials with others violates our Terms of Service and may result in account suspension. However, you can use your subscription on multiple devices as per your plan.',
-      },
-      {
-        question: 'What happens if my account is suspended?',
-        answer: 'Accounts are only suspended for violations of our Terms of Service (sharing credentials, illegal use, etc.). If suspended, contact support to resolve the issue. In most cases, issues can be resolved quickly.',
-      },
-    ],
-  },
-];
-
 export default function FAQPage() {
+  const { t } = useTranslation();
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
+
+  const faqCategories = useMemo(() => [
+    {
+      category: t('faqPage.categories.gettingStarted.title'),
+      icon: Rocket,
+      color: 'blue',
+      questions: [
+        {
+          question: t('faqPage.categories.gettingStarted.q1.q'),
+          answer: t('faqPage.categories.gettingStarted.q1.a'),
+        },
+        {
+          question: t('faqPage.categories.gettingStarted.q2.q'),
+          answer: t('faqPage.categories.gettingStarted.q2.a'),
+        },
+        {
+          question: t('faqPage.categories.gettingStarted.q3.q'),
+          answer: t('faqPage.categories.gettingStarted.q3.a'),
+        },
+        {
+          question: t('faqPage.categories.gettingStarted.q4.q'),
+          answer: t('faqPage.categories.gettingStarted.q4.a'),
+        },
+      ],
+    },
+    {
+      category: t('faqPage.categories.billing.title'),
+      icon: CreditCard,
+      color: 'green',
+      questions: [
+        {
+          question: t('faqPage.categories.billing.q1.q'),
+          answer: t('faqPage.categories.billing.q1.a'),
+        },
+        {
+          question: t('faqPage.categories.billing.q2.q'),
+          answer: t('faqPage.categories.billing.q2.a'),
+        },
+        {
+          question: t('faqPage.categories.billing.q3.q'),
+          answer: t('faqPage.categories.billing.q3.a'),
+        },
+        {
+          question: t('faqPage.categories.billing.q4.q'),
+          answer: t('faqPage.categories.billing.q4.a'),
+        },
+      ],
+    },
+    {
+      category: t('faqPage.categories.technical.title'),
+      icon: Wrench,
+      color: 'orange',
+      questions: [
+        {
+          question: t('faqPage.categories.technical.q1.q'),
+          answer: t('faqPage.categories.technical.q1.a'),
+        },
+        {
+          question: t('faqPage.categories.technical.q2.q'),
+          answer: t('faqPage.categories.technical.q2.a'),
+        },
+        {
+          question: t('faqPage.categories.technical.q3.q'),
+          answer: t('faqPage.categories.technical.q3.a'),
+        },
+        {
+          question: t('faqPage.categories.technical.q4.q'),
+          answer: t('faqPage.categories.technical.q4.a'),
+        },
+      ],
+    },
+    {
+      category: t('faqPage.categories.content.title'),
+      icon: Tv,
+      color: 'purple',
+      questions: [
+        {
+          question: t('faqPage.categories.content.q1.q'),
+          answer: t('faqPage.categories.content.q1.a'),
+        },
+        {
+          question: t('faqPage.categories.content.q2.q'),
+          answer: t('faqPage.categories.content.q2.a'),
+        },
+        {
+          question: t('faqPage.categories.content.q3.q'),
+          answer: t('faqPage.categories.content.q3.a'),
+        },
+        {
+          question: t('faqPage.categories.content.q4.q'),
+          answer: t('faqPage.categories.content.q4.a'),
+        },
+      ],
+    },
+    {
+      category: t('faqPage.categories.account.title'),
+      icon: Shield,
+      color: 'red',
+      questions: [
+        {
+          question: t('faqPage.categories.account.q1.q'),
+          answer: t('faqPage.categories.account.q1.a'),
+        },
+        {
+          question: t('faqPage.categories.account.q2.q'),
+          answer: t('faqPage.categories.account.q2.a'),
+        },
+        {
+          question: t('faqPage.categories.account.q3.q'),
+          answer: t('faqPage.categories.account.q3.a'),
+        },
+        {
+          question: t('faqPage.categories.account.q4.q'),
+          answer: t('faqPage.categories.account.q4.a'),
+        },
+      ],
+    },
+  ], [t]);
 
   return (
     <main className="min-h-screen bg-white">
@@ -135,33 +137,33 @@ export default function FAQPage() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-5 py-2 mb-5">
             <MessageCircle className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 text-sm font-bold">Help Center</span>
+            <span className="text-blue-700 text-sm font-bold">{t('faqPage.hero.badge')}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight">
-            <span className="text-gray-900">Frequently Asked </span>
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
+            <span className="text-gray-900">{t('faqPage.hero.heading')}</span>
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('faqPage.hero.headingAccent')}</span>
           </h1>
 
           <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Find instant answers to common questions about StreamVibe
+            {t('faqPage.hero.subheading')}
           </p>
 
           {/* Quick Stats */}
           <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
             <div className="flex items-center gap-2 bg-white border border-blue-200 rounded-full px-4 py-2 shadow-sm">
               <HelpCircle className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-gray-700">25+ Questions</span>
+              <span className="text-sm font-semibold text-gray-700">{t('faqPage.hero.stats.questions', { count: 25 })}</span>
             </div>
             <div className="flex items-center gap-2 bg-white border border-blue-200 rounded-full px-4 py-2 shadow-sm">
               <MessageCircle className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-gray-700">24/7 Support</span>
+              <span className="text-sm font-semibold text-gray-700">{t('faqPage.hero.stats.support')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white border border-blue-200 rounded-full px-4 py-2 shadow-sm">
               <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
               </svg>
-              <span className="text-sm font-semibold text-gray-700">Helpful Answers</span>
+              <span className="text-sm font-semibold text-gray-700">{t('faqPage.hero.stats.answers')}</span>
             </div>
           </div>
 
@@ -171,7 +173,7 @@ export default function FAQPage() {
       {/* Category Cards */}
       <section className="py-6 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Browse by Category</h2>
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">{t('faqPage.browseByCategory')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {faqCategories.map((cat, index) => {
               const Icon = cat.icon;
@@ -190,7 +192,7 @@ export default function FAQPage() {
                 >
                   <Icon className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                   <h3 className="font-bold text-sm leading-tight">{cat.category}</h3>
-                  <p className="text-xs mt-1 opacity-90">{cat.questions.length} questions</p>
+                  <p className="text-xs mt-1 opacity-90">{t('faqPage.questionsCount', { count: cat.questions.length })}</p>
                 </a>
               );
             })}
@@ -275,10 +277,10 @@ export default function FAQPage() {
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Still Have Questions?
+                {t('faqPage.stillHaveQuestions.title')}
               </h3>
               <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-                Can't find what you're looking for? Our expert support team is available <span className="font-bold text-white">24/7</span> to assist you
+                {t('faqPage.stillHaveQuestions.description', { status: '24/7' })}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
@@ -288,7 +290,7 @@ export default function FAQPage() {
                   className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Live Chat Support
+                  {t('faqPage.stillHaveQuestions.liveChat')}
                 </a>
                 <a
                   href="mailto:infos@streamvibe.shop"
@@ -297,7 +299,7 @@ export default function FAQPage() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  Email Us
+                  {t('faqPage.stillHaveQuestions.emailUs')}
                 </a>
               </div>
             </div>

@@ -4,17 +4,7 @@ import { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Globe, Search, TrendingUp, Tv, Film, Trophy, Newspaper, Baby, Music, BookOpen, ChevronRight, CheckCircle, MapPin, Play } from 'lucide-react';
-
-const categories = [
-  { id: 'all', name: 'All Categories', icon: Globe, count: 37591 },
-  { id: 'sports', name: 'Sports', icon: Trophy, count: 8500 },
-  { id: 'movies', name: 'Movies', icon: Film, count: 6200 },
-  { id: 'news', name: 'News', icon: Newspaper, count: 4800 },
-  { id: 'entertainment', name: 'Entertainment', icon: Tv, count: 9500 },
-  { id: 'kids', name: 'Kids & Family', icon: Baby, count: 2800 },
-  { id: 'music', name: 'Music', icon: Music, count: 1900 },
-  { id: 'documentary', name: 'Documentary', icon: BookOpen, count: 3891 },
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 const popularCountries = [
   { name: 'United States', code: 'us', channels: 14298, flag: '🇺🇸' },
@@ -67,10 +57,22 @@ const allCountries = [
 ];
 
 export default function ChannelsPage() {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+
+  const categories = [
+    { id: 'all', name: t('channels.categories.all'), icon: Globe, count: 37591 },
+    { id: 'sports', name: t('channels.categories.sports'), icon: Trophy, count: 8500 },
+    { id: 'movies', name: t('channels.categories.movies'), icon: Film, count: 6200 },
+    { id: 'news', name: t('channels.categories.news'), icon: Newspaper, count: 4800 },
+    { id: 'entertainment', name: t('channels.categories.entertainment'), icon: Tv, count: 9500 },
+    { id: 'kids', name: t('channels.categories.kids'), icon: Baby, count: 2800 },
+    { id: 'music', name: t('channels.categories.music'), icon: Music, count: 1900 },
+    { id: 'documentary', name: t('channels.categories.documentary'), icon: BookOpen, count: 3891 },
+  ];
 
   const filteredCountries = useMemo(() => {
     return allCountries.filter(country =>
@@ -85,7 +87,7 @@ export default function ChannelsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -93,27 +95,27 @@ export default function ChannelsPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 border border-orange-500/20 rounded-full px-6 py-2.5 mb-6">
               <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-              <span className="text-orange-400 text-sm font-semibold">Global Content Library</span>
+              <span className="text-orange-400 text-sm font-semibold">{t('channels.hero.badge')}</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
               <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">37,591+</span>
-              <span className="text-white"> Live Channels</span>
+              <span className="text-white"> {t('channels.hero.heading')}</span>
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
-              Stream premium content from <span className="text-white font-semibold">115+ countries</span> worldwide. Sports, entertainment, news, movies, and more in stunning <span className="text-white font-semibold">4K quality</span>.
+              {t('channels.hero.subheading', { count: 115 })}
             </p>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
-                { label: 'Live Channels', value: '37,591+' },
-                { label: 'Countries', value: '115+' },
-                { label: 'VOD Titles', value: '96,000+' },
-                { label: '4K Channels', value: '2,500+' },
+                { label: t('channels.hero.stats.channels'), value: '37,591+' },
+                { label: t('channels.hero.stats.countries'), value: '115+' },
+                { label: t('channels.hero.stats.vod'), value: '96,000+' },
+                { label: t('channels.hero.stats.quality4K'), value: '2,500+' },
               ].map((stat, index) => (
                 <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center">
                   <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent mb-1">
@@ -132,10 +134,10 @@ export default function ChannelsPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Browse by Category
+              {t('channels.categories.heading')}
             </h2>
             <p className="text-gray-400 text-lg">
-              Explore thousands of channels organized by your interests
+              {t('channels.categories.subheading')}
             </p>
           </div>
 
@@ -144,21 +146,19 @@ export default function ChannelsPage() {
             {categories.map((category) => {
               const Icon = category.icon;
               const isSelected = selectedCategory === category.id;
-              
+
               return (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-300 ${
-                    isSelected
+                  className={`group relative p-6 rounded-2xl transition-all duration-300 ${isSelected
                       ? 'bg-gradient-to-br from-orange-500 to-pink-600 shadow-2xl scale-105'
                       : 'bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10'
-                  }`}
+                    }`}
                 >
                   <div className="flex flex-col items-center text-center gap-3">
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
-                      isSelected ? 'bg-white/20' : 'bg-white/10'
-                    }`}>
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${isSelected ? 'bg-white/20' : 'bg-white/10'
+                      }`}>
                       <Icon className={`w-7 h-7 ${isSelected ? 'text-white' : 'text-gray-400 group-hover:text-white'}`} />
                     </div>
                     <div>
@@ -166,7 +166,7 @@ export default function ChannelsPage() {
                         {category.name}
                       </div>
                       <div className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
-                        {category.count.toLocaleString()} channels
+                        {t('channels.categories.channelsCount', { count: category.count })}
                       </div>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function ChannelsPage() {
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
               <TrendingUp className="w-6 h-6 text-orange-500" />
-              Popular Countries
+              {t('channels.popular.heading')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {popularCountries.map((country, index) => (
@@ -199,7 +199,7 @@ export default function ChannelsPage() {
                         {country.name}
                       </div>
                       <div className="text-gray-400 text-xs">
-                        {country.channels.toLocaleString()} channels
+                        {t('channels.all.channelsCount', { count: country.channels })}
                       </div>
                     </div>
                     <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-orange-500 transition-colors" />
@@ -220,17 +220,17 @@ export default function ChannelsPage() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                 <h3 className="text-2xl font-bold text-white flex items-center gap-2">
                   <Globe className="w-6 h-6 text-orange-500" />
-                  All Countries
+                  {t('channels.all.heading')}
                 </h3>
                 <div className="text-gray-400 text-sm">
-                  {filteredCountries.length} countries available
+                  {t('channels.all.countriesFound', { count: filteredCountries.length })}
                 </div>
               </div>
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search countries..."
+                  placeholder={t('channels.all.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => {
                     setSearchTerm(e.target.value);
@@ -272,7 +272,7 @@ export default function ChannelsPage() {
                         <div className="text-white font-bold text-lg">
                           {country.channels.toLocaleString()}
                         </div>
-                        <div className="text-gray-400 text-xs">channels</div>
+                        <div className="text-gray-400 text-xs">{t('channels.all.channelsCount')}</div>
                       </div>
                     </div>
                   </div>
@@ -288,11 +288,11 @@ export default function ChannelsPage() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronRight className="w-4 h-4 rotate-180" />
-                Previous
+                {t('channels.all.previous')}
               </button>
               <div className="flex items-center gap-3">
                 <span className="text-sm font-medium text-gray-400">
-                  Page <span className="font-bold text-white">{currentPage}</span> of <span className="font-bold text-white">{totalPages}</span>
+                  {t('channels.all.pageOf', { current: currentPage, total: totalPages })}
                 </span>
               </div>
               <button
@@ -300,7 +300,7 @@ export default function ChannelsPage() {
                 disabled={currentPage === totalPages}
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
-                Next
+                {t('channels.all.next')}
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -312,16 +312,16 @@ export default function ChannelsPage() {
               <Play className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Start Streaming?
+              {t('channels.cta.heading')}
             </h3>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Get instant access to all 37,591+ channels from 115+ countries. Start your free trial today!
+              {t('channels.cta.description')}
             </p>
             <a
               href="/#pricing"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
             >
-              View Pricing Plans
+              {t('channels.cta.button')}
               <ChevronRight className="w-5 h-5" />
             </a>
           </div>

@@ -107,7 +107,6 @@ export default function Pricing() {
               {t('pricing.endsIn')}
             </span>
             <span className="text-gray-400">{t('pricing.bundlesLeft')}</span>
-            <span className="text-gray-400">{t('pricing.bundlesLeft')}</span>
           </div>
         </div>
 

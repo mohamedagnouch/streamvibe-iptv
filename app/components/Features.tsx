@@ -1,57 +1,58 @@
-'use client';
-
 import { Zap, Shield, Smartphone, Headphones, Clock, Star } from 'lucide-react';
-
-const features = [
-  {
-    id: 1,
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Experience buffer-free streaming with our high-speed servers and optimized CDN network.',
-    color: 'from-yellow-500 to-orange-500',
-  },
-  {
-    id: 2,
-    icon: Shield,
-    title: 'Secure & Private',
-    description: 'Your data is encrypted and protected. Stream with confidence and complete privacy.',
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    id: 3,
-    icon: Smartphone,
-    title: 'Multi-Device',
-    description: 'Watch on any device - Smart TV, phone, tablet, PC, or streaming stick.',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    id: 4,
-    icon: Headphones,
-    title: '24/7 Support',
-    description: 'Our expert support team is always available to help you with any questions.',
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    id: 5,
-    icon: Clock,
-    title: 'Instant Activation',
-    description: 'Start streaming immediately after purchase. No waiting, no delays.',
-    color: 'from-red-500 to-rose-500',
-  },
-  {
-    id: 6,
-    icon: Star,
-    title: '4K Quality',
-    description: 'Enjoy crystal-clear 4K Ultra HD streaming on supported channels and content.',
-    color: 'from-indigo-500 to-purple-500',
-  },
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Features() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      id: 1,
+      icon: Zap,
+      title: t('features.feature1Title'),
+      description: t('features.feature1Description'),
+      color: 'from-yellow-500 to-orange-500',
+    },
+    {
+      id: 2,
+      icon: Shield,
+      title: t('features.feature2Title'),
+      description: t('features.feature2Description'),
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      id: 3,
+      icon: Smartphone,
+      title: t('features.feature3Title'),
+      description: t('features.feature3Description'),
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      id: 4,
+      icon: Headphones,
+      title: t('features.feature4Title'),
+      description: t('features.feature4Description'),
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      id: 5,
+      icon: Clock,
+      title: t('features.feature5Title'),
+      description: t('features.feature5Description'),
+      color: 'from-red-500 to-rose-500',
+    },
+    {
+      id: 6,
+      icon: Star,
+      title: t('features.feature6Title'),
+      description: t('features.feature6Description'),
+      color: 'from-indigo-500 to-purple-500',
+    },
+  ];
+
   return (
-    <section className="py-12 px-6 bg-white relative overflow-hidden">
+    <section id="features" className="py-20 px-6 bg-[#0a0e1a] relative overflow-hidden border-t border-white/5">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, #ff6b35 1px, transparent 0)',
           backgroundSize: '40px 40px',
@@ -60,16 +61,16 @@ export default function Features() {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-4">
-            <Star className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 text-sm font-medium">Premium Features</span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-2 mb-4">
+            <Star className="w-4 h-4 text-orange-500" />
+            <span className="text-orange-400 text-sm font-semibold tracking-wide uppercase">Premium Features</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Features
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+            {t('features.heading')}
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Experience a reliable streaming platform with features designed for your entertainment
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+            {t('features.subheading')}
           </p>
         </div>
 
@@ -83,26 +84,26 @@ export default function Features() {
                 className="group relative"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:border-orange-300 transition-all duration-300 h-full">
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 border border-white/10 hover:border-orange-500/40 transition-all duration-500 h-full shadow-2xl">
                   {/* Icon Container */}
                   <div className="mb-6">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}>
-                      <Icon className="w-7 h-7 text-white" />
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl shadow-black/20`}>
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">
                     {feature.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed font-light">
                     {feature.description}
                   </p>
 
                   {/* Decorative Element */}
-                  <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-orange-500/5 to-pink-600/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute -bottom-2 -right-2 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-pink-600/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 </div>
               </div>
             );
@@ -110,19 +111,25 @@ export default function Features() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-10 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Start Streaming?
-          </h3>
-          <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
-            Join thousands of satisfied customers and experience premium legal streaming today
-          </p>
-          <a
-            href="#pricing"
-            className="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all"
-          >
-            View Plans & Pricing
-          </a>
+        <div className="mt-20 relative rounded-[40px] p-10 md:p-16 text-center overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 group-hover:scale-105 transition-transform duration-700" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
+              {t('features.bannerTitle')}
+            </h3>
+            <p className="text-white/80 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-medium">
+              {t('features.bannerSubheading')}
+            </p>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-3 bg-white text-orange-600 px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] hover:scale-105 transition-all duration-300"
+            >
+              <span>{t('features.viewPlans')}</span>
+              <Zap className="w-5 h-5" fill="currentColor" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

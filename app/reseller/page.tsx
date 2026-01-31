@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useTranslation } from '../hooks/useTranslation';
 import {
   Users,
   DollarSign,
@@ -23,172 +24,147 @@ import {
   Percent
 } from 'lucide-react';
 
-const benefits = [
-  {
-    icon: DollarSign,
-    title: 'Competitive Wholesale Pricing',
-    description: 'Industry-leading margins with volume discounts. Earn up to 70% profit on every subscription.',
-    highlight: 'Up to 70% Profit',
-  },
-  {
-    icon: Users,
-    title: 'Advanced Reseller Panel',
-    description: 'Powerful dashboard to manage customers, subscriptions, credits, and analytics in real-time.',
-    highlight: 'Full Control',
-  },
-  {
-    icon: Headphones,
-    title: 'Priority 24/7 Support',
-    description: 'Dedicated support team for resellers. Technical assistance, business guidance, and instant help.',
-    highlight: '24/7 Available',
-  },
-  {
-    icon: Zap,
-    title: 'Instant Activation',
-    description: 'Create and activate customer accounts instantly. Automated system with zero delays.',
-    highlight: 'Real-time',
-  },
-  {
-    icon: Shield,
-    title: 'White Label Solution',
-    description: 'Complete branding customization. Your logo, domain, and brand identity on all platforms.',
-    highlight: 'Your Brand',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Scalable Infrastructure',
-    description: 'From 10 to 10,000+ customers. Our infrastructure grows with your business needs.',
-    highlight: 'Unlimited Growth',
-  },
-];
-
-const features = [
-  {
-    title: 'Thousands of Live Channels',
-    description: 'Global content from around the world',
-    icon: Globe,
-    stat: '37K+',
-  },
-  {
-    title: '96,000+ VOD Library',
-    description: 'Movies, series, and premium content',
-    icon: Star,
-    stat: '96K+',
-  },
-  {
-    title: '99.9% Uptime SLA',
-    description: 'Enterprise-grade reliability',
-    icon: Shield,
-    stat: '99.9%',
-  },
-  {
-    title: 'Real-time Analytics',
-    description: 'Track sales and customer activity',
-    icon: BarChart3,
-    stat: 'Live',
-  },
-];
-
-const pricingTiers = [
-  {
-    name: 'Starter',
-    subtitle: 'Perfect for beginners',
-    credits: 50,
-    price: 250,
-    pricePerCredit: 5.00,
-    discount: 0,
-    features: [
-      '50 subscription credits',
-      'Reseller panel access',
-      'Email & chat support',
-      'Basic analytics dashboard',
-      'Customer management tools',
-      'Payment tracking',
-    ],
-    popular: false,
-    color: 'from-blue-500 to-indigo-600',
-  },
-  {
-    name: 'Professional',
-    subtitle: 'Most popular choice',
-    credits: 100,
-    price: 450,
-    pricePerCredit: 4.50,
-    discount: 10,
-    features: [
-      '100 subscription credits',
-      'Advanced reseller panel',
-      'Priority support 24/7',
-      'Advanced analytics & reports',
-      'White label options',
-      'API access',
-      'Custom branding',
-      'Volume discounts',
-    ],
-    popular: true,
-    color: 'from-orange-500 to-pink-600',
-  },
-  {
-    name: 'Enterprise',
-    subtitle: 'For serious businesses',
-    credits: 500,
-    price: 1750,
-    pricePerCredit: 3.50,
-    discount: 30,
-    features: [
-      '500+ subscription credits',
-      'Full white label solution',
-      'Dedicated account manager',
-      'Custom branding package',
-      'Priority technical support',
-      'Custom API integration',
-      'Volume pricing tiers',
-      'Marketing materials',
-      'Training & onboarding',
-    ],
-    popular: false,
-    color: 'from-purple-500 to-pink-600',
-  },
-];
-
-const testimonials = [
-  {
-    name: 'Michael Rodriguez',
-    role: 'Streaming Partner',
-    location: 'Miami, USA',
-    avatar: 'MR',
-    comment: 'Best reseller program I\'ve joined. The panel is intuitive and support is exceptional. My business has grown 300% in just 6 months!',
-    rating: 5,
-    revenue: '$15K/month',
-  },
-  {
-    name: 'Sarah Thompson',
-    role: 'Business Owner',
-    location: 'London, UK',
-    avatar: 'ST',
-    comment: 'The white label option allowed me to build my own brand. Customers love the service quality and I love the profit margins!',
-    rating: 5,
-    revenue: '$22K/month',
-  },
-  {
-    name: 'Ahmed Hassan',
-    role: 'Tech Entrepreneur',
-    location: 'Dubai, UAE',
-    avatar: 'AH',
-    comment: 'Professional service with excellent uptime. Managing hundreds of customers is effortless with their reseller panel.',
-    rating: 5,
-    revenue: '$35K/month',
-  },
-];
-
-const stats = [
-  { label: 'Active Resellers', value: '500+', icon: Users },
-  { label: 'Monthly Revenue', value: '$2M+', icon: DollarSign },
-  { label: 'Customer Satisfaction', value: '98%', icon: Star },
-  { label: 'Average Profit Margin', value: '65%', icon: TrendingUp },
-];
-
 export default function ResellerPage() {
+  const { t, language } = useTranslation();
+
+  const benefits = useMemo(() => [
+    {
+      icon: DollarSign,
+      title: t('reseller.benefits.items.benefit1Title'),
+      description: t('reseller.benefits.items.benefit1Desc'),
+      highlight: t('reseller.benefits.items.benefit1Highlight'),
+    },
+    {
+      icon: Users,
+      title: t('reseller.benefits.items.benefit2Title'),
+      description: t('reseller.benefits.items.benefit2Desc'),
+      highlight: t('reseller.benefits.items.benefit2Highlight'),
+    },
+    {
+      icon: Headphones,
+      title: t('reseller.benefits.items.benefit3Title'),
+      description: t('reseller.benefits.items.benefit3Desc'),
+      highlight: t('reseller.benefits.items.benefit3Highlight'),
+    },
+    {
+      icon: Zap,
+      title: t('reseller.benefits.items.benefit4Title'),
+      description: t('reseller.benefits.items.benefit4Desc'),
+      highlight: t('reseller.benefits.items.benefit4Highlight'),
+    },
+    {
+      icon: Shield,
+      title: t('reseller.benefits.items.benefit5Title'),
+      description: t('reseller.benefits.items.benefit5Desc'),
+      highlight: t('reseller.benefits.items.benefit5Highlight'),
+    },
+    {
+      icon: TrendingUp,
+      title: t('reseller.benefits.items.benefit6Title'),
+      description: t('reseller.benefits.items.benefit6Desc'),
+      highlight: t('reseller.benefits.items.benefit6Highlight'),
+    },
+  ], [t]);
+
+  const featuresList = useMemo(() => [
+    {
+      title: t('reseller.features.feature1Title'),
+      description: t('reseller.features.feature1Desc'),
+      icon: Globe,
+      stat: '37K+',
+    },
+    {
+      title: t('reseller.features.feature2Title'),
+      description: t('reseller.features.feature2Desc'),
+      icon: Star,
+      stat: '96K+',
+    },
+    {
+      title: t('reseller.features.feature3Title'),
+      description: t('reseller.features.feature3Desc'),
+      icon: Shield,
+      stat: '99.9%',
+    },
+    {
+      title: t('reseller.features.feature4Title'),
+      description: t('reseller.features.feature4Desc'),
+      icon: BarChart3,
+      stat: 'Live',
+    },
+  ], [t]);
+
+  const pricingTiers = useMemo(() => [
+    {
+      name: t('reseller.pricing.tiers.starter.name'),
+      subtitle: t('reseller.pricing.tiers.starter.subtitle'),
+      credits: 50,
+      price: 250,
+      pricePerCredit: 5.00,
+      discount: 0,
+      features: t('reseller.pricing.tiers.starter.features') as unknown as string[],
+      popular: false,
+      color: 'from-blue-500 to-indigo-600',
+    },
+    {
+      name: t('reseller.pricing.tiers.professional.name'),
+      subtitle: t('reseller.pricing.tiers.professional.subtitle'),
+      credits: 100,
+      price: 450,
+      pricePerCredit: 4.50,
+      discount: 10,
+      features: t('reseller.pricing.tiers.professional.features') as unknown as string[],
+      popular: true,
+      color: 'from-orange-500 to-pink-600',
+    },
+    {
+      name: t('reseller.pricing.tiers.enterprise.name'),
+      subtitle: t('reseller.pricing.tiers.enterprise.subtitle'),
+      credits: 500,
+      price: 1750,
+      pricePerCredit: 3.50,
+      discount: 30,
+      features: t('reseller.pricing.tiers.enterprise.features') as unknown as string[],
+      popular: false,
+      color: 'from-purple-500 to-pink-600',
+    },
+  ], [t]);
+
+  const testimonialsList = useMemo(() => [
+    {
+      name: 'Michael Rodriguez',
+      role: t('reseller.testimonials.items.reseller'),
+      location: 'Miami, USA',
+      avatar: 'MR',
+      comment: language === 'de' ? 'Bestes Reseller-Programm, dem ich beigetreten bin. Das Panel ist intuitiv und der Support ist außergewöhnlich. Mein Geschäft ist in nur 6 Monaten um 300% gewachsen!' : 'Best reseller program I\'ve joined. The panel is intuitive and support is exceptional. My business has grown 300% in just 6 months!',
+      rating: 5,
+      revenue: '$15K/month',
+    },
+    {
+      name: 'Sarah Thompson',
+      role: t('reseller.testimonials.items.owner'),
+      location: 'London, UK',
+      avatar: 'ST',
+      comment: language === 'de' ? 'Die White-Label-Option ermöglichte es mir, meine eigene Marke aufzubauen. Kunden lieben die Servicequalität und ich liebe die Gewinnmargen!' : 'The white label option allowed me to build my own brand. Customers love the service quality and I love the profit margins!',
+      rating: 5,
+      revenue: '$22K/month',
+    },
+    {
+      name: 'Ahmed Hassan',
+      role: t('reseller.testimonials.items.entrepreneur'),
+      location: 'Dubai, UAE',
+      avatar: 'AH',
+      comment: language === 'de' ? 'Professioneller Service mit exzellenter Uptime. Die Verwaltung von Hunderten von Kunden ist mit ihrem Reseller-Panel mühelos.' : 'Professional service with excellent uptime. Managing hundreds of customers is effortless with their reseller panel.',
+      rating: 5,
+      revenue: '$35K/month',
+    },
+  ], [t, language]);
+
+  const statsList = useMemo(() => [
+    { label: t('reseller.hero.stats.activeResellers'), value: '500+', icon: Users },
+    { label: t('reseller.hero.stats.monthlyRevenue'), value: '$2M+', icon: DollarSign },
+    { label: t('reseller.hero.stats.satisfaction'), value: '98%', icon: Star },
+    { label: t('reseller.hero.stats.profitMargin'), value: '65%', icon: TrendingUp },
+  ], [t]);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
@@ -201,18 +177,18 @@ export default function ResellerPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 border border-orange-500/20 rounded-full px-6 py-2.5 mb-6">
               <Award className="w-4 h-4 text-orange-500" />
-              <span className="text-orange-400 text-sm font-semibold">Partner Program</span>
+              <span className="text-orange-400 text-sm font-semibold">{t('reseller.hero.badge')}</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-              <span className="text-white">Build Your </span>
-              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">Streaming Empire</span>
+              <span className="text-white">{t('reseller.hero.heading')} </span>
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent">{t('reseller.hero.headingAccent')}</span>
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
-              Join <span className="text-white font-semibold">500+ successful resellers</span> earning with StreamVibe. Get wholesale pricing, powerful tools, and <span className="text-white font-semibold">24/7 support</span>.
+              {t('reseller.hero.subheading', { count: <span className="text-white font-semibold">{t('reseller.hero.count')}</span> as unknown as string })}
             </p>
 
             {/* CTA Buttons */}
@@ -224,20 +200,20 @@ export default function ResellerPage() {
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <Rocket className="w-5 h-5" />
-                Become a Partner
+                {t('reseller.hero.ctaButton')}
               </a>
               <a
                 href="#pricing"
                 className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 hover:scale-105 transition-all"
               >
-                View Pricing
+                {t('reseller.hero.viewPricing')}
                 <ChevronRight className="w-5 h-5" />
               </a>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              {stats.map((stat, index) => {
+              {statsList.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
                   <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center">
@@ -258,7 +234,7 @@ export default function ResellerPage() {
       <section className="py-12 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => {
+            {featuresList.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
@@ -287,10 +263,10 @@ export default function ResellerPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Why Partner with StreamVibe
+              {t('reseller.benefits.heading')}
             </h2>
             <p className="text-gray-400 text-lg">
-              Everything you need to build a profitable streaming business
+              {t('reseller.benefits.subheading')}
             </p>
           </div>
 
@@ -326,29 +302,29 @@ export default function ResellerPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Get Started in 3 Simple Steps
+              {t('reseller.howItWorks.heading')}
             </h2>
-            <p className="text-gray-400 text-lg">Launch your streaming business today</p>
+            <p className="text-gray-400 text-lg">{t('reseller.howItWorks.subheading')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 step: 1,
-                title: 'Choose Your Package',
-                description: 'Select a reseller plan that fits your business goals. Get instant access to your dashboard.',
+                title: t('reseller.howItWorks.step1Title'),
+                description: t('reseller.howItWorks.step1Desc'),
                 icon: Target,
               },
               {
                 step: 2,
-                title: 'Add Customers',
-                description: 'Use your credits to create accounts. Set your own prices and manage everything from one panel.',
+                title: t('reseller.howItWorks.step2Title'),
+                description: t('reseller.howItWorks.step2Desc'),
                 icon: Users,
               },
               {
                 step: 3,
-                title: 'Earn & Scale',
-                description: 'Keep the profit margin. Grow your customer base and increase your monthly revenue.',
+                title: t('reseller.howItWorks.step3Title'),
+                description: t('reseller.howItWorks.step3Desc'),
                 icon: TrendingUp,
               },
             ].map((item, index) => {
@@ -377,10 +353,10 @@ export default function ResellerPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Reseller Pricing Plans
+              {t('reseller.pricing.heading')}
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Choose the package that fits your business. All plans include full panel access.
+              {t('reseller.pricing.subheading')}
             </p>
           </div>
 
@@ -396,7 +372,7 @@ export default function ResellerPage() {
                 {tier.popular && (
                   <div className="bg-gradient-to-r from-orange-500 to-pink-600 text-white text-center py-2 text-sm font-bold flex items-center justify-center gap-2">
                     <Sparkles className="w-4 h-4" />
-                    MOST POPULAR
+                    {t('reseller.pricing.mostPopular')}
                   </div>
                 )}
 
@@ -409,15 +385,15 @@ export default function ResellerPage() {
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2 mb-2">
                       <span className="text-5xl font-bold text-white">${tier.price}</span>
-                      <span className="text-gray-400">/ {tier.credits} credits</span>
+                      <span className="text-gray-400">/ {tier.credits} {t('reseller.pricing.credits')}</span>
                     </div>
                     <div className="text-sm text-gray-400 mb-2">
-                      ${tier.pricePerCredit.toFixed(2)} per credit
+                      ${tier.pricePerCredit.toFixed(2)} {t('reseller.pricing.perCredit')}
                     </div>
                     {tier.discount > 0 && (
                       <div className="inline-flex items-center gap-2 bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full">
                         <Percent className="w-3 h-3" />
-                        Save {tier.discount}%
+                        {t('reseller.pricing.save', { percent: tier.discount })}
                       </div>
                     )}
                   </div>
@@ -431,7 +407,7 @@ export default function ResellerPage() {
                       : 'bg-white/10 text-white hover:bg-white/20'
                       }`}
                   >
-                    Get Started
+                    {t('reseller.pricing.getStarted')}
                   </a>
 
                   <ul className="space-y-3">
@@ -449,15 +425,15 @@ export default function ResellerPage() {
 
           <div className="mt-12 text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
             <Briefcase className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">Need a Custom Solution?</h3>
-            <p className="text-gray-400 mb-4">Contact us for enterprise pricing and custom packages</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('reseller.pricing.custom.title')}</h3>
+            <p className="text-gray-400 mb-4">{t('reseller.pricing.custom.description')}</p>
             <a
               href="https://wa.me/15626380287?text=Hello%2C%20I%27m%20interested%20in%20enterprise%20pricing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-orange-400 font-semibold hover:text-orange-300 transition-colors"
             >
-              Contact Sales Team
+              {t('reseller.pricing.custom.button')}
               <ChevronRight className="w-4 h-4" />
             </a>
           </div>
@@ -469,13 +445,13 @@ export default function ResellerPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Success Stories
+              {t('reseller.testimonials.heading')}
             </h2>
-            <p className="text-gray-400 text-lg">Real results from our reseller partners</p>
+            <p className="text-gray-400 text-lg">{t('reseller.testimonials.subheading')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
+            {testimonialsList.map((testimonial, index) => (
               <div
                 key={index}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-orange-500/30 transition-all"
@@ -517,10 +493,10 @@ export default function ResellerPage() {
               <Rocket className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Start Your Streaming Business?
+              {t('reseller.cta.heading')}
             </h3>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Join 500+ successful resellers earning with StreamVibe. Get started today with no setup fees.
+              {t('reseller.cta.description', { count: t('reseller.hero.count') })}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -529,14 +505,14 @@ export default function ResellerPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
-                Get Started Now
+                {t('reseller.cta.button')}
                 <ChevronRight className="w-5 h-5" />
               </a>
               <a
                 href="#pricing"
                 className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all"
               >
-                View Pricing
+                {t('reseller.hero.viewPricing')}
               </a>
             </div>
           </div>

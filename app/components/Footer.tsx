@@ -13,57 +13,31 @@ export default function Footer() {
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
 
-      <div className="container mx-auto px-6 py-10">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-8">
-          {/* Brand Section */}
-          <div className="col-span-1">
-            <Link href="/" className="mb-4 inline-block transition-transform hover:scale-105">
+      <div className="container mx-auto px-6 py-12">
+        {/* Brand & SEO Overview */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16 border-b border-white/5 pb-12">
+          <div className="lg:col-span-2">
+            <Link href="/" className="mb-6 inline-block transition-transform hover:scale-105">
               <Logo variant="light" size="md" showText={true} />
             </Link>
-            <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+            <h2 className="text-white text-xl font-bold mb-4">{t('footer.seoTitle')}</h2>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
               {t('footer.description')}
             </p>
-
-            {/* Social Media */}
-            <div className="mb-4">
-              <p className="text-gray-500 text-xs mb-3 uppercase tracking-wider">{t('footer.followUs')}</p>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-transparent"
-                >
-                  <Facebook className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-transparent"
-                >
-                  <Instagram className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-transparent"
-                >
-                  <Twitter className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://wa.me/15626380287"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-transparent"
-                >
-                  <MessageCircle className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-                </a>
-              </div>
-            </div>
           </div>
+          <div className="flex items-center gap-4 lg:justify-end lg:col-span-2">
+            <div className="text-right hidden sm:block">
+              <p className="text-white font-bold text-sm tracking-widest uppercase">{t('footer.officialSupport')}</p>
+              <p className="text-gray-500 text-xs">{t('footer.available247')}</p>
+            </div>
+            <a href="https://wa.me/15626380287" className="bg-gradient-to-r from-green-500 to-green-600 p-3 rounded-2xl shadow-lg shadow-green-500/20 hover:scale-110 transition-transform">
+              <MessageCircle className="w-6 h-6 text-white" />
+            </a>
+          </div>
+        </div>
+
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
 
           {/* Product Links */}
           <div>

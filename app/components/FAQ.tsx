@@ -68,9 +68,9 @@ export default function FAQ() {
                   <div className="flex-shrink-0 w-6 h-6 text-orange-500">
                     <faq.icon className="w-6 h-6" />
                   </div>
-                  <span className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     {faq.question}
-                  </span>
+                  </h3>
                 </div>
                 <svg
                   className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${openId === faq.id ? 'rotate-180' : ''
