@@ -152,8 +152,8 @@ export default function ChannelsPage() {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   className={`group relative p-6 rounded-2xl transition-all duration-300 ${isSelected
-                      ? 'bg-gradient-to-br from-orange-500 to-pink-600 shadow-2xl scale-105'
-                      : 'bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10'
+                    ? 'bg-gradient-to-br from-orange-500 to-pink-600 shadow-2xl scale-105'
+                    : 'bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10'
                     }`}
                 >
                   <div className="flex flex-col items-center text-center gap-3">
