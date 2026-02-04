@@ -3,6 +3,8 @@
 import { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Breadcrumbs from '../components/Breadcrumbs';
+import FAQSchema from '../components/schema/FAQSchema';
 import { useTranslation } from '../hooks/useTranslation';
 import { ChevronDown, MessageCircle, Rocket, CreditCard, Wrench, Tv, Shield, HelpCircle } from 'lucide-react';
 
@@ -130,11 +132,24 @@ export default function FAQPage() {
 
   return (
     <main className="min-h-screen bg-white">
+      {/* FAQ Schema for Rich Snippets */}
+      <FAQSchema
+        faqs={faqCategories.flatMap(cat =>
+          cat.questions.map(q => ({
+            question: q.question,
+            answer: q.answer
+          }))
+        )}
+      />
+
       <Header />
 
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-blue-50 via-indigo-50 to-white">
         <div className="container mx-auto max-w-4xl text-center">
+          {/* Breadcrumbs */}
+          <Breadcrumbs items={[{ name: 'FAQ', href: '/faq' }]} />
+
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-5 py-2 mb-5">
             <MessageCircle className="w-4 h-4 text-blue-600" />
             <span className="text-blue-700 text-sm font-bold">{t('faqPage.hero.badge')}</span>

@@ -16,9 +16,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StreamVibe | Official Premium Streaming Platform - Live TV & VOD",
+  metadataBase: new URL('https://streamvibe.com'),
+  title: {
+    default: "StreamVibe | Official Premium Streaming Platform - Live TV & VOD",
+    template: "%s | StreamVibe"
+  },
   description: "Experience the ultimate official streaming destination. Access 96,000+ VOD titles, premium live channels, and exclusive content in 4K quality on all your devices.",
   keywords: "official streaming, live tv, vod, 4k streaming, premium iptv, movie platform, series online",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://streamvibe.com',
+    siteName: 'StreamVibe',
+    title: 'StreamVibe | Premium IPTV Streaming Platform',
+    description: 'Experience 96,000+ VOD titles and 37,591+ live channels in stunning 4K quality',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'StreamVibe IPTV Platform',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'StreamVibe | Premium IPTV Streaming',
+    description: 'Experience 96,000+ VOD titles and 37,591+ live channels in 4K',
+    images: ['/og-image.jpg'],
+    creator: '@StreamVibe',
+  },
+
+  alternates: {
+    canonical: 'https://streamvibe.com',
+  },
 };
 
 export default function RootLayout({

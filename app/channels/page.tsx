@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Globe, Search, TrendingUp, Tv, Film, Trophy, Newspaper, Baby, Music, BookOpen, ChevronRight, CheckCircle, MapPin, Play } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
+import Breadcrumbs from '../components/Breadcrumbs';
+import WebPageSchema from '../components/schema/WebPageSchema';
 
 const popularCountries = [
   { name: 'United States', code: 'us', channels: 14298, flag: '🇺🇸' },
@@ -86,11 +88,23 @@ export default function ChannelsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0a0e1a] via-[#1a1f35] to-[#0a0e1a]">
+      <WebPageSchema
+        name="Channel List - 37,591+ Live TV Channels"
+        description="Browse our extensive collection of premium live TV channels from 115+ countries"
+        url="/channels"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Channels', url: '/channels' }
+        ]}
+      />
+
       <Header />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
+          <Breadcrumbs items={[{ name: 'Channels', href: '/channels' }]} />
+
           <div className="text-center mb-8">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 border border-orange-500/20 rounded-full px-6 py-2.5 mb-6">

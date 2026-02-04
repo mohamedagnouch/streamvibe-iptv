@@ -1,9 +1,37 @@
-# Allow all crawlers
-User-agent: *
+# User-agent: *
 Allow: /
 
-# Disallow admin or sensitive areas (if any)
+# Disallow API routes
 Disallow: /api/
 
-# Sitemap location
+# Disallow admin routes (if any)
+Disallow: /admin/
+
+# Disallow private routes
+Disallow: /private/
+
+# Allow all images and assets
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.css$
+Allow: /*.js$
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://streamvibe.com/sitemap.xml
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing-specific directives
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
