@@ -13,7 +13,7 @@ export default function Pricing() {
       id: 1,
       name: '1 MONTH',
       badge: null,
-      prices: { 1: 20.99, 2: 38.99, 3: 52.99, 4: 72.99, 5: 92.99 },
+      prices: { 1: 17.99, 2: 35.99, 3: 49.99, 4: 69.99, 5: 89.99 },
       originalPrices: { 1: null, 2: null, 3: null, 4: 99.99, 5: 119.99 },
       discount: { 1: null, 2: null, 3: null, 4: '30%', 5: '25%' },
       features: [
@@ -33,7 +33,7 @@ export default function Pricing() {
       id: 2,
       name: '3 MONTHS',
       badge: null,
-      prices: { 1: 38.99, 2: 74.98, 3: 102.97, 4: 142.96, 5: 182.95 },
+      prices: { 1: 35.99, 2: 71.98, 3: 99.97, 4: 139.96, 5: 179.95 },
       originalPrices: { 1: null, 2: null, 3: null, 4: 199.96, 5: 239.95 },
       discount: { 1: null, 2: null, 3: null, 4: '30%', 5: '25%' },
       features: [
@@ -54,7 +54,7 @@ export default function Pricing() {
       id: 3,
       name: '6 MONTHS',
       badge: null,
-      prices: { 1: 52.99, 2: 102.98, 3: 142.97, 4: 198.96, 5: 254.95 },
+      prices: { 1: 49.99, 2: 99.98, 3: 139.97, 4: 195.96, 5: 251.95 },
       originalPrices: { 1: 71.94, 2: 143.88, 3: 199.82, 4: 279.76, 5: 359.70 },
       discount: { 1: '30%', 2: '30%', 3: '30%', 4: '30%', 5: '30%' },
       features: [
@@ -75,7 +75,7 @@ export default function Pricing() {
       id: 4,
       name: '12 MONTHS',
       badge: t('pricing.mostPopular'),
-      prices: { 1: 72.99, 2: 142.98, 3: 198.97, 4: 277.96, 5: 356.95 },
+      prices: { 1: 69.99, 2: 139.98, 3: 195.97, 4: 274.96, 5: 353.95 },
       originalPrices: { 1: 99.99, 2: 199.98, 3: 279.97, 4: 391.96, 5: 503.95 },
       discount: { 1: '30%', 2: '30%', 3: '30%', 4: '30%', 5: '30%' },
       features: [
@@ -132,38 +132,6 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* $2 Trial Banner */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <a
-            href="https://wa.me/15626380287?text=Hello%2C%20I%27d%20like%20to%20start%20the%20%242%20Trial%20offer."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex flex-col md:flex-row items-center justify-between gap-6 p-6 rounded-3xl bg-[#0f172a] border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] animate-subtle-pulse"
-            aria-label="Start your premium trial for just $2"
-          >
-            <div className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
-                <Eye className="w-6 h-6 text-orange-500" />
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
-                  {t('pricing.trialTitle')}
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  {t('pricing.trialDescription')}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center md:items-end gap-2">
-              <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-                {t('pricing.startWeeklyTrial')}
-              </div>
-              <span className="text-[10px] uppercase tracking-widest text-orange-500 font-bold">
-                {t('pricing.limitedTimeOffer')}
-              </span>
-            </div>
-          </a>
-        </div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">

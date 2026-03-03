@@ -7,38 +7,48 @@ import 'slick-carousel/slick/slick-theme.css';
 const movies = [
   {
     id: 1,
-    title: 'Premier League',
-    image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=400&h=600&fit=crop',
+    title: 'Gladiator II',
+    image: 'https://image.tmdb.org/t/p/w500/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg',
   },
   {
     id: 2,
-    title: 'Champions League',
-    image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=600&fit=crop',
-  },
-  {
-    id: 3,
-    title: 'Action Movies',
-    image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop',
+    title: 'Moana 2',
+    image: 'https://image.tmdb.org/t/p/w500/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg',
   },
   {
     id: 4,
-    title: 'La Liga',
-    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=600&fit=crop',
+    title: 'Wicked',
+    image: 'https://image.tmdb.org/t/p/w500/xDGbZ0JJ3mYaGKy4Nzd9Kph6M9L.jpg',
   },
   {
     id: 5,
-    title: 'Netflix Originals',
-    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=600&fit=crop',
+    title: 'Red One',
+    image: 'https://image.tmdb.org/t/p/w500/cdqLnri3NEGcmfnqwk2TSIYtddg.jpg',
   },
   {
     id: 6,
-    title: 'NBA Basketball',
-    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=600&fit=crop',
+    title: 'Kraven the Hunter',
+    image: 'https://image.tmdb.org/t/p/w500/i47IUSsN126K11JUzqQIOi1Mg1M.jpg',
   },
   {
     id: 7,
-    title: 'Blockbuster Movies',
-    image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&h=600&fit=crop',
+    title: 'The Substance',
+    image: 'https://image.tmdb.org/t/p/w500/lqoMzCcZYEFK729d6qzt349fB4o.jpg',
+  },
+  {
+    id: 8,
+    title: 'Alien: Romulus',
+    image: 'https://image.tmdb.org/t/p/w500/b33nnKl1GSFbao4l3fZDDqsMx0F.jpg',
+  },
+  {
+    id: 9,
+    title: 'Deadpool & Wolverine',
+    image: 'https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg',
+  },
+  {
+    id: 10,
+    title: 'Inside Out 2',
+    image: 'https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg',
   },
 ];
 
@@ -58,7 +68,7 @@ export default function MovieCarousel() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
         },
       },
       {
@@ -70,7 +80,7 @@ export default function MovieCarousel() {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.2,
         },
       },
       {
@@ -84,7 +94,7 @@ export default function MovieCarousel() {
 
   return (
     <section className="relative pt-4 pb-12 overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-2 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -97,7 +107,7 @@ export default function MovieCarousel() {
 
         <Slider {...settings} className="movie-slider">
           {movies.map((movie) => (
-            <div key={movie.id} className="px-2">
+            <div key={movie.id} className="px-1 sm:px-2">
               <div className="relative group cursor-pointer">
                 <div className="relative overflow-hidden rounded-xl aspect-[2/3] bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow">
                   <img
@@ -127,8 +137,8 @@ export default function MovieCarousel() {
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-4 sm:w-12 lg:w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-4 sm:w-12 lg:w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
     </section>
   );
 }

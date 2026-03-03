@@ -1,4 +1,4 @@
-import { Zap, Shield, Smartphone, Headphones, Clock, Star } from 'lucide-react';
+import { Shield, Clock, Star } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 export default function Features() {
@@ -6,33 +6,14 @@ export default function Features() {
 
   const features = [
     {
-      id: 1,
-      icon: Zap,
-      title: t('features.feature1Title'),
-      description: t('features.feature1Description'),
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
       id: 2,
       icon: Shield,
       title: t('features.feature2Title'),
       description: t('features.feature2Description'),
       color: 'from-green-500 to-emerald-500',
     },
-    {
-      id: 3,
-      icon: Smartphone,
-      title: t('features.feature3Title'),
-      description: t('features.feature3Description'),
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      id: 4,
-      icon: Headphones,
-      title: t('features.feature4Title'),
-      description: t('features.feature4Description'),
-      color: 'from-purple-500 to-pink-500',
-    },
+
+
     {
       id: 5,
       icon: Clock,
@@ -110,27 +91,6 @@ export default function Features() {
           })}
         </div>
 
-        {/* Bottom Banner */}
-        <div className="mt-20 relative rounded-[40px] p-10 md:p-16 text-center overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 group-hover:scale-105 transition-transform duration-700" />
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-
-          <div className="relative z-10">
-            <h3 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
-              {t('features.bannerTitle')}
-            </h3>
-            <p className="text-white/80 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-medium">
-              {t('features.bannerSubheading')}
-            </p>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-3 bg-white text-orange-600 px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] hover:scale-105 transition-all duration-300"
-            >
-              <span>{t('features.viewPlans')}</span>
-              <Zap className="w-5 h-5" fill="currentColor" />
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

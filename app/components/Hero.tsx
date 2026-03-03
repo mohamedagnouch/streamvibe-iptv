@@ -1,19 +1,14 @@
 'use client';
 
-import Link from 'next/link';
 import { navigateToPricing } from '../utils/navigation';
-import ChannelCopyModal from './ChannelCopyModal';
-import { List, Eye } from 'lucide-react';
-import { useState } from 'react';
+import { Eye } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 export default function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation();
 
   return (
     <section className="relative pt-16 pb-4 px-6 overflow-hidden">
-      <ChannelCopyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -63,22 +58,7 @@ export default function Hero() {
             <span className="relative z-10">{t('hero.getStartedNow')}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
-          <Link
-            href="/channels"
-            className="w-full sm:w-auto group bg-white/5 backdrop-blur-xl border border-white/10 text-white px-6 py-3 rounded-xl font-semibold text-base hover:bg-white/10 hover:border-orange-500/30 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02]"
-          >
-            <span>{t('hero.viewChannels')}</span>
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="w-full sm:w-auto group bg-gradient-to-r from-orange-500/10 to-pink-500/10 backdrop-blur-xl border border-orange-500/20 text-white px-6 py-3 rounded-xl font-semibold text-base hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02]"
-          >
-            <List className="w-4 h-4 text-orange-500" />
-            <span>{t('hero.copyList')}</span>
-          </button>
+
         </div>
 
         {/* Trust Indicators */}

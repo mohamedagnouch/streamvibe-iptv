@@ -7,7 +7,6 @@ import Stats from './components/Stats';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
 import HowItWorks from './components/HowItWorks';
-import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
@@ -28,7 +27,6 @@ export default function Page() {
       <Features />
       <Pricing />
       <HowItWorks />
-      <Testimonials />
       <FAQ />
       <CTASection />
       <Footer />
