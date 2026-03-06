@@ -144,7 +144,7 @@ function CheckoutForm() {
                                 placeholder="Email Address"
                                 value={email}
                                 onChange={e => { setEmail(e.target.value); setEmailError(''); }}
-                                className={`w-full border ${emailError ? 'border-red-400' : 'border-gray-200'} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
+                                className={`w-full border ${emailError ? 'border-red-400' : 'border-gray-200'} rounded-lg px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
                             />
                             {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
                         </section>
