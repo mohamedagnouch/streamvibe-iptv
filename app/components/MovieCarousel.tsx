@@ -64,29 +64,46 @@ export default function MovieCarousel() {
     cssEase: 'linear',
     pauseOnHover: true,
     arrows: false,
+    centerMode: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
+          centerMode: false,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 3,
+          centerMode: true,
+          centerPadding: '0px',
+          autoplay: false,
+          speed: 500,
+          cssEase: 'ease',
         },
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 2.2,
+          slidesToShow: 3,
+          centerMode: true,
+          centerPadding: '0px',
+          autoplay: false,
+          speed: 500,
+          cssEase: 'ease',
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          centerMode: true,
+          centerPadding: '0px',
+          autoplay: false,
+          speed: 500,
+          cssEase: 'ease',
         },
       },
     ],
@@ -134,11 +151,28 @@ export default function MovieCarousel() {
             </div>
           ))}
         </Slider>
+
+        {/* Center Mode Styles */}
+        <style>{`
+          @media (max-width: 768px) {
+            .movie-slider .slick-center > div > div {
+              transform: scale(1.08);
+              z-index: 10;
+              position: relative;
+              transition: transform 0.3s ease;
+            }
+            .movie-slider .slick-slide:not(.slick-center) > div > div {
+              opacity: 0.6;
+              transform: scale(0.92);
+              transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+          }
+        `}</style>
       </div>
 
-      {/* Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-4 sm:w-12 lg:w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-4 sm:w-12 lg:w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      {/* Gradient Overlays — hidden on mobile */}
+      <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-r from-[#0a0e1a] to-transparent pointer-events-none z-10" />
+      <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-12 lg:w-32 bg-gradient-to-l from-[#0a0e1a] to-transparent pointer-events-none z-10" />
     </section>
   );
 }
