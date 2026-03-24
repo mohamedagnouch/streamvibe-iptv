@@ -2,42 +2,45 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 function generateOrderId(): string {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let id = 'SV-';
-    for (let i = 0; i < 6; i++) {
-        id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let id = 'SV-';
+  for (let i = 0; i < 6; i++) {
+    id += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return id;
 }
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: true, // SSL on port 465
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: true, // SSL on port 465
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false, // Required for some hosting environments
+  },
 });
 
 export async function POST(req: NextRequest) {
-    try {
-        const body = await req.json();
-        const { customerEmail, planName, price, devices, paymentMethod } = body;
+  try {
+    const body = await req.json();
+    const { customerEmail, planName, price, devices, paymentMethod } = body;
 
-        if (!customerEmail || !planName || !price || !devices) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-        }
+    if (!customerEmail || !planName || !price || !devices) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
 
-        const orderId = generateOrderId();
-        const orderDate = new Date().toLocaleString('en-GB', {
-            timeZone: 'Europe/Paris',
-            dateStyle: 'full',
-            timeStyle: 'short',
-        });
+    const orderId = generateOrderId();
+    const orderDate = new Date().toLocaleString('en-GB', {
+      timeZone: 'Europe/Paris',
+      dateStyle: 'full',
+      timeStyle: 'short',
+    });
 
-        // ── Email to owner ──────────────────────────────────────────────────
-        const ownerHtml = `
+    // ── Email to owner ──────────────────────────────────────────────────
+    const ownerHtml = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8" /></head>
@@ -84,8 +87,8 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-        // ── Confirmation email to customer ──────────────────────────────────
-        const customerHtml = `
+    // ── Confirmation email to customer ──────────────────────────────────
+    const customerHtml = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8" /></head>
@@ -132,32 +135,32 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-        // Send both emails
-        await Promise.all([
-            transporter.sendMail({
-                from: `"StreamVibe Orders" <${process.env.SMTP_FROM}>`,
-                to: process.env.ORDER_EMAIL,
-                subject: `🛒 New Order ${orderId} — ${planName} (${devices} Device${devices > 1 ? 's' : ''})`,
-                html: ownerHtml,
-            }),
-            transporter.sendMail({
-                from: `"StreamVibe IPTV" <${process.env.SMTP_FROM}>`,
-                to: customerEmail,
-                subject: `✅ Order Confirmed — ${orderId}`,
-                html: customerHtml,
-            }),
-        ]);
+    // Send both emails
+    await Promise.all([
+      transporter.sendMail({
+        from: `"StreamVibe Orders" <${process.env.SMTP_FROM}>`,
+        to: process.env.ORDER_EMAIL,
+        subject: `🛒 New Order ${orderId} — ${planName} (${devices} Device${devices > 1 ? 's' : ''})`,
+        html: ownerHtml,
+      }),
+      transporter.sendMail({
+        from: `"StreamVibe IPTV" <${process.env.SMTP_FROM}>`,
+        to: customerEmail,
+        subject: `✅ Order Confirmed — ${orderId}`,
+        html: customerHtml,
+      }),
+    ]);
 
-        return NextResponse.json({ success: true, orderId });
-    } catch (err) {
-        console.error('Order email error:', err);
-        return NextResponse.json({ error: 'Failed to send order' }, { status: 500 });
-    }
+    return NextResponse.json({ success: true, orderId });
+  } catch (err) {
+    console.error('Order email error:', err);
+    return NextResponse.json({ error: 'Failed to send order' }, { status: 500 });
+  }
 }
 
 // Helper to render a table row
 function row(label: string, value: string): string {
-    return `
+  return `
     <tr>
       <td style="padding:10px 0;border-bottom:1px solid #1f2937;">
         <span style="color:#9ca3af;font-size:13px;">${label}</span>
