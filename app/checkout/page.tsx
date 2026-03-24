@@ -111,7 +111,7 @@ function CheckoutForm() {
     return (
         <div className="min-h-screen bg-[#f0f3f8] flex flex-col">
             <Header />
-            <main className="flex-1 px-4 py-10">
+            <main className="flex-1 px-4 py-10 pb-28 sm:pb-10">
                 <div className="max-w-2xl mx-auto">
 
                     {/* Steps indicator */}
@@ -131,7 +131,7 @@ function CheckoutForm() {
                         })}
                     </div>
 
-                    <div className="bg-white rounded-2xl shadow-lg p-8">
+                    <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
 
                         {/* Customer Information */}
                         <section className="mb-8">
@@ -144,7 +144,7 @@ function CheckoutForm() {
                                 placeholder="Email Address"
                                 value={email}
                                 onChange={e => { setEmail(e.target.value); setEmailError(''); }}
-                                className={`w-full border ${emailError ? 'border-red-400' : 'border-gray-200'} rounded-lg px-4 py-3 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
+                                className={`w-full border ${emailError ? 'border-red-400' : 'border-gray-200'} rounded-lg px-4 py-3.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
                             />
                             {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
                         </section>
@@ -179,22 +179,25 @@ function CheckoutForm() {
                             </table>
                         </section>
 
-                        {/* Payment Method */}
+                        {/* Payment Method — large touch targets */}
                         <section className="mb-8">
                             <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4">Payment</h3>
                             <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-100">
                                 {paymentOptions.map(opt => (
-                                    <label key={opt.id} className={`flex items-start gap-3 px-5 py-4 cursor-pointer transition ${payment === opt.id ? 'bg-orange-50' : 'hover:bg-gray-50'}`}>
+                                    <label
+                                        key={opt.id}
+                                        className={`flex items-center gap-4 px-5 min-h-[64px] cursor-pointer transition select-none ${payment === opt.id ? 'bg-orange-50' : 'hover:bg-gray-50'}`}
+                                    >
                                         <input
                                             type="radio"
                                             name="payment"
                                             value={opt.id}
                                             checked={payment === opt.id}
                                             onChange={() => setPayment(opt.id)}
-                                            className="mt-1 accent-orange-500"
+                                            className="w-5 h-5 accent-orange-500 flex-shrink-0"
                                         />
-                                        <div>
-                                            <span className="font-semibold text-gray-800">{opt.icon} {opt.label}</span>
+                                        <div className="flex-1 py-3">
+                                            <span className="font-semibold text-gray-800 text-sm sm:text-base">{opt.icon} {opt.label}</span>
                                             {opt.sub && <p className="text-xs text-green-600 font-medium mt-0.5">{opt.sub}</p>}
                                         </div>
                                     </label>
@@ -203,7 +206,7 @@ function CheckoutForm() {
                         </section>
 
                         {/* Privacy note */}
-                        <p className="text-xs text-gray-400 mb-6">
+                        <p className="text-xs text-gray-400 mb-4">
                             Your personal data will be used to process your order and support your experience. See our{' '}
                             <Link href="/privacy" className="text-orange-500 underline">privacy policy</Link>.
                         </p>
@@ -214,11 +217,11 @@ function CheckoutForm() {
                             </div>
                         )}
 
-                        {/* Place Order button */}
+                        {/* Place Order button — hidden on mobile (shown in sticky bar below) */}
                         <button
                             onClick={handlePlaceOrder}
                             disabled={loading}
-                            className="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-black uppercase tracking-widest py-4 rounded-xl text-base transition disabled:opacity-60 flex items-center justify-center gap-2"
+                            className="hidden sm:flex w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-black uppercase tracking-widest py-4 rounded-xl text-base transition disabled:opacity-60 items-center justify-center gap-2"
                         >
                             {loading ? (
                                 <>
@@ -235,6 +238,28 @@ function CheckoutForm() {
                     </div>
                 </div>
             </main>
+
+            {/* Sticky Place Order bar — mobile only */}
+            <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+                <button
+                    onClick={handlePlaceOrder}
+                    disabled={loading}
+                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black uppercase tracking-widest py-4 rounded-xl text-base transition disabled:opacity-60 flex items-center justify-center gap-2"
+                >
+                    {loading ? (
+                        <>
+                            <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                            </svg>
+                            Processing…
+                        </>
+                    ) : (
+                        `Place Order  €${parseFloat(price).toFixed(2)}`
+                    )}
+                </button>
+            </div>
+
             <Footer />
         </div>
     );

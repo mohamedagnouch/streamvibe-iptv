@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { X, CreditCard, Bitcoin, DollarSign, Building2, Lock, CheckCircle } from 'lucide-react';
 
 interface PaymentModalProps {
@@ -239,8 +240,8 @@ export default function PaymentModal({ isOpen, onClose, planName, price, devices
                     required
                   />
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" className="h-6" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" width={36} height={24} className="h-6 w-auto" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width={36} height={24} className="h-6 w-auto" />
                   </div>
                 </div>
               </div>

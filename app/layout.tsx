@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://streamvibe.com'),
+  metadataBase: new URL('https://streamvibe.shop'),
   title: {
     default: "StreamVibe | Official Premium Streaming Platform - Live TV & VOD",
     template: "%s | StreamVibe"
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://streamvibe.com',
+    url: 'https://streamvibe.shop',
     siteName: 'StreamVibe',
     title: 'StreamVibe | Premium IPTV Streaming Platform',
     description: 'Experience 96,000+ VOD titles and 37,591+ live channels in stunning 4K quality',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: 'https://streamvibe.com',
+    canonical: 'https://streamvibe.shop',
   },
 };
 
@@ -75,9 +75,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Hreflang tags for SEO */}
-        <link rel="alternate" hrefLang="en" href="https://streamvibe.com" />
-        <link rel="alternate" hrefLang="de" href="https://streamvibe.com" />
-        <link rel="alternate" hrefLang="x-default" href="https://streamvibe.com" />
+        <link rel="alternate" hrefLang="en" href="https://streamvibe.shop" />
+        <link rel="alternate" hrefLang="de" href="https://streamvibe.shop" />
+        <link rel="alternate" hrefLang="x-default" href="https://streamvibe.shop" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from 'next/image';
 import { ShoppingCart, Mail, Play, CreditCard, Shield, Zap } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -41,9 +44,11 @@ export default function HowItWorks() {
           </div>
           <div className="flex-1 relative group">
             <div className="bg-white/5 backdrop-blur-xl rounded-[40px] border border-white/20 p-8 max-w-md mx-auto transform hover:scale-105 transition-all duration-700 shadow-2xl">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=400&fit=crop"
                 alt="Place your order"
+                width={500}
+                height={400}
                 className="w-full h-56 md:h-72 object-cover rounded-[24px] mb-6 shadow-xl"
               />
               <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
@@ -96,9 +101,11 @@ export default function HowItWorks() {
           </div>
           <div className="flex-1 relative group">
             <div className="bg-white/5 backdrop-blur-xl rounded-[40px] border border-white/20 p-8 max-w-md mx-auto transform hover:scale-105 transition-all duration-700 shadow-2xl">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=500&h=400&fit=crop"
                 alt="Get your account"
+                width={500}
+                height={400}
                 className="w-full h-56 md:h-72 object-cover rounded-[24px] mb-6 shadow-xl"
               />
               <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
@@ -148,9 +155,11 @@ export default function HowItWorks() {
           </div>
           <div className="flex-1 relative group">
             <div className="bg-white/5 backdrop-blur-xl rounded-[40px] border border-white/20 p-8 max-w-md mx-auto transform hover:scale-105 transition-all duration-700 shadow-2xl">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=400&fit=crop"
                 alt="Enjoy watching"
+                width={500}
+                height={400}
                 className="w-full h-56 md:h-72 object-cover rounded-[24px] mb-6 shadow-xl"
               />
               <div className="bg-white/10 rounded-2xl p-5 border border-white/10">

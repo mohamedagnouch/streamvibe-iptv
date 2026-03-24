@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -127,10 +128,12 @@ export default function MovieCarousel() {
             <div key={movie.id} className="px-1 sm:px-2">
               <div className="relative group cursor-pointer">
                 <div className="relative overflow-hidden rounded-xl aspect-[2/3] bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow">
-                  <img
+                  <Image
                     src={movie.image}
                     alt={movie.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 480px) 50vw, (max-width: 768px) 33vw, 20vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4">
