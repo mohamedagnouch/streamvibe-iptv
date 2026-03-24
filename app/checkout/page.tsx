@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-type Step = 'information' | 'payment' | 'success';
 type PaymentMethod = 'paypal' | 'card' | 'transfer';
 
 function CheckoutForm() {
@@ -15,16 +14,15 @@ function CheckoutForm() {
     const price = params.get('price') ?? '0';
     const devices = parseInt(params.get('devices') ?? '1', 10);
 
-    const [step, setStep] = useState<Step>('information');
     const [email, setEmail] = useState('');
     const [payment, setPayment] = useState<PaymentMethod>('paypal');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [orderId, setOrderId] = useState('');
     const [emailError, setEmailError] = useState('');
+    const [success, setSuccess] = useState(false);
 
-    const validateEmail = (v: string) =>
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    const validateEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
     const handlePlaceOrder = async () => {
         if (!validateEmail(email)) {
@@ -34,7 +32,6 @@ function CheckoutForm() {
         setEmailError('');
         setLoading(true);
         setError('');
-
         try {
             const res = await fetch('/api/order', {
                 method: 'POST',
@@ -50,7 +47,7 @@ function CheckoutForm() {
             const data = await res.json();
             if (!res.ok) throw new Error(data.error ?? 'Unknown error');
             setOrderId(data.orderId);
-            setStep('success');
+            setSuccess(true);
         } catch (e: unknown) {
             setError(e instanceof Error ? e.message : 'Failed to place order. Please try again.');
         } finally {
@@ -60,43 +57,46 @@ function CheckoutForm() {
 
     const paymentOptions: { id: PaymentMethod; label: string; sub: string; icon: string }[] = [
         { id: 'paypal', label: 'PayPal', sub: 'Fast and Secure Payment', icon: '🅿️' },
-        { id: 'card', label: 'Credit / Debit Card', sub: '', icon: '💳' },
-        { id: 'transfer', label: 'Bank Transfer', sub: '', icon: '🏦' },
+        { id: 'card', label: 'Credit / Debit Card', sub: 'Visa, Mastercard, Amex', icon: '💳' },
+        { id: 'transfer', label: 'Bank Transfer', sub: 'Manual — 1-2 business days', icon: '🏦' },
     ];
 
     // ── Success Screen ─────────────────────────────────────────────────────
-    if (step === 'success') {
+    if (success) {
         return (
-            <div className="min-h-screen bg-[#f0f3f8] flex flex-col">
+            <div className="min-h-screen bg-[#0a0e1a] flex flex-col">
                 <Header />
                 <main className="flex-1 flex items-center justify-center px-4 py-16">
-                    <div className="bg-white rounded-2xl shadow-xl p-10 max-w-lg w-full text-center">
-                        <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                            <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="bg-[#111827] border border-white/10 rounded-3xl shadow-2xl p-10 max-w-lg w-full text-center">
+                        <div className="w-20 h-20 rounded-full bg-green-500/10 border-2 border-green-500 flex items-center justify-center mx-auto mb-6">
+                            <svg className="w-10 h-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <h2 className="text-2xl font-black text-gray-900 mb-2">Order Confirmed! 🎉</h2>
-                        <p className="text-gray-500 mb-6">A confirmation has been sent to <strong>{email}</strong></p>
-                        <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-200">
-                            <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Order ID</p>
-                            <p className="text-2xl font-black text-orange-500 tracking-widest">{orderId}</p>
+                        <h2 className="text-3xl font-black text-white mb-2">Order Confirmed! 🎉</h2>
+                        <p className="text-gray-400 mb-8">A confirmation has been sent to <strong className="text-white">{email}</strong></p>
+                        <div className="bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-500/20 rounded-2xl p-5 mb-8">
+                            <p className="text-xs text-orange-400 uppercase tracking-widest font-bold mb-2">Order ID</p>
+                            <p className="text-3xl font-black text-white tracking-[0.2em]">{orderId}</p>
                         </div>
-                        <div className="text-left space-y-2 mb-8 text-sm text-gray-600">
-                            <div className="flex justify-between py-2 border-b border-gray-100">
-                                <span>Plan</span><span className="font-semibold text-gray-900">{planName}</span>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-gray-100">
-                                <span>Devices</span><span className="font-semibold text-gray-900">{devices}</span>
-                            </div>
-                            <div className="flex justify-between py-2">
-                                <span>Total</span><span className="font-bold text-gray-900">€{parseFloat(price).toFixed(2)}</span>
-                            </div>
+                        <div className="text-left space-y-0 mb-8 text-sm rounded-2xl overflow-hidden border border-white/10">
+                            {[
+                                ['Plan', planName],
+                                ['Devices', `${devices} Device${devices > 1 ? 's' : ''}`],
+                                ['Total', `€${parseFloat(price).toFixed(2)}`],
+                            ].map(([k, v]) => (
+                                <div key={k} className="flex justify-between px-5 py-3 border-b border-white/5 last:border-0">
+                                    <span className="text-gray-400">{k}</span>
+                                    <span className="font-semibold text-white">{v}</span>
+                                </div>
+                            ))}
                         </div>
-                        <p className="text-sm text-gray-400 mb-6">Our team will deliver your credentials within <strong className="text-gray-700">2–4 hours</strong>.</p>
+                        <p className="text-sm text-gray-500 mb-6">
+                            ⚡ Our team will deliver your IPTV credentials within <strong className="text-gray-300">2–4 hours</strong>.
+                        </p>
                         <Link
                             href="/"
-                            className="inline-block w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white font-bold py-3.5 rounded-xl hover:opacity-90 transition"
+                            className="inline-block w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition text-center"
                         >
                             Back to Home
                         </Link>
@@ -109,142 +109,204 @@ function CheckoutForm() {
 
     // ── Checkout Form ──────────────────────────────────────────────────────
     return (
-        <div className="min-h-screen bg-[#f0f3f8] flex flex-col">
+        <div className="min-h-screen bg-[#0a0e1a] flex flex-col">
             <Header />
-            <main className="flex-1 px-4 py-10 pb-28 sm:pb-10">
-                <div className="max-w-2xl mx-auto">
+            <main className="flex-1 px-4 py-8 pb-20 sm:pb-8">
+                <div className="max-w-4xl mx-auto">
 
-                    {/* Steps indicator */}
-                    <div className="flex items-center justify-center gap-4 mb-10 text-sm font-semibold">
-                        {(['Cart', 'Information', 'Finish'] as const).map((label, i) => {
-                            const active = (i === 0 && false) || (i === 1 && step === 'information') || (i === 2 && step === 'payment');
-                            const done = i === 0;
-                            return (
-                                <div key={label} className="flex items-center gap-2">
-                                    <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs ${active ? 'border-orange-500 bg-orange-500 text-white' : done ? 'border-gray-300 text-gray-400' : 'border-gray-300 text-gray-400'}`}>
-                                        {done ? '✓' : i + 1}
-                                    </span>
-                                    <span className={active ? 'text-orange-500' : 'text-gray-400'}>{label}</span>
-                                    {i < 2 && <span className="text-gray-300 w-8 h-px bg-gray-300 block" />}
-                                </div>
-                            );
-                        })}
+                    {/* Steps */}
+                    <div className="flex items-center justify-center gap-3 mb-10 text-sm font-semibold">
+                        {[
+                            { label: 'Cart', icon: '✓', active: false, done: true },
+                            { label: 'Information', icon: '2', active: true, done: false },
+                            { label: 'Finish', icon: '3', active: false, done: false },
+                        ].map((s, i) => (
+                            <div key={s.label} className="flex items-center gap-2">
+                                <span className={`w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold ${s.active ? 'border-orange-500 bg-orange-500 text-white' :
+                                    s.done ? 'border-gray-600 text-gray-500' : 'border-gray-700 text-gray-600'
+                                    }`}>{s.icon}</span>
+                                <span className={s.active ? 'text-orange-400' : 'text-gray-600'}>{s.label}</span>
+                                {i < 2 && <div className="w-8 h-px bg-gray-700 mx-1" />}
+                            </div>
+                        ))}
                     </div>
 
-                    <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+                    {/* Two-column layout */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-4">
 
-                        {/* Customer Information */}
-                        <section className="mb-8">
-                            <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4">Customer Information</h3>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Email Address <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                placeholder="Email Address"
-                                value={email}
-                                onChange={e => { setEmail(e.target.value); setEmailError(''); }}
-                                className={`w-full border ${emailError ? 'border-red-400' : 'border-gray-200'} rounded-lg px-4 py-3.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
-                            />
-                            {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
-                        </section>
+                        {/* Left — Form */}
+                        <div className="space-y-3">
 
-                        {/* Order Summary */}
-                        <section className="mb-8">
-                            <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4">Your Order</h3>
-                            <table className="w-full text-sm border border-gray-100 rounded-xl overflow-hidden">
-                                <thead className="bg-gray-50">
-                                    <tr>
-                                        <th className="text-left px-4 py-3 text-gray-500 font-semibold">Product</th>
-                                        <th className="text-right px-4 py-3 text-gray-500 font-semibold">Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="border-t border-gray-100">
-                                        <td className="px-4 py-3 text-gray-700">
-                                            {planName} · {devices} Device{devices > 1 ? 's' : ''}
-                                            <span className="ml-2 text-gray-400">× 1</span>
-                                        </td>
-                                        <td className="px-4 py-3 text-right font-semibold text-gray-800">€ {parseFloat(price).toFixed(2)}</td>
-                                    </tr>
-                                    <tr className="border-t border-gray-100 bg-gray-50">
-                                        <td className="px-4 py-3 text-gray-500">Subtotal</td>
-                                        <td className="px-4 py-3 text-right text-gray-700">€ {parseFloat(price).toFixed(2)}</td>
-                                    </tr>
-                                    <tr className="border-t border-gray-100">
-                                        <td className="px-4 py-3 font-bold text-gray-900">Total</td>
-                                        <td className="px-4 py-3 text-right font-black text-gray-900">€ {parseFloat(price).toFixed(2)}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-
-                        {/* Payment Method — large touch targets */}
-                        <section className="mb-8">
-                            <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4">Payment</h3>
-                            <div className="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-100">
-                                {paymentOptions.map(opt => (
-                                    <label
-                                        key={opt.id}
-                                        className={`flex items-center gap-4 px-5 min-h-[64px] cursor-pointer transition select-none ${payment === opt.id ? 'bg-orange-50' : 'hover:bg-gray-50'}`}
-                                    >
-                                        <input
-                                            type="radio"
-                                            name="payment"
-                                            value={opt.id}
-                                            checked={payment === opt.id}
-                                            onChange={() => setPayment(opt.id)}
-                                            className="w-5 h-5 accent-orange-500 flex-shrink-0"
-                                        />
-                                        <div className="flex-1 py-3">
-                                            <span className="font-semibold text-gray-800 text-sm sm:text-base">{opt.icon} {opt.label}</span>
-                                            {opt.sub && <p className="text-xs text-green-600 font-medium mt-0.5">{opt.sub}</p>}
-                                        </div>
-                                    </label>
-                                ))}
+                            {/* Customer Info Card */}
+                            <div className="bg-[#111827] border border-white/10 rounded-xl p-5 sm:p-6">
+                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-4">Customer Information</h2>
+                                <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                                    Email Address <span className="text-orange-500">*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="your@email.com"
+                                    value={email}
+                                    onChange={e => { setEmail(e.target.value); setEmailError(''); }}
+                                    className={`w-full bg-[#0d1525] border ${emailError ? 'border-red-500' : 'border-white/10'} rounded-lg px-3 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition`}
+                                />
+                                {emailError && <p className="text-red-400 text-xs mt-2 flex items-center gap-1">⚠ {emailError}</p>}
                             </div>
-                        </section>
 
-                        {/* Privacy note */}
-                        <p className="text-xs text-gray-400 mb-4">
-                            Your personal data will be used to process your order and support your experience. See our{' '}
-                            <Link href="/privacy" className="text-orange-500 underline">privacy policy</Link>.
-                        </p>
-
-                        {error && (
-                            <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-3 mb-4">
-                                {error}
+                            {/* Payment Card */}
+                            <div className="bg-[#111827] border border-white/10 rounded-xl p-5 sm:p-6">
+                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-4">Payment Method</h2>
+                                <div className="space-y-2">
+                                    {paymentOptions.map(opt => (
+                                        <label
+                                            key={opt.id}
+                                            className={`flex items-center gap-3 min-h-[56px] px-4 rounded-lg border-2 cursor-pointer transition-all select-none ${payment === opt.id
+                                                ? 'border-orange-500 bg-orange-500/5'
+                                                : 'border-white/10 bg-[#0d1525] hover:border-white/20'
+                                                }`}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="payment"
+                                                value={opt.id}
+                                                checked={payment === opt.id}
+                                                onChange={() => setPayment(opt.id)}
+                                                className="w-5 h-5 accent-orange-500 flex-shrink-0"
+                                            />
+                                            <span className="text-xl">{opt.icon}</span>
+                                            <div className="flex-1">
+                                                <span className="font-semibold text-white text-sm">{opt.label}</span>
+                                                {opt.sub && <p className="text-[10px] text-gray-500 mt-0.5">{opt.sub}</p>}
+                                            </div>
+                                            {payment === opt.id && (
+                                                <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+                                                    <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                            )}
+                                        </label>
+                                    ))}
+                                </div>
                             </div>
-                        )}
 
-                        {/* Place Order button — hidden on mobile (shown in sticky bar below) */}
-                        <button
-                            onClick={handlePlaceOrder}
-                            disabled={loading}
-                            className="hidden sm:flex w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-black uppercase tracking-widest py-4 rounded-xl text-base transition disabled:opacity-60 items-center justify-center gap-2"
-                        >
-                            {loading ? (
-                                <>
-                                    <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                                    </svg>
-                                    Processing…
-                                </>
-                            ) : (
-                                `Place Order  €${parseFloat(price).toFixed(2)}`
+                            {/* Trust & Privacy */}
+                            <div className="flex items-start gap-2 px-1 text-[11px] text-gray-600">
+                                <svg className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                                </svg>
+                                <span>Your data is encrypted and secure. By placing your order you agree to our{' '}
+                                    <Link href="/privacy" className="text-orange-500 hover:underline">privacy policy</Link>.
+                                </span>
+                            </div>
+
+                            {error && (
+                                <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl px-5 py-4 flex items-center gap-3">
+                                    <span className="text-xl">⚠</span> {error}
+                                </div>
                             )}
-                        </button>
+
+                            {/* Desktop CTA */}
+                            <button
+                                onClick={handlePlaceOrder}
+                                disabled={loading}
+                                className="hidden sm:flex w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 hover:from-orange-600 hover:via-red-600 hover:to-pink-700 text-white font-black uppercase tracking-widest py-3.5 rounded-lg text-sm transition-all disabled:opacity-50 items-center justify-center gap-2 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40"
+                            >
+                                {loading ? (
+                                    <>
+                                        <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                        </svg>
+                                        Processing…
+                                    </>
+                                ) : (
+                                    <>
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                        Place Order — €{parseFloat(price).toFixed(2)}
+                                    </>
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Right — Order Summary Sidebar */}
+                        <div className="space-y-3">
+                            <div className="bg-[#111827] border border-white/10 rounded-xl overflow-hidden sticky top-24">
+                                {/* Header */}
+                                <div className="bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 border-b border-white/10 px-5 py-4">
+                                    <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-0.5">Order Summary</h2>
+                                    <p className="text-xl font-black text-white">€{parseFloat(price).toFixed(2)}</p>
+                                </div>
+
+                                {/* Plan Details */}
+                                <div className="px-5 py-4 border-b border-white/5">
+                                    <div className="flex items-start justify-between gap-2">
+                                        <div>
+                                            <p className="font-bold text-white text-xs">{planName}</p>
+                                            <p className="text-[10px] text-gray-500 mt-0.5">{devices} Device{devices > 1 ? 's' : ''} · Unlimited Content</p>
+                                        </div>
+                                        <span className="text-orange-400 font-bold text-xs whitespace-nowrap">€{parseFloat(price).toFixed(2)}</span>
+                                    </div>
+                                </div>
+
+                                {/* Totals */}
+                                <div className="px-5 py-4 space-y-2 text-xs">
+                                    <div className="flex justify-between text-gray-500">
+                                        <span>Subtotal</span>
+                                        <span>€{parseFloat(price).toFixed(2)}</span>
+                                    </div>
+                                    <div className="flex justify-between text-gray-500">
+                                        <span>Setup fee</span>
+                                        <span className="text-green-400">Free</span>
+                                    </div>
+                                    <div className="h-px bg-white/5" />
+                                    <div className="flex justify-between font-black text-white text-sm">
+                                        <span>Total</span>
+                                        <span>€{parseFloat(price).toFixed(2)}</span>
+                                    </div>
+                                </div>
+
+                                {/* What's included */}
+                                <div className="px-5 pb-5">
+                                    <p className="text-[10px] text-gray-600 uppercase tracking-widest font-bold mb-2">What&apos;s included</p>
+                                    <ul className="space-y-1.5">
+                                        {[
+                                            '37,000+ Live Channels',
+                                            '96,000+ Movies & Series',
+                                            '4K Ultra HD Streaming',
+                                            '24/7 Technical Support',
+                                            'All Devices Supported',
+                                        ].map(item => (
+                                            <li key={item} className="flex items-center gap-1.5 text-[11px] text-gray-400">
+                                                <svg className="w-3 h-3 text-orange-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                </svg>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Trust badges */}
+                                <div className="border-t border-white/5 px-5 py-3 flex items-center justify-center gap-3 text-[10px] text-gray-600">
+                                    <span className="flex items-center gap-1">🔒 Secure</span>
+                                    <span className="flex items-center gap-1">⚡ Instant</span>
+                                    <span className="flex items-center gap-1">✅ Guaranteed</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
 
-            {/* Sticky Place Order bar — mobile only */}
-            <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+            {/* Sticky CTA — mobile only */}
+            <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0d1525]/95 backdrop-blur-md border-t border-white/10 px-4 py-3">
                 <button
                     onClick={handlePlaceOrder}
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white font-black uppercase tracking-widest py-4 rounded-xl text-base transition disabled:opacity-60 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white font-black uppercase tracking-widest py-4 rounded-xl text-sm transition disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-orange-500/30"
                 >
                     {loading ? (
                         <>
@@ -255,7 +317,7 @@ function CheckoutForm() {
                             Processing…
                         </>
                     ) : (
-                        `Place Order  €${parseFloat(price).toFixed(2)}`
+                        <>🔒 Place Order — €{parseFloat(price).toFixed(2)}</>
                     )}
                 </button>
             </div>
@@ -267,7 +329,11 @@ function CheckoutForm() {
 
 export default function CheckoutPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-[#f0f3f8] flex items-center justify-center text-gray-400">Loading…</div>}>
+        <Suspense fallback={
+            <div className="min-h-screen bg-[#0a0e1a] flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+            </div>
+        }>
             <CheckoutForm />
         </Suspense>
     );
