@@ -141,19 +141,24 @@ export async function POST(req: NextRequest) {
             </table>
             
             ${paymentMethod === 'PayPal' && paypalLink ? `
-            <div style="margin-top:28px;padding:20px;background:#0d1525;border-radius:12px;border:1px solid #1f2937;text-align:center;">
-              <p style="color:#fff;font-size:16px;font-weight:bold;margin:0 0 16px;">💳 Complete your payment here:</p>
-              <a href="${paypalLink}" style="display:inline-block;background:#0070ba;color:#fff;text-decoration:none;font-weight:bold;padding:14px 28px;border-radius:8px;font-size:16px;">👉 Pay with PayPal</a>
-              <div style="margin-top:20px;padding:12px;background:rgba(239,68,68,0.1);border-left:4px solid #ef4444;border-radius:4px;text-align:left;">
-                <p style="color:#f87171;font-size:13px;font-weight:bold;margin:0 0 4px;">⚠️ Important:</p>
-                <p style="color:#fca5a5;font-size:13px;margin:0;">Please send the payment and include your Order ID (<strong>${orderId}</strong>) in the note. Thank you 🙌</p>
+            <div style="margin-top:32px;padding:24px;background:linear-gradient(to bottom, #111827, #0a0e1a);border-radius:16px;border:1px solid #f97316;text-align:center;box-shadow:0 10px 25px -5px rgba(249, 115, 22, 0.1);">
+              <h3 style="color:#fff;font-size:18px;font-weight:900;margin:0 0 8px;letter-spacing:1px;text-transform:uppercase;">Complete Your Payment</h3>
+              <p style="color:#9ca3af;font-size:14px;margin:0 0 24px;">Click the button below to complete your order securely via PayPal.</p>
+              
+              <a href="${paypalLink}" style="display:inline-block;background:#ffc439;color:#003087;text-decoration:none;font-weight:900;padding:16px 36px;border-radius:12px;font-size:16px;letter-spacing:1px;box-shadow:0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+                PAY WITH PAYPAL
+              </a>
+              
+              <div style="margin-top:24px;padding:16px;background:rgba(249,115,22,0.1);border-radius:8px;border:1px solid rgba(249,115,22,0.2);text-align:left;">
+                <p style="color:#f97316;font-size:14px;font-weight:bold;margin:0 0 6px;">⚠️ Important Instruction:</p>
+                <p style="color:#d1d5db;font-size:13px;margin:0;line-height:1.5;">Please send the payment and include your Order ID (<strong style="color:#fff;">${orderId}</strong>) in the note. Thank you 🙌</p>
               </div>
             </div>
             ` : ''}
 
             <div style="margin-top:28px;padding:20px;background:#0a0e1a;border-radius:12px;border:1px solid #374151;">
               <p style="color:#f97316;font-weight:700;margin:0 0 8px;font-size:14px;">⚡ What Happens Next?</p>
-              <p style="color:#9ca3af;font-size:13px;margin:0;line-height:1.6;">Our team will process your order and send your IPTV credentials within <strong style="color:#fff;">2–4 hours</strong>. If you have any questions, reply to this email or contact us on WhatsApp.</p>
+              <p style="color:#9ca3af;font-size:13px;margin:0;line-height:1.6;">Our team will process your order and send your IPTV credentials within <strong style="color:#fff;">5–10 minutes</strong>. If you have any questions, reply to this email or contact us on WhatsApp.</p>
             </div>
           </td>
         </tr>

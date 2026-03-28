@@ -92,7 +92,7 @@ function CheckoutForm() {
                             ))}
                         </div>
                         <p className="text-sm text-gray-500 mb-6">
-                            ⚡ Our team will deliver your IPTV credentials within <strong className="text-gray-300">2–4 hours</strong>.
+                            ⚡ Our team will deliver your IPTV credentials within <strong className="text-gray-300">5–10 minutes</strong>.
                         </p>
                         <Link
                             href="/"
