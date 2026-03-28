@@ -8,7 +8,7 @@ export default function CrispChat() {
         // @ts-ignore
         window.$crisp = [];
         // @ts-ignore
-        window.CRISP_WEBSITE_ID = "5f652669-c710-454d-b60b-75ae80c41682";
+        window.CRISP_WEBSITE_ID = "8f1a7377-3d01-4a9c-9bca-5591ea80912e";
 
         const d = document;
         const s = d.createElement("script");
