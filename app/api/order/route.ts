@@ -10,6 +10,25 @@ function generateOrderId(): string {
   return id;
 }
 
+function getPaypalLink(planName: string, devices: number): string | null {
+  const links: Record<string, Record<string, string>> = {
+    '1': { '1': 'LD643W6RG3QVG', '2': 'VN4V27V2CMQ74', '3': 'GMFX9YFX3DQUU', '4': '9TBDJ7JC3NA8Q', '5': 'YUECWLCF866M8' },
+    '3': { '1': '7LUEBV4NM2LKN', '2': 'KKU5VPWA5WXM8', '3': 'SCDTEUXWDZH5N', '4': '5XHF9B2UNGMUE', '5': 'M68VDD6HBNRFG' },
+    '6': { '1': '9SEPNG9P3AUZE', '2': 'D2AMBSWWQR5N2', '3': '8DBWB6597LQ3S', '4': '5WNJFLDMHWEQ4', '5': 'DWVUHBBNC65EJ' },
+    '12': { '1': 'PNA4JLVAAVGME', '2': 'NR7Q4DXPDX9BQ', '3': 'HXCBWPSFLVJHJ', '4': 'Y3U44ZLUXRHZ6', '5': 'BDNQR56D3EMEJ' }
+  };
+
+  const match = /(\d+)\s*MONTH/i.exec(planName);
+  if (!match) return null;
+  const months = match[1];
+  const deviceCount = devices.toString();
+
+  if (links[months] && links[months][deviceCount]) {
+    return `https://www.paypal.com/ncp/payment/${links[months][deviceCount]}`;
+  }
+  return null;
+}
+
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
@@ -33,6 +52,8 @@ export async function POST(req: NextRequest) {
     }
 
     const orderId = generateOrderId();
+    const paypalLink = getPaypalLink(planName, devices);
+
     const orderDate = new Date().toLocaleString('en-GB', {
       timeZone: 'Europe/Paris',
       dateStyle: 'full',
@@ -118,6 +139,18 @@ export async function POST(req: NextRequest) {
               ${row('💳 Payment', paymentMethod || 'PayPal')}
               ${row('🗓️ Date', orderDate)}
             </table>
+            
+            ${paymentMethod === 'PayPal' && paypalLink ? `
+            <div style="margin-top:28px;padding:20px;background:#0d1525;border-radius:12px;border:1px solid #1f2937;text-align:center;">
+              <p style="color:#fff;font-size:16px;font-weight:bold;margin:0 0 16px;">💳 Complete your payment here:</p>
+              <a href="${paypalLink}" style="display:inline-block;background:#0070ba;color:#fff;text-decoration:none;font-weight:bold;padding:14px 28px;border-radius:8px;font-size:16px;">👉 Pay with PayPal</a>
+              <div style="margin-top:20px;padding:12px;background:rgba(239,68,68,0.1);border-left:4px solid #ef4444;border-radius:4px;text-align:left;">
+                <p style="color:#f87171;font-size:13px;font-weight:bold;margin:0 0 4px;">⚠️ Important:</p>
+                <p style="color:#fca5a5;font-size:13px;margin:0;">Please send the payment and include your Order ID (<strong>${orderId}</strong>) in the note. Thank you 🙌</p>
+              </div>
+            </div>
+            ` : ''}
+
             <div style="margin-top:28px;padding:20px;background:#0a0e1a;border-radius:12px;border:1px solid #374151;">
               <p style="color:#f97316;font-weight:700;margin:0 0 8px;font-size:14px;">⚡ What Happens Next?</p>
               <p style="color:#9ca3af;font-size:13px;margin:0;line-height:1.6;">Our team will process your order and send your IPTV credentials within <strong style="color:#fff;">2–4 hours</strong>. If you have any questions, reply to this email or contact us on WhatsApp.</p>

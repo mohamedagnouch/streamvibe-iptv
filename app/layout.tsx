@@ -4,6 +4,7 @@ import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Script from "next/script";
 import ClientProviders from "./components/ClientProviders";
+import CrispChat from "./components/CrispChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,6 +102,7 @@ export default function RootLayout({
           {children}
         </ClientProviders>
         <ScrollToTop />
+        <CrispChat />
       </body>
     </html>
   );
