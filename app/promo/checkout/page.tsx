@@ -84,6 +84,7 @@ function CheckoutForm() {
 
     const paymentOptions: { id: PaymentMethod; label: string; sub: string; icon: string }[] = [
         { id: 'paypal', label: 'PayPal', sub: 'Fast and Secure Payment', icon: '🅿️' },
+        { id: 'card', label: 'Credit / Debit Card', sub: 'Visa, Mastercard, Amex', icon: '💳' },
     ];
 
     // ── Success Screen ─────────────────────────────────────────────────────
