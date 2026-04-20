@@ -503,7 +503,7 @@ export const de: TranslationKeys = {
                 title: 'Abonnement & Abrechnung',
                 q1: {
                     q: 'Welche Zahlungsmethoden akzeptieren Sie?',
-                    a: 'Wir akzeptieren alle gängigen Kreditkarten (Visa, Mastercard, American Express), PayPal, Kryptowährungen (Bitcoin, USDT) und Banküberweisungen. Alle Zahlungen werden sicher über verschlüsselte Kanäle verarbeitet.',
+                    a: 'Wir akzeptieren alle gängigen Kreditkarten (Visa, Mastercard, American Express), Kryptowährungen (Bitcoin, USDT) und Banküberweisungen. Alle Zahlungen werden sicher über verschlüsselte Kanäle verarbeitet.',
                 },
                 q2: {
                     q: 'Kann ich mein Abonnement jederzeit kündigen?',
@@ -656,7 +656,7 @@ export const de: TranslationKeys = {
                     title: '3.2 Dienstleister',
                     description: 'Wir können Ihre Informationen mit vertrauenswürdigen Drittanbietern teilen, die uns unterstützen bei:',
                     items: {
-                        payment: 'Zahlungsabwicklung (Kreditkartenabwickler, PayPal, Kryptowährungs-Gateways)',
+                        payment: 'Zahlungsabwicklung (Kreditkartenabwickler, Kryptowährungs-Gateways)',
                         hosting: 'Cloud-Hosting und Datenspeicherung',
                         support: 'Kundensupport-Dienste',
                         analytics: 'Analyse und Performance-Überwachung',

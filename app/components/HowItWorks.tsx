@@ -33,10 +33,6 @@ export default function HowItWorks() {
                 Credit Card
               </div>
               <div className="bg-white/10 backdrop-blur-sm px-5 py-3 rounded-2xl text-sm font-semibold flex items-center gap-3 border border-white/10">
-                <Shield className="w-5 h-5" />
-                PayPal
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm px-5 py-3 rounded-2xl text-sm font-semibold flex items-center gap-3 border border-white/10">
                 <Zap className="w-5 h-5" />
                 Crypto
               </div>

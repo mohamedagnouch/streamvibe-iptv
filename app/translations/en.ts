@@ -501,7 +501,7 @@ export const en = {
                 title: 'Subscription & Billing',
                 q1: {
                     q: 'What payment methods do you accept?',
-                    a: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, cryptocurrency (Bitcoin, USDT), and bank transfers. All payments are processed securely through encrypted channels.',
+                    a: 'We accept all major credit cards (Visa, Mastercard, American Express), cryptocurrency (Bitcoin, USDT), and bank transfers. All payments are processed securely through encrypted channels.',
                 },
                 q2: {
                     q: 'Can I cancel my subscription anytime?',
@@ -654,7 +654,7 @@ export const en = {
                     title: '3.2 Service Providers',
                     description: 'We may share your information with trusted third-party service providers who assist us in:',
                     items: {
-                        payment: 'Payment processing (credit card processors, PayPal, cryptocurrency gateways)',
+                        payment: 'Payment processing (credit card processors, cryptocurrency gateways)',
                         hosting: 'Cloud hosting and data storage',
                         support: 'Customer support services',
                         analytics: 'Analytics and performance monitoring',

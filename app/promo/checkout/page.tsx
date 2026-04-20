@@ -7,6 +7,7 @@ import { Server, CheckCircle, Shield, Zap } from 'lucide-react';
 
 type PaymentMethod = 'paypal' | 'card' | 'transfer';
 
+
 function PromoHeader() {
     return (
         <header className="w-full px-6 py-6 border-b border-white/5 bg-[#0a0e1a]/80 backdrop-blur-md sticky top-0 z-50">
@@ -42,6 +43,7 @@ function CheckoutForm() {
 
     const [email, setEmail] = useState('');
     const [payment, setPayment] = useState<PaymentMethod>('paypal');
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [orderId, setOrderId] = useState('');
@@ -83,9 +85,10 @@ function CheckoutForm() {
     };
 
     const paymentOptions: { id: PaymentMethod; label: string; sub: string; icon: string }[] = [
-        { id: 'paypal', label: 'PayPal', sub: 'Fast and Secure Payment', icon: '🅿️' },
+        { id: 'paypal', label: 'PayPal', sub: 'Paiement rapide et sécurisé', icon: '🅿️' },
         { id: 'card', label: 'Credit / Debit Card', sub: 'Visa, Mastercard, Amex', icon: '💳' },
     ];
+
 
     // ── Success Screen ─────────────────────────────────────────────────────
     if (success) {

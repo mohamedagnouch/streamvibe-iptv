@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 
 type PaymentMethod = 'paypal' | 'card' | 'transfer';
 
+
 function CheckoutForm() {
     const params = useSearchParams();
     const planName = params.get('plan') ?? '';
@@ -16,6 +17,7 @@ function CheckoutForm() {
 
     const [email, setEmail] = useState('');
     const [payment, setPayment] = useState<PaymentMethod>('paypal');
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [orderId, setOrderId] = useState('');
@@ -56,9 +58,10 @@ function CheckoutForm() {
     };
 
     const paymentOptions: { id: PaymentMethod; label: string; sub: string; icon: string }[] = [
-        { id: 'paypal', label: 'PayPal', sub: 'Fast and Secure Payment', icon: '🅿️' },
+        { id: 'paypal', label: 'PayPal', sub: 'Paiement rapide et sécurisé', icon: '🅿️' },
         { id: 'card', label: 'Credit / Debit Card', sub: 'Visa, Mastercard, Amex', icon: '💳' },
     ];
+
 
 
     // ── Success Screen ─────────────────────────────────────────────────────

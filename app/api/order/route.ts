@@ -10,24 +10,6 @@ function generateOrderId(): string {
   return id;
 }
 
-function getPaypalLink(planName: string, devices: number): string | null {
-  const links: Record<string, Record<string, string>> = {
-    '1': { '1': 'LD643W6RG3QVG', '2': 'VN4V27V2CMQ74', '3': 'GMFX9YFX3DQUU', '4': '9TBDJ7JC3NA8Q', '5': 'YUECWLCF866M8' },
-    '3': { '1': '7LUEBV4NM2LKN', '2': 'KKU5VPWA5WXM8', '3': 'SCDTEUXWDZH5N', '4': '5XHF9B2UNGMUE', '5': 'M68VDD6HBNRFG' },
-    '6': { '1': '9SEPNG9P3AUZE', '2': 'D2AMBSWWQR5N2', '3': '8DBWB6597LQ3S', '4': '5WNJFLDMHWEQ4', '5': 'DWVUHBBNC65EJ' },
-    '12': { '1': 'PNA4JLVAAVGME', '2': 'NR7Q4DXPDX9BQ', '3': 'HXCBWPSFLVJHJ', '4': 'Y3U44ZLUXRHZ6', '5': 'BDNQR56D3EMEJ' }
-  };
-
-  const match = /(\d+)\s*MONTH/i.exec(planName);
-  if (!match) return null;
-  const months = match[1];
-  const deviceCount = devices.toString();
-
-  if (links[months] && links[months][deviceCount]) {
-    return `https://www.paypal.com/ncp/payment/${links[months][deviceCount]}`;
-  }
-  return null;
-}
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -52,7 +34,6 @@ export async function POST(req: NextRequest) {
     }
 
     const orderId = generateOrderId();
-    const paypalLink = getPaypalLink(planName, devices);
 
     const orderDate = new Date().toLocaleString('en-GB', {
       timeZone: 'Europe/Paris',
@@ -90,7 +71,7 @@ export async function POST(req: NextRequest) {
               ${row('📧 Customer Email', customerEmail)}
               ${row('📦 Plan', planName)}
               ${row('📱 Devices', `${devices} Device${devices > 1 ? 's' : ''}`)}
-              ${row('💳 Payment Method', paymentMethod || 'PayPal')}
+              ${row('💳 Payment Method', paymentMethod || 'Credit Card')}
               ${row('💰 Total Price', `€${parseFloat(price).toFixed(2)}`)}
               ${row('🗓️ Order Date', orderDate)}
             </table>
@@ -136,25 +117,9 @@ export async function POST(req: NextRequest) {
               ${row('📦 Plan', planName)}
               ${row('📱 Devices', `${devices} Device${devices > 1 ? 's' : ''}`)}
               ${row('💰 Total', `€${parseFloat(price).toFixed(2)}`)}
-              ${row('💳 Payment', paymentMethod || 'PayPal')}
+              ${row('💳 Payment', paymentMethod || 'Credit Card')}
               ${row('🗓️ Date', orderDate)}
             </table>
-            
-            ${paymentMethod === 'PayPal' && paypalLink ? `
-            <div style="margin-top:32px;padding:24px;background:linear-gradient(to bottom, #111827, #0a0e1a);border-radius:16px;border:1px solid #f97316;text-align:center;box-shadow:0 10px 25px -5px rgba(249, 115, 22, 0.1);">
-              <h3 style="color:#fff;font-size:18px;font-weight:900;margin:0 0 8px;letter-spacing:1px;text-transform:uppercase;">Complete Your Payment</h3>
-              <p style="color:#9ca3af;font-size:14px;margin:0 0 24px;">Click the button below to complete your order securely via PayPal.</p>
-              
-              <a href="${paypalLink}" style="display:inline-block;background:#ffc439;color:#003087;text-decoration:none;font-weight:900;padding:16px 36px;border-radius:12px;font-size:16px;letter-spacing:1px;box-shadow:0 4px 6px -1px rgba(0, 0, 0, 0.3);">
-                PAY WITH PAYPAL
-              </a>
-              
-              <div style="margin-top:24px;padding:16px;background:rgba(249,115,22,0.1);border-radius:8px;border:1px solid rgba(249,115,22,0.2);text-align:left;">
-                <p style="color:#f97316;font-size:14px;font-weight:bold;margin:0 0 6px;">⚠️ Important Instruction:</p>
-                <p style="color:#d1d5db;font-size:13px;margin:0;line-height:1.5;">Please send the payment and include your Order ID (<strong style="color:#fff;">${orderId}</strong>) in the note. Thank you 🙌</p>
-              </div>
-            </div>
-            ` : ''}
 
             <div style="margin-top:28px;padding:20px;background:#0a0e1a;border-radius:12px;border:1px solid #374151;">
               <p style="color:#f97316;font-weight:700;margin:0 0 8px;font-size:14px;">⚡ What Happens Next?</p>
