@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://streamvibe.shop'),
   title: {
-    default: "StreamVibe | Official Premium Streaming Platform - Live TV & VOD",
+    default: "StreamVibe | Affordable IPTV Subscription — Live TV & VOD Streaming",
     template: "%s | StreamVibe"
   },
-  description: "Experience the ultimate official streaming destination. Access 96,000+ VOD titles, premium live channels, and exclusive content in 4K quality on all your devices.",
-  keywords: "official streaming, live tv, vod, 4k streaming, premium iptv, movie platform, series online",
+  description: "StreamVibe offers affordable IPTV subscriptions with 37,000+ live channels and 96,000+ on-demand titles in HD & 4K. Compatible with Smart TV, Android, Firestick, iOS, and PC. Instant activation. 30-day guarantee.",
+  keywords: "affordable iptv subscription, iptv for smart tv, iptv android firestick, high quality tv streaming service, iptv subscription 2026, live tv streaming, iptv setup guide, best iptv service, 4k iptv, iptv for beginners",
 
   robots: {
     index: true,
@@ -42,29 +42,65 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://streamvibe.shop',
     siteName: 'StreamVibe',
-    title: 'StreamVibe | Premium IPTV Streaming Platform',
-    description: 'Experience 96,000+ VOD titles and 37,591+ live channels in stunning 4K quality',
+    title: 'StreamVibe | Affordable IPTV Subscription — Live TV & VOD',
+    description: '37,000+ live channels and 96,000+ VOD titles in HD & 4K. Works on Smart TV, Android, Firestick & iOS. Try it risk-free with our 30-day guarantee.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'StreamVibe IPTV Platform',
+        alt: 'StreamVibe IPTV — Affordable Streaming Service',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'StreamVibe | Premium IPTV Streaming',
-    description: 'Experience 96,000+ VOD titles and 37,591+ live channels in 4K',
+    title: 'StreamVibe | Affordable IPTV Subscription',
+    description: '37,000+ live channels & 96,000+ VOD titles in HD & 4K. Smart TV, Android, Firestick & iOS compatible.',
     images: ['/og-image.jpg'],
     creator: '@StreamVibe',
   },
 
   alternates: {
     canonical: 'https://streamvibe.shop',
+    languages: {
+      'en': 'https://streamvibe.shop',
+      'de': 'https://streamvibe.shop',
+      'x-default': 'https://streamvibe.shop',
+    },
   },
+};
+
+// JSON-LD Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "StreamVibe",
+  "url": "https://streamvibe.shop",
+  "logo": "https://streamvibe.shop/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "French", "German", "Arabic"],
+    "contactOption": "TollFree"
+  },
+  "sameAs": []
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "StreamVibe",
+  "url": "https://streamvibe.shop",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://streamvibe.shop/blog?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 };
 
 export default function RootLayout({
@@ -75,10 +111,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Hreflang tags for SEO */}
+        {/* Hreflang tags for international SEO */}
         <link rel="alternate" hrefLang="en" href="https://streamvibe.shop" />
         <link rel="alternate" hrefLang="de" href="https://streamvibe.shop" />
         <link rel="alternate" hrefLang="x-default" href="https://streamvibe.shop" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -107,5 +153,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
